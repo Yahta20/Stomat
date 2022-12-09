@@ -9,8 +9,9 @@ using System;
 [RequireComponent(typeof(Image))]
 public abstract class PageUI : MonoBehaviour
 {
-    protected Image         currentFont;
-    protected RectTransform currentTransform;
+    protected Image         _Font;
+    protected RectTransform _Transform;
+    protected PlaningUI     _Interier;
     public void OnDisable()
     {
         UICustomES.Instance.onChangeScreeSize -= setSize;
@@ -20,8 +21,8 @@ public abstract class PageUI : MonoBehaviour
     public void Start()
     {
 
-        currentFont     =GetComponent<Image>();
-        currentTransform=GetComponent<RectTransform>();
+        _Font     =GetComponent<Image>();
+        _Transform=GetComponent<RectTransform>();
         UICustomES.Instance.onChangeScreeSize += setSize;
         Localizator.Instance.OnChangetLang += setLang;
         setSize(new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height));

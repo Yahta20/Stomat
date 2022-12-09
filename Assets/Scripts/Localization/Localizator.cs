@@ -11,7 +11,10 @@ public enum gameMode
 
 public class Localizator : MonoBehaviour
 {
-    public static Localizator Instance { get; private set; }
+    public static Localizator Instance { get => _instance == null ? new Localizator() :_instance;
+                                internal set => _instance = value;                                    
+    }
+    public static Localizator  _instance {  get; private set; }
     public TextAsset LocalizationText;
     public LocalizationMap currentLangPack;
     public SystemLanguage currLang { get; private set; }
@@ -20,9 +23,10 @@ public class Localizator : MonoBehaviour
 
     private void Awake()
     {
+        //_instance.init();
         if (Instance == null)
         { // Ёкземпл€р менеджера был найден
-            Instance = this; // «адаем ссылку на экземпл€р объекта
+            _instance = this; // «адаем ссылку на экземпл€р объекта
         }
         else if (Instance != this)
         { // Ёкземпл€р объекта уже существует на сцене
@@ -32,6 +36,19 @@ public class Localizator : MonoBehaviour
         loadLang();
     }
 
+    private void init()
+    {
+
+        if (Instance == null)
+        { // Ёкземпл€р менеджера был найден
+            _instance = this; // «адаем ссылку на экземпл€р объекта
+        }
+        else if (Instance != this)
+        { // Ёкземпл€р объекта уже существует на сцене
+            Destroy(gameObject); // ”дал€ем объект
+        }
+
+    }
     private void loadLang()
     {
         //TODO make Adressable loading
