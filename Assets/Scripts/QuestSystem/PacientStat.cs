@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using KHNMU.BodyAnatomy;
 [CreateAssetMenu(fileName = "Pacient", menuName = "ScriptableObjects/Creare Pacient", order = 1)]
 public class PacientStat : ScriptableObject
 {

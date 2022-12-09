@@ -4228,11 +4228,11 @@ RectTransform:
   m_Father: {fileID: 1986332634}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 160, y: 30}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1139555409
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7872,6 +7872,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AskingPrefab: {fileID: 0}
+  Interier: {fileID: 0}
   HideB: {fileID: 1139555409}
   AnswerInteractive: {fileID: 1226000834}
   AnswerRect: {fileID: 178882549}
@@ -8122,7 +8123,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057303727}
-  m_LocalRotation: {x: -0.11440286, y: 0.8855101, z: -0.3249508, w: -0.3117545}
+  m_LocalRotation: {x: -0.11440285, y: 0.8855101, z: -0.3249508, w: -0.31175452}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
