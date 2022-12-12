@@ -22,17 +22,17 @@ public class OptionPageSM : PageUI
     protected override void setSize(Vector2 screen)
     {
 
-        _Transform.sizeDelta = screen;
-        _Transform.anchoredPosition = Vector2.zero;
-        _Transform.anchorMin = new Vector2(0.5f, 0.5f);
-        _Transform.anchorMax = new Vector2(0.5f, 0.5f);
+        currentTransform.sizeDelta = screen;
+        currentTransform.anchoredPosition = Vector2.zero;
+        currentTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        currentTransform.anchorMax = new Vector2(0.5f, 0.5f);
         //prev button
         var PrevMenuRT = PrevMenu.GetComponent<RectTransform>();
 
         PrevMenuRT.anchorMin = new Vector2(0, 1);
         PrevMenuRT.anchorMax = new Vector2(0, 1);
         PrevMenuRT.pivot = new Vector2(0, 1);
-        PrevMenuRT.sizeDelta = new Vector2(_Transform.sizeDelta.x / 10, _Transform.sizeDelta.y / 16);
+        PrevMenuRT.sizeDelta = new Vector2(currentTransform.sizeDelta.x / 10, currentTransform.sizeDelta.y / 16);
         PrevMenuRT.anchoredPosition = new Vector2(0, 0);
         //lang button button
         var LangChangeRT = LangChange.GetComponent<RectTransform>();
@@ -40,16 +40,16 @@ public class OptionPageSM : PageUI
         LangChangeRT.anchorMin = new Vector2(0.5f, 0.5f);
         LangChangeRT.anchorMax = new Vector2(0.5f, 0.5f);
         LangChangeRT.pivot = new Vector2(1, 0.5f);
-        LangChangeRT.sizeDelta = new Vector2(_Transform.sizeDelta.x / 10, _Transform.sizeDelta.y / 16);
-        LangChangeRT.anchoredPosition = new Vector2(-_Transform.sizeDelta.x / 10, 0);
+        LangChangeRT.sizeDelta = new Vector2(currentTransform.sizeDelta.x / 10, currentTransform.sizeDelta.y / 16);
+        LangChangeRT.anchoredPosition = new Vector2(-currentTransform.sizeDelta.x / 10, 0);
         //curent lang button 
         var CurrenLangRT = CurrenLang.GetComponent<RectTransform>();
 
         CurrenLangRT.anchorMin = new Vector2(0.5f, 0.5f);
         CurrenLangRT.anchorMax = new Vector2(0.5f, 0.5f);
         CurrenLangRT.pivot = new Vector2(0, 0.5f);
-        CurrenLangRT.sizeDelta = new Vector2(_Transform.sizeDelta.x / 10, _Transform.sizeDelta.y / 16);
-        CurrenLangRT.anchoredPosition = new Vector2(_Transform.sizeDelta.x / 10, 0);
+        CurrenLangRT.sizeDelta = new Vector2(currentTransform.sizeDelta.x / 10, currentTransform.sizeDelta.y / 16);
+        CurrenLangRT.anchoredPosition = new Vector2(currentTransform.sizeDelta.x / 10, 0);
 
 
         PrevButText     .resizeTextForBestFit = true;

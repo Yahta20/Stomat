@@ -24,11 +24,11 @@ public class FirstPageSM : PageUI
     protected override void setSize(Vector2 screen)
     {
         //main area
-        _Transform.sizeDelta = screen*0.38f*0.5f;
-        _Transform.anchoredPosition = new Vector2(0, _Transform.sizeDelta.y * 0.38f*0.5f); ;
-        _Transform.anchorMin = new Vector2(0.5f, 0);
-        _Transform.anchorMax = new Vector2(0.5f, 0);
-        _Transform.pivot= new Vector2(0.5f, 0);
+        currentTransform.sizeDelta = screen*0.38f*0.5f;
+        currentTransform.anchoredPosition = new Vector2(0, currentTransform.sizeDelta.y * 0.38f*0.5f); ;
+        currentTransform.anchorMin = new Vector2(0.5f, 0);
+        currentTransform.anchorMax = new Vector2(0.5f, 0);
+        currentTransform.pivot= new Vector2(0.5f, 0);
         //
         
         var ChosenRT =ChosenPage. GetComponent<RectTransform>();
@@ -38,19 +38,19 @@ public class FirstPageSM : PageUI
         ChosenRT.anchorMin = new Vector2(0.5f, 1);
         ChosenRT.anchorMax = new Vector2(0.5f, 1);
         ChosenRT.pivot = new Vector2(0.5f, 0.5f);
-        ChosenRT.sizeDelta = new Vector2(_Transform.sizeDelta.x, _Transform.sizeDelta.y/4);
+        ChosenRT.sizeDelta = new Vector2(currentTransform.sizeDelta.x, currentTransform.sizeDelta.y/4);
         ChosenRT.anchoredPosition = new Vector2(0,0); 
 
         OptionsRT.anchorMin = new Vector2(0.5f, 0.5f);
         OptionsRT.anchorMax = new Vector2(0.5f, 0.5f);
         OptionsRT.pivot = new Vector2(0.5f, 0.5f);
-        OptionsRT.sizeDelta = new Vector2(_Transform.sizeDelta.x, _Transform.sizeDelta.y/4);
+        OptionsRT.sizeDelta = new Vector2(currentTransform.sizeDelta.x, currentTransform.sizeDelta.y/4);
         OptionsRT.anchoredPosition = new Vector2(0, 0);
 
         ExitRT.anchorMin = new Vector2(0.5f, 0);
         ExitRT.anchorMax = new Vector2(0.5f, 0);
         ExitRT.pivot = new Vector2(0.5f, 0.5f);
-        ExitRT.sizeDelta = new Vector2(_Transform.sizeDelta.x, _Transform.sizeDelta.y/4);
+        ExitRT.sizeDelta = new Vector2(currentTransform.sizeDelta.x, currentTransform.sizeDelta.y/4);
         ExitRT.anchoredPosition = new Vector2(0, 0);
 
         ChosenT.resizeTextForBestFit = true; 

@@ -7,15 +7,12 @@ using UnityEngine.UI;
 public class VocalUI : PageUI
 {
     public GameObject AskingPrefab;
-
-    public PlaningUI Interier;
-
+    
     public Button HideB;
     public Button AnswerInteractive;
 
     public ScrollRect AnswerRect;
     public ScrollRect QuestionRect;
-
 
 
 
@@ -26,24 +23,7 @@ public class VocalUI : PageUI
 
     protected override void setSize(Vector2 screen)
     {
-        _Transform.sizeDelta = screen*0.88f;
-        _Transform.anchoredPosition = Vector2.zero;
-        _Transform.anchorMin = new Vector2(0.5f, 0.5f);
-        _Transform.anchorMax = new Vector2(0.5f, 0.5f);
-
-        var HideBRT = HideB.GetComponent<RectTransform>();
-
-            HideBRT.sizeDelta = screen * 0.09f;
-            HideBRT.anchorMin   = new Vector2(1f, 0f);
-            HideBRT.anchorMax   = new Vector2(1f, 0f);
-            HideBRT.pivot       = new Vector2(0,0f);
-            HideBRT.anchoredPosition = Vector2.zero;
-
-        //setSize(screen, _Interier);
-    }
-    protected void setSize(Vector2 screen, PlaningUI obj)
-    {
-        
+    
     }
 
     void CleareContent(ScrollRect sr) {
@@ -61,7 +41,6 @@ public class VocalUI : PageUI
     }
     private void OnDisable()
     {
-        base.Start();
         UICustomES.Instance.onAskingBarShow -= Show;
         UICustomES.Instance.onAskingBarHide -= Hide;
         //LAButton.onClick.AddListener(Hide);
@@ -71,7 +50,7 @@ public class VocalUI : PageUI
         base.Start();
         UICustomES.Instance.onAskingBarShow += Show;
         UICustomES.Instance.onAskingBarHide += Hide;
-        _Transform.anchoredPosition = new Vector2(UICustomES.Instance.screenResolution.x, _Transform.anchoredPosition.y);
+        Hide();
         HideB.onClick.AddListener(Hide);
 
         //setSize();
@@ -81,14 +60,12 @@ public class VocalUI : PageUI
 
     public void Show()
     {
-        UICustomES.Instance.ReleaseCursor();
-        _Transform.anchoredPosition = new Vector2(0, _Transform.anchoredPosition.y);
+        currentTransform.anchoredPosition = new Vector2(0, currentTransform.anchoredPosition.y);
        
     }
 
     public void Hide()
     {
-        UICustomES.Instance.BlockCursor();
-        _Transform.anchoredPosition = new Vector2(UICustomES.Instance.screenResolution.x, _Transform.anchoredPosition.y);
+        currentTransform.anchoredPosition = new Vector2(UICustomES.Instance.screenResolution.x, currentTransform.anchoredPosition.y);
     }
 }

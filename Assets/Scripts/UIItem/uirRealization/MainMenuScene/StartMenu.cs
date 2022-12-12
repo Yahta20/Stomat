@@ -17,10 +17,10 @@ public class StartMenu : MenuUI
 
     protected override void setSize(Vector2 screen)
     {
-        _Transform.sizeDelta = screen;
-        _Transform.anchoredPosition = Vector2.zero;
-        _Transform.anchorMin = new Vector2(0.5f, 0.5f);
-        _Transform.anchorMax = new Vector2(0.5f, 0.5f);
+        currentTransform.sizeDelta = screen;
+        currentTransform.anchoredPosition = Vector2.zero;
+        currentTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        currentTransform.anchorMax = new Vector2(0.5f, 0.5f);
     }
     public void ExitApp()
     {
