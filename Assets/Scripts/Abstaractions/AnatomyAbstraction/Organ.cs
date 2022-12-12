@@ -5,6 +5,7 @@ namespace KHNMU.BodyAnatomy.AnatomyAbstraction
 {
     struct Organ
     {
+        //-++++++++++++++++++++++++++++++++++
         AnatomySystem _serveSystem;
         Mesh _organMesh;
           
