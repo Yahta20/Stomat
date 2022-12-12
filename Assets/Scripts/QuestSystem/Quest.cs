@@ -9,7 +9,7 @@ public class Quest : ScriptableObject
     //public string InteractionGO;
     public QuestTask[] TaskList;
     public string Description;
-    public QuestState State  { get; private set; } = QuestState.SLEEP;
+    public QuestState State { get; private set; } = QuestState.SLEEP;
 
 
     public QuestResult Grade()

@@ -21,10 +21,10 @@ public class SelectPageSM : PageUI
 
     protected override void setSize(Vector2 screen)
     {
-        _Transform.sizeDelta = screen;
-        _Transform.anchoredPosition = Vector2.zero;
-        _Transform.anchorMin = new Vector2(0.5f, 0.5f);
-        _Transform.anchorMax = new Vector2(0.5f, 0.5f);
+        currentTransform.sizeDelta = screen;
+        currentTransform.anchoredPosition = Vector2.zero;
+        currentTransform.anchorMin = new Vector2(0.5f, 0.5f);
+        currentTransform.anchorMax = new Vector2(0.5f, 0.5f);
 
         //previos menu button
         var PrevMenuRT = PrevMenu.GetComponent<RectTransform>();
@@ -32,7 +32,7 @@ public class SelectPageSM : PageUI
         PrevMenuRT.anchorMin = new Vector2(0, 1);
         PrevMenuRT.anchorMax = new Vector2(0, 1);
         PrevMenuRT.pivot = new Vector2(0, 1);
-        PrevMenuRT.sizeDelta = new Vector2(_Transform.sizeDelta.x/10, _Transform.sizeDelta.y / 16);
+        PrevMenuRT.sizeDelta = new Vector2(currentTransform.sizeDelta.x/10, currentTransform.sizeDelta.y / 16);
         PrevMenuRT.anchoredPosition = new Vector2(0, 0);
         PrevButText.resizeTextForBestFit = true;
         //Scroll menu button
@@ -41,7 +41,7 @@ public class SelectPageSM : PageUI
         LevelsListRT.anchorMin = new Vector2(0.5f, 0.5f);
         LevelsListRT.anchorMax = new Vector2(0.5f, 0.5f);
         LevelsListRT.pivot = new Vector2(0.5f, 0.5f);
-        LevelsListRT.sizeDelta = new Vector2(_Transform.sizeDelta.x *0.62f, _Transform.sizeDelta.y * 0.62f);
+        LevelsListRT.sizeDelta = new Vector2(currentTransform.sizeDelta.x *0.62f, currentTransform.sizeDelta.y * 0.62f);
         LevelsListRT.anchoredPosition = new Vector2(0, 0);
 
         LevelsList.content.sizeDelta = Vector2.zero;
