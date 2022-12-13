@@ -11,6 +11,9 @@ public enum gameMode
 
 public class Localizator : MonoBehaviour
 {
+    /*
+     */
+
     public static Localizator Instance { get => _instance == null ? new Localizator() :_instance;
                                 internal set => _instance = value;                                    
     }
