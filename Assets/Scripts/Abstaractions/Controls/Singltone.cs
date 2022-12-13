@@ -5,23 +5,32 @@ using UnityEngine;
 
 public abstract class Singltone<T> where T : MonoBehaviour
 {
-    public class MessageClass<Adres, Mail>
-    where Adres : MonoBehaviour
+    public class MessageClass<FAdress,TAdress,Mail>
+    where FAdress : MonoBehaviour
+    where TAdress : MonoBehaviour
     where Mail : struct
     { };
     public struct Message { 
     }
-    //public static Singltone<T> Instance{ get=> instance==null?new <T>(): instance;
-    //                            set=>}
-    
     private static Singltone<T> instance {
         get; set;
     }
-    static List<Action> actionList;
 
-    static List<Action<MessageClass<MonoBehaviour, Message>>> MsgList 
-        = new List<Action<MessageClass<MonoBehaviour, Message>>>();
-        //
+
+    static      Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour,Message>>> MsgList 
+        = new   Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour, Message>>>();
+
+    static      Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>> MsgHistory
+        = new   Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>>();
 
 
 }
+
+    //public static Singltone<T> Instance{ get=> { if (instance == null) 
+    //                                                new Singltone<T> ();
+    //                                                else instance; } 
+    //                            set=>}
+    
+    //static      List<MonoBehaviour> wer ;
+    //
+    //
