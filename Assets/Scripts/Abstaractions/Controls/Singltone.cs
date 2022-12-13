@@ -24,6 +24,13 @@ public abstract class Singltone<T> where T : MonoBehaviour
         = new   Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>>();
 
 
+
+
+
+
+
+
+
 }
 
     //public static Singltone<T> Instance{ get=> { if (instance == null) 
