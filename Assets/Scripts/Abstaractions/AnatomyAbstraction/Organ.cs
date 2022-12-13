@@ -3,16 +3,57 @@ using UnityEngine;
 
 namespace KHNMU.BodyAnatomy.AnatomyAbstraction
 {
-    struct Organ
+    struct Cell
     {
+
+        /*
+         * 
+        //surface complex   поверхневий комплекс
+            //літинної мембрани (плазмолеми)
+            //глікокаліксу, 
+            //кортикального шару цитоплазми
+        //cytoplasm         цитоплазма
+            //гіалоплазму (матрикс, цитозоль), 
+            //органели  
+            //включення
+        //core 
+            //каріолема (каріотека), 
+            //каріоплазма 
+            //хромосоми. 
+        //
+         *
+         *
+         *
+         */
+    }
+    struct Textus// tkanyna //tissue
+    {
+        Cell _textusCell;
+
+
+        /*
+        
+         */
+    }
+    struct Organum
+    {
+        public enum OrganumConditio
+        {
+            DEFAULT,
+            DONORED,
+            PREPARAT,
+        }
         //-++++++++++++++++++++++++++++++++++
-        AnatomySystem _serveSystem;
+        //AnatomySystem _serveSystem;
+        Textus _organTextus;
         Mesh _organMesh;
           
         
         
-        OrganState _organState;
+        OrganumConditio _organState;
 
-        public OrganState OrganState { get => _organState; set => _organState = value; }
+        public OrganumConditio OrganState { get => _organState; set => _organState = value; }
     }
+
+
 }
