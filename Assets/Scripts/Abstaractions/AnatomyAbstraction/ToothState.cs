@@ -1,8 +1,6 @@
 ﻿    
 namespace KHNMU.BodyAnatomy
 {
-
-
     [System.Serializable]
     public enum ToothState
     {

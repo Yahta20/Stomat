@@ -1,11 +1,12 @@
-﻿namespace KHNMU.BodyAnatomy { 
-    
+﻿namespace KHNMU.BodyAnatomy
+{
+
     [System.Serializable]
     public struct Faucibus // throats глотка
     {
         public Mordere Bite;
-        public ToothState[] superior;
-        public ToothState[] maxilla;
+        public ToothState[] superior;//щелепа 
+        public ToothState[] maxilla; //щелепа 
         public Vita colorVita;
 
     }
@@ -16,27 +17,6 @@
         neutral,
         mezial,
         destal,
-    }
-
-    [System.Serializable]//Vita color
-    public enum Vita //цвет вита
-    {
-        A1= 0,
-        A2,
-        A3,
-        A35,
-        A4,
-        B1,
-        B2,
-        B3,
-        B4,
-        C1,
-        C2,
-        C3,
-        C4,
-        D1,
-        D2,
-        D3
     }
     
     

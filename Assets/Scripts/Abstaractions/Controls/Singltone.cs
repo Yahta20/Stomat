@@ -5,17 +5,16 @@ using UnityEngine;
 
 public abstract class Singltone<T> where T : MonoBehaviour
 {
-    public class MessageClass<FAdress,TAdress,Mail>
-    where FAdress : MonoBehaviour
-    where TAdress : MonoBehaviour
-    where Mail : struct
-    { };
-    public struct Message { 
-    }
-    private static Singltone<T> instance {
+    private static Singltone<T> instance 
+    {
         get; set;
     }
+    public T GenerateClass<T>(T param) {
+        return param;
+    }
 
+    public static Singltone<T> Instance{ get=> Singltone<T>.instance;
+        private set { instance = value; } }
 
     static      Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour,Message>>> MsgList 
         = new   Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour, Message>>>();
@@ -25,19 +24,4 @@ public abstract class Singltone<T> where T : MonoBehaviour
 
 
 
-
-
-
-
-
-
 }
-
-    //public static Singltone<T> Instance{ get=> { if (instance == null) 
-    //                                                new Singltone<T> ();
-    //                                                else instance; } 
-    //                            set=>}
-    
-    //static      List<MonoBehaviour> wer ;
-    //
-    //
