@@ -12,21 +12,20 @@ public abstract class PageUI : MonoBehaviour
     protected Image         _Font;
     protected RectTransform _Transform;
     protected PlaningUI     _Interier;
-    public void OnDisable()
+    public virtual void OnDisable()
     {
         UICustomES.Instance.onChangeScreeSize -= setSize;
         Localizator.Instance.OnChangetLang -= setLang;
     }
 
-    public void Start()
+    public virtual void OnEnable()
     {
-
         _Font     =GetComponent<Image>();
         _Transform=GetComponent<RectTransform>();
         UICustomES.Instance.onChangeScreeSize += setSize;
         Localizator.Instance.OnChangetLang += setLang;
         setSize(new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height));
-        setLang(Localizator.Instance.currLang);
+        setLang(Localizator.Instance.CurrLang);
     }
     protected abstract void setSize(Vector2 screen);
     protected abstract void setLang(SystemLanguage lang);

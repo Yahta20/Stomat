@@ -1,5 +1,5 @@
-﻿    
-namespace KHNMU.BodyAnatomy
+﻿
+namespace KHNMU.BodyAnatomy.AnatomyAbstraction
 {
     [System.Serializable]
     public enum ToothState

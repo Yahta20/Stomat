@@ -6,8 +6,22 @@ using UnityEngine.SceneManagement;
 
 public class QuestMaster : MonoBehaviour
 {
-    public static QuestMaster Instance;
+    //public static QuestMaster Instance;
+    public static QuestMaster Instance
+    {
+        get //=>
+        {
+            if (_instance == null)
+            {
+                Instance = new QuestMaster();
+            }
+            return _instance;
 
+        }// _instance == null ? new Localizator(): _instance;
+        set { _instance = value; }
+    }
+    //public 
+    static QuestMaster _instance;
     public PacientStat currentPacient {get; private set;}
     public PacientStat[] Pacients;
 
@@ -32,12 +46,12 @@ public class QuestMaster : MonoBehaviour
         if (Instance == null)
         { // Ёкземпл€р менеджера был найден
             Instance = this; // «адаем ссылку на экземпл€р объекта
+            DontDestroyOnLoad(this);
+            return;
         }
-        else if (Instance != this)
-        { // Ёкземпл€р объекта уже существует на сцене
             Destroy(gameObject); // ”дал€ем объект
-        }
-        DontDestroyOnLoad(this);
+                   
+            // Ёкземпл€р объекта уже существует на сцене
     }
     private void OnEnable()
     {

@@ -1,4 +1,4 @@
-﻿namespace KHNMU.BodyAnatomy
+﻿namespace KHNMU.BodyAnatomy.AnatomyAbstraction
 { 
 
         internal enum AnatomySystem

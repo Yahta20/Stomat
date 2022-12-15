@@ -21,6 +21,7 @@ public class StartMenu : MenuUI
         _Transform.anchoredPosition = Vector2.zero;
         _Transform.anchorMin = new Vector2(0.5f, 0.5f);
         _Transform.anchorMax = new Vector2(0.5f, 0.5f);
+        //_Font.color = new Color(0,0,0,0);
     }
     public void ExitApp()
     {
@@ -29,11 +30,6 @@ public class StartMenu : MenuUI
         UnityEditor.EditorApplication.isPlaying = false;
 #endif
 
-    }
-
-    private void Start()
-    {
-        base.Start();
     }
 
 

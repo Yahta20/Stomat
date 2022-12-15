@@ -21,11 +21,11 @@ public class SelectPageSM : PageUI
 
     protected override void setSize(Vector2 screen)
     {
+        _Font.color = new Color(0, 0, 0, 0);
         _Transform.sizeDelta = screen;
         _Transform.anchoredPosition = Vector2.zero;
         _Transform.anchorMin = new Vector2(0.5f, 0.5f);
         _Transform.anchorMax = new Vector2(0.5f, 0.5f);
-
         //previos menu button
         var PrevMenuRT = PrevMenu.GetComponent<RectTransform>();
 

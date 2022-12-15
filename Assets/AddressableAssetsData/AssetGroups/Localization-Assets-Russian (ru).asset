@@ -16,13 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 95c8514f15a99bf43bd8013407072233
-  m_SerializeEntries:
-  - m_GUID: 11a89898cc76f0740a8282925ffa2df1
-    m_Address: Stomat_ru
-    m_ReadOnly: 1
-    m_SerializedLabels:
-    - Locale-ru
-    - Preload
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 0652e95376fdd5b4998cf45f68aa61cc, type: 2}
   m_SchemaSet:

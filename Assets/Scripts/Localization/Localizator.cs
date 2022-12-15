@@ -14,44 +14,51 @@ public class Localizator : MonoBehaviour
     /*
      */
 
-    public static Localizator Instance { get => _instance == null ? new Localizator() :_instance;
-                                internal set => _instance = value;                                    
+    public static Localizator Instance { get //=>
+        {
+            if (_instance ==null)
+            {
+                Instance = new Localizator();
+            }
+            return _instance;
+
+        }// _instance == null ? new Localizator(): _instance;
+        set { _instance = value; }                                                           
     }
-    public static Localizator  _instance {  get; private set; }
+    //public 
+    static Localizator _instance;
     public TextAsset LocalizationText;
     public LocalizationMap currentLangPack;
-    public SystemLanguage currLang { get; private set; }
+    public SystemLanguage CurrLang { get {
+                if (currLang==null)
+                {
+                currLang = Application.systemLanguage;
+                }
+                return currLang;
+            } 
+        private set {
+            currLang = value;
+        }
+    }
+    
     public Action<SystemLanguage> OnChangetLang;
+    private SystemLanguage currLang;
+
     //public event Action onReleaseCursor;
 
     private void Awake()
     {
         //_instance.init();
-        if (Instance == null)
+        if (_instance ==  null)
         { // Ёкземпл€р менеджера был найден
             _instance = this; // «адаем ссылку на экземпл€р объекта
-        }
-        else if (Instance != this)
-        { // Ёкземпл€р объекта уже существует на сцене
-            Destroy(gameObject); // ”дал€ем объект
-        }
         DontDestroyOnLoad(this);
         loadLang();
-    }
-
-    private void init()
-    {
-
-        if (Instance == null)
-        { // Ёкземпл€р менеджера был найден
-            _instance = this; // «адаем ссылку на экземпл€р объекта
+            return;
         }
-        else if (Instance != this)
-        { // Ёкземпл€р объекта уже существует на сцене
             Destroy(gameObject); // ”дал€ем объект
-        }
-
     }
+    
     private void loadLang()
     {
         //TODO make Adressable loading
@@ -66,21 +73,16 @@ public class Localizator : MonoBehaviour
             currentLangPack.fillText();
 
         }
-        currLang = SystemLanguage.Ukrainian;
+        CurrLang = SystemLanguage.Ukrainian;
         if (Application.systemLanguage == SystemLanguage.Russian)
         {
-            currLang = SystemLanguage.Russian;
+            CurrLang = SystemLanguage.Russian;
         }
         else if (Application.systemLanguage == SystemLanguage.English)
         {
-            currLang = SystemLanguage.English;
+            CurrLang = SystemLanguage.English;
         }
-
-
     }
-        
-        
-
     public string GetLocalText(string name) {
         string result="ERROR";
         if (currentLangPack.LangList != null)
@@ -89,7 +91,7 @@ public class Localizator : MonoBehaviour
             {
                 if (currentLangPack.LangList[i].uiname==name)
                 {
-                    return currentLangPack.LangList[i].uiTextD[currLang];
+                    return currentLangPack.LangList[i].uiTextD[CurrLang];
                 }
             }
         }
@@ -97,19 +99,19 @@ public class Localizator : MonoBehaviour
 
     }
     public void ChangeLang() {
-        switch (currLang)
+        switch (CurrLang)
         {
             case SystemLanguage.Ukrainian:
-                currLang = SystemLanguage.Russian;
+                CurrLang = SystemLanguage.Russian;
                 break;
             case SystemLanguage.Russian:
-                currLang = SystemLanguage.English;
+                CurrLang = SystemLanguage.English;
                 break;
             case SystemLanguage.English:
-                currLang = SystemLanguage.Ukrainian;
+                CurrLang = SystemLanguage.Ukrainian;
                 break;
         }
-        OnChangetLang?.Invoke(currLang);
+        OnChangetLang?.Invoke(CurrLang);
 
     }
 

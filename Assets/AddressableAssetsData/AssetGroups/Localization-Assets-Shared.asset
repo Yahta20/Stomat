@@ -16,11 +16,7 @@ MonoBehaviour:
   m_Data:
     m_SerializedData: []
   m_GUID: 60de3947fa8c68349abb225e3498dc47
-  m_SerializeEntries:
-  - m_GUID: 1fb441f9a131ab140a5428e7f3980757
-    m_Address: Assets/localization/Stomat Shared Data.asset
-    m_ReadOnly: 1
-    m_SerializedLabels: []
+  m_SerializeEntries: []
   m_ReadOnly: 1
   m_Settings: {fileID: 11400000, guid: 0652e95376fdd5b4998cf45f68aa61cc, type: 2}
   m_SchemaSet:

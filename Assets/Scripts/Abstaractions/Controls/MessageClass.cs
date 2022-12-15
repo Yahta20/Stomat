@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
 
 public class MessageClass<FAdress,TAdress,Mail>
-    where FAdress : MonoBehaviour
-    where TAdress : MonoBehaviour
-    where Mail : struct
-    { };
-
-
+    where FAdress : class
+    where TAdress : class
+    where Mail : struct { }
 
 
 

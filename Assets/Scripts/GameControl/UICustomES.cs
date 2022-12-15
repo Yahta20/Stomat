@@ -21,7 +21,7 @@ public class UICustomES : MonoBehaviour
             instance = value;
         }
     }
-    public static UICustomES instance { get; private set; }
+    static UICustomES instance;
 
     public event Action <string> onInfoTextShow;
     public event Action onInfoTextHide;
@@ -107,7 +107,6 @@ public class UICustomES : MonoBehaviour
             onQuestBarHide();
         }
     }
-
     public void ResultShowT()
     {
         onResultShow?.Invoke();
@@ -116,7 +115,6 @@ public class UICustomES : MonoBehaviour
     {
             onResultHide?.Invoke();
     }
-
     public void PauseOn() {
         if (onPause!=null)
         {
@@ -133,7 +131,6 @@ public class UICustomES : MonoBehaviour
             UIPaused = false;
         }
     }
-
     public void BlockCursor()
     {
             UIView = false;
@@ -151,21 +148,17 @@ public class UICustomES : MonoBehaviour
             onReleaseCursor();
         }
     }
-
-
-
     private void Awake()
     {
-        if (Instance == null)
+        if (instance == null)
         { // Экземпляр менеджера был найден
-            Instance = this; // Задаем ссылку на экземпляр объекта
-        }
-        else if (Instance != this)
-        { // Экземпляр объекта уже существует на сцене
-            Destroy(gameObject); // Удаляем объект
-        }
+            instance = this; // Задаем ссылку на экземпляр объекта
         DontDestroyOnLoad(this);
         currentResolution = Screen.currentResolution;
+            return;
+        }
+
+            Destroy(gameObject); // Удаляем объект
 
     }
     private void FixedUpdate()

@@ -21,7 +21,7 @@ public class OptionPageSM : PageUI
 
     protected override void setSize(Vector2 screen)
     {
-
+        _Font.color = new Color(0, 0, 0, 0);
         _Transform.sizeDelta = screen;
         _Transform.anchoredPosition = Vector2.zero;
         _Transform.anchorMin = new Vector2(0.5f, 0.5f);
@@ -67,7 +67,15 @@ public class OptionPageSM : PageUI
             );
 
     }
+    private void OnEnable()
+    {
+        base.OnEnable();
+    }
 
+    private void OnDisable()
+    {
+        base.OnDisable();
+    }
     // Update is called once per frame
     void Update()
     {
