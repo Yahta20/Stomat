@@ -6,10 +6,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 using System;
 using UnityEngine.AddressableAssets;
 
-public enum GameState { 
-    moving,
-    notes
-}
+
 public class ScenaController : MonoBehaviour
 {
     public static ScenaController Instance { get {

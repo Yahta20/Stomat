@@ -29,10 +29,7 @@ namespace KHNMU.BodyAnatomy.AnatomyAbstraction
     struct Textus// tkanyna //tissue
     {
         Cell _textusCell;
-
-
         /*
-        
          */
     }
     struct Organum
@@ -47,13 +44,16 @@ namespace KHNMU.BodyAnatomy.AnatomyAbstraction
         //AnatomySystem _serveSystem;
         Textus _organTextus;
         Mesh _organMesh;
-          
-        
         
         OrganumConditio _organState;
-
         public OrganumConditio OrganState { get => _organState; set => _organState = value; }
-    }
+    }//Organ
+
+
+        
+        
+        
+
 
 
 }

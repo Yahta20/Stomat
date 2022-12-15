@@ -18,9 +18,7 @@ public class FirstPageSM : PageUI
         ChosenT .text = Localizator.Instance.GetLocalText(ChosenPage.gameObject.name); 
         OptionsT.text = Localizator.Instance.GetLocalText(OptionsPage.gameObject.name);
         ExitT   .text = Localizator.Instance.GetLocalText(ExitPage.gameObject.name);
-        
     }
-
     protected override void setSize(Vector2 screen)
     {
         //main area
@@ -30,7 +28,8 @@ public class FirstPageSM : PageUI
         _Transform.anchorMax = new Vector2(0.5f, 0);
         _Transform.pivot= new Vector2(0.5f, 0);
         //
-        
+        _Font.color = new Color(0, 0, 0, 0);
+
         var ChosenRT =ChosenPage. GetComponent<RectTransform>();
         var OptionsRT=OptionsPage.GetComponent<RectTransform>();
         var ExitRT  = ExitPage   .GetComponent<RectTransform>();
@@ -72,13 +71,22 @@ public class FirstPageSM : PageUI
     // Start is called before the first frame update
     void Awake()
     {
+        
         ChosenT =ChosenPage .gameObject .transform.GetComponentInChildren<Text>();
         OptionsT=OptionsPage.gameObject .transform.GetComponentInChildren<Text>();
         ExitT   =ExitPage   .gameObject .transform.GetComponentInChildren<Text>();
 
     }
-    
-    
+
+    public override void OnEnable()
+    {
+        base.OnEnable();
+    }
+
+    public override void OnDisable()
+    {
+        base.OnDisable();
+    }
     void Update()
     {
         

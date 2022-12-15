@@ -3,18 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Singltone<T> where T : MonoBehaviour
+public abstract class Singlton: MonoBehaviour 
 {
-    private static Singltone<T> instance 
+    public static Singlton instance 
     {
-        get; set;
+        get; private set;
     }
-    public T GenerateClass<T>(T param) {
-        return param;
-    }
+    
 
-    public static Singltone<T> Instance{ get=> Singltone<T>.instance;
-        private set { instance = value; } }
+   
 
     static      Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour,Message>>> MsgList 
         = new   Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour, Message>>>();
@@ -22,6 +19,15 @@ public abstract class Singltone<T> where T : MonoBehaviour
     static      Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>> MsgHistory
         = new   Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>>();
 
+   protected void Awake() {
+        if (instance == null)
+        { // Экземпляр менеджера был найден
+            instance = this; // Задаем ссылку на экземпляр объекта
+            DontDestroyOnLoad(this);
+            
+            return;
+        }
+        Destroy(gameObject); // Удаляем объект
 
-
+    }
 }

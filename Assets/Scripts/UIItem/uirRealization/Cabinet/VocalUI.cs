@@ -18,6 +18,12 @@ public class VocalUI : PageUI
 
 
 
+    private void OnEnable()
+    {
+        base.OnEnable();
+        UICustomES.Instance.onAskingBarShow += Show;
+        UICustomES.Instance.onAskingBarHide += Hide;
+    }
 
     protected override void setLang(SystemLanguage lang)
     {
@@ -61,22 +67,16 @@ public class VocalUI : PageUI
     }
     private void OnDisable()
     {
-        base.Start();
+        base.OnDisable();
         UICustomES.Instance.onAskingBarShow -= Show;
         UICustomES.Instance.onAskingBarHide -= Hide;
         //LAButton.onClick.AddListener(Hide);
     }
     void Start()
     {
-        base.Start();
-        UICustomES.Instance.onAskingBarShow += Show;
-        UICustomES.Instance.onAskingBarHide += Hide;
+      
         _Transform.anchoredPosition = new Vector2(UICustomES.Instance.screenResolution.x, _Transform.anchoredPosition.y);
         HideB.onClick.AddListener(Hide);
-
-        //setSize();
-        //UpdateText();
-        //FillField();
     }
 
     public void Show()
