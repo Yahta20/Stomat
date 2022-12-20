@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "ComfortablePlace", menuName = "ScriptableObjects/UI/Creare Text Place", order = 3)]
 public class ComfortText : ComfortablePlace {
     public bool alignByGeometry;
-    public int fontSize         ;
+    public int  fontSize         ;
     public bool resizeTextForBestFit;
     public Font font;
     public bool supportRichText;

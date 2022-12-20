@@ -52,16 +52,17 @@ namespace KHNMU.Toolkit
             return resArray;
         }
 
-        [MenuItem("ScriptableObject/Create ScriptableObject")]
-        static void CreateSccriptableObject(ScriptableObject so, string path,string nam)
+        //[MenuItem("ScriptableObject/Create ScriptableObject")]
+        public static string CreateSccriptableObject(ScriptableObject so, string path,string nam)
         {
             Type sot = so.GetType();
             var asset = ScriptableObject.CreateInstance(sot.ToString());//sot>()//<sot>();
                                                         //Assets\Scripts\Scriptable obj\ScriptableObj\Places
             string name = AssetDatabase.GenerateUniqueAssetPath($"{path}/{nam}.asset");
             AssetDatabase.CreateAsset(asset, name);
-            AssetDatabase.SaveAssets();
 
+            AssetDatabase.SaveAssets();
+            return name;
             //EditorUtility.FocusProjectWindow();
             //
             //Selection.activeObject = asset;

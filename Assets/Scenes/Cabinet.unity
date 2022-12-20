@@ -7965,6 +7965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8172be0bdb21a3f47a85a82a753f514e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _comfortImage: {fileID: 0}
+  _congregation: []
+  _comfortablePlaceObjects: []
   AskingPrefab: {fileID: 0}
   Interier: {fileID: 0}
   HideB: {fileID: 1139555409}
@@ -9373,14 +9376,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4809109984268503432}
-  m_LocalRotation: {x: 0.023769733, y: -0.7465893, z: 0.063474044, w: -0.6618237}
-  m_LocalPosition: {x: -0.007797797, y: 0.09038695, z: 0.03908081}
+  m_LocalRotation: {x: -0.03142192, y: -0.7499562, z: -0.01296114, w: -0.6606138}
+  m_LocalPosition: {x: -0.0082, y: 0.0914, z: 0.046}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7687346005103926878}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 3.63, y: 96.67, z: -6.878}
+  m_LocalEulerAnglesHint: {x: 1.265, y: 97.289, z: 3.685}
 --- !u!1 &1431686502670556775
 GameObject:
   m_ObjectHideFlags: 0
@@ -12661,7 +12664,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!1 &7031865599145850499
 GameObject:
   m_ObjectHideFlags: 0
@@ -12715,7 +12718,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7091978471495539469
 Transform:
   m_ObjectHideFlags: 0

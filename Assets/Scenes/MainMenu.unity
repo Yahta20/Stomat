@@ -494,8 +494,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edacaffad0dc83f41b74a41dc6ae78fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _comfortImage: {fileID: 0}
-  _congregation: []
+  _comfortImage: {fileID: 11400000, guid: b8cbe43459f3c1a4b82e82d499526ccc, type: 2}
+  _congregation:
+  - {fileID: 57232875}
+  - {fileID: 846477612}
+  - {fileID: 1925166683}
+  - {fileID: 1332729954}
+  - {fileID: 574837813}
+  - {fileID: 1660054181}
+  - {fileID: 1558586606}
+  - {fileID: 226208492}
   _comfortablePlaceObjects: []
   LevelPrefab: {fileID: 7604973885769161625, guid: 84b21ca1b61f28c48a791a5b99a1d1fb, type: 3}
   PrevMenu: {fileID: 57232876}
@@ -1145,7 +1153,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -33.64}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &746391499
@@ -1281,7 +1289,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: -26.57}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &784794133
@@ -1296,8 +1304,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96c5383bf8175904c8e017cd50298891, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _comfortImage: {fileID: 0}
-  _congregation: []
+  _comfortImage: {fileID: 11400000, guid: e00aa5dd883023c40ad11930705785e2, type: 2}
+  _congregation:
+  - {fileID: 209987207}
+  - {fileID: 169652033}
+  - {fileID: 1715921223}
+  - {fileID: 389607752}
+  - {fileID: 1795128688}
   _comfortablePlaceObjects: []
   PrevMenu: {fileID: 209987209}
   LangChange: {fileID: 1715921225}

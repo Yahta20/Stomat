@@ -62,10 +62,10 @@ public abstract class PageUI : MonoBehaviour
     protected abstract void setLang(SystemLanguage lang);
     //static
         //static
-    void UpdateInfo() {
-        _congregation = ToolKit.CreateChildList(_Transform.gameObject);
-
+    public void UpdateInfo() {
+        _congregation = ToolKit.CreateChildList(this.gameObject);
     }
+
 
     //[MenuItem("Update CI")]
 #if UNITY_EDITOR
@@ -73,36 +73,75 @@ public abstract class PageUI : MonoBehaviour
 
         if (UnityEditor.EditorApplication.isPlaying == true)
         {
-            if (_comfortImage!=null)
-            {
                 var screen = new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height);
-                _comfortImage.sizeDelta        =   _Transform.sizeDelta/ screen             ;
-                _comfortImage.anchoredPosition =
-                    _Transform.anchoredPosition==Vector2.zero? Vector2.zero : _Transform.sizeDelta / screen;
+            if (_comfortImage != null)
+            {
+                UpdateIPlace(_comfortImage,_Font,screen);
 
-                //screen/  _Transform.anchoredPosition     ;  //new Vector2(0, _Transform.sizeDelta.y * 0.38f*0.5f); ;
+                //_comfortImage.sizeDelta = _Transform.sizeDelta / screen;
+                //_comfortImage.anchoredPosition =
+                //_Transform.anchoredPosition == Vector2.zero ? Vector2.zero : _Transform.sizeDelta / screen;
+                //_comfortImage.anchorMin = _Transform.anchorMin;                  //new Vector2(0.5f, 0);
+                //_comfortImage.anchorMax = _Transform.anchorMax;                  //new Vector2(0.5f, 0);
+                //_comfortImage.pivot = _Transform.pivot;                      //new Vector2(0.5f, 0);
+                //_comfortImage.color = _Font.color;
+                //_comfortImage.sprite = _Font.sprite;
 
 
-                _comfortImage.anchorMin        =          _Transform.anchorMin            ;                  //new Vector2(0.5f, 0);
-                _comfortImage.anchorMax        =          _Transform.anchorMax            ;                  //new Vector2(0.5f, 0);
-                _comfortImage.pivot            =          _Transform.pivot                ;                      //new Vector2(0.5f, 0);
-                _comfortImage.color            =          _Font.color                     ;
+
+            }
+            else {
+                var p = ToolKit.CreateSccriptableObject(new ComfortImage(), "Assets/Scripts/Scriptable obj/ScriptableObj/Places", 
+                    this.GetType().ToString());
+                
+                //var so = Resources.GetBuiltinResource(_comfortImage.GetType(), p);
+                
             }
         }
+    }
+
+    private void UpdateRTplace(ComfortablePlace so, RectTransform Rtransform,  Vector2 screen)
+    {
+        
+        so.sizeDelta = Rtransform.sizeDelta / screen;
+        so.anchoredPosition =
+           Rtransform.anchoredPosition == Vector2.zero ? Vector2.zero : _Transform.sizeDelta / screen;
+        so.anchorMin =   Rtransform.anchorMin;                  //new Vector2(0.5f, 0);
+        so.anchorMax =   Rtransform.anchorMax;                  //new Vector2(0.5f, 0);
+        so.pivot =       Rtransform.pivot;                      //new Vector2(0.5f, 0);
+    }
+    private void UpdateIPlace(ComfortImage so, Image i, Vector2 screen)
+    {
+        
+        so.color = i.color;
+        so.sprite = i.sprite;
+        UpdateRTplace(so,i.GetComponent<RectTransform>(), screen);
+    }
+    private void UpdateTPlace(ComfortText tso, Text t, Vector2 screen)
+    {
+
+        //alignByGeometry     =;
+        //fontSize            =;
+        //resizeTextForBestFit=;
+        //font                =;
+        //supportRichText     =;
+        UpdateRTplace(tso,t.GetComponent<RectTransform>(), screen);
+    }
 
 
+}   
+
+
+#endif
+
+
+                //screen/  _Transform.anchoredPosition     ;  //new Vector2(0, _Transform.sizeDelta.y * 0.38f*0.5f); ;
         //UnityEditor.EditorApplication.isPlaying == false;
         //if (Editor)
         //{
         //
         //}
         //
-
-    }
-#endif
-
-}
-
     //public List<RectTransform> cildItems;
 
     //protected List<UIBehaviour> cildItems;
