@@ -14,14 +14,18 @@ public class EditPageUI : Editor
         base.OnInspectorGUI();
         //PageUI cur = (PageUI)target;
 
-        GUILayout.BeginHorizontal();
         if (GUILayout.Button("Update CI"))
         {
             ((PageUI)target).UpdateCI();
         }
+        GUILayout.BeginHorizontal();
         if (GUILayout.Button("Update Congregation"))
         {
             ((PageUI)target).UpdateInfo();
+        }
+        if (GUILayout.Button("Generate Child Plans"))
+        {
+            ((PageUI)target).PlansForChild();
         }
         GUILayout.EndHorizontal();//BeginHorizontal();
     }

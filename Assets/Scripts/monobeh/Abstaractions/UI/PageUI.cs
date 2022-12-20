@@ -29,6 +29,7 @@ public abstract class PageUI : MonoBehaviour
         Localizator.Instance.OnChangetLang -= setLang;
     }
 
+
     public virtual void OnEnable()
     {
         _Font     =GetComponent<Image>();
@@ -77,29 +78,13 @@ public abstract class PageUI : MonoBehaviour
             if (_comfortImage != null)
             {
                 UpdateIPlace(_comfortImage,_Font,screen);
-
-                //_comfortImage.sizeDelta = _Transform.sizeDelta / screen;
-                //_comfortImage.anchoredPosition =
-                //_Transform.anchoredPosition == Vector2.zero ? Vector2.zero : _Transform.sizeDelta / screen;
-                //_comfortImage.anchorMin = _Transform.anchorMin;                  //new Vector2(0.5f, 0);
-                //_comfortImage.anchorMax = _Transform.anchorMax;                  //new Vector2(0.5f, 0);
-                //_comfortImage.pivot = _Transform.pivot;                      //new Vector2(0.5f, 0);
-                //_comfortImage.color = _Font.color;
-                //_comfortImage.sprite = _Font.sprite;
-
-
-
             }
             else {
                 var p = ToolKit.CreateSccriptableObject(new ComfortImage(), "Assets/Scripts/Scriptable obj/ScriptableObj/Places", 
                     this.GetType().ToString());
-                
-                //var so = Resources.GetBuiltinResource(_comfortImage.GetType(), p);
-                
             }
         }
     }
-
     private void UpdateRTplace(ComfortablePlace so, RectTransform Rtransform,  Vector2 screen)
     {
         
@@ -119,22 +104,41 @@ public abstract class PageUI : MonoBehaviour
     }
     private void UpdateTPlace(ComfortText tso, Text t, Vector2 screen)
     {
+        UpdateRTplace(tso,t.GetComponent<RectTransform>(), screen);
+    }
+    public void PlansForChild()
+    {
+        for (int i = 0; i < _congregation.Count; i++)
+        {
+            if (_congregation[i].GetComponent<Text>())
+            {
+
+
+            }
+        }
+    }
+
+#endif
+
+}   
+
+
+
 
         //alignByGeometry     =;
         //fontSize            =;
         //resizeTextForBestFit=;
         //font                =;
         //supportRichText     =;
-        UpdateRTplace(tso,t.GetComponent<RectTransform>(), screen);
-    }
-
-
-}   
-
-
-#endif
-
-
+                //_comfortImage.sizeDelta = _Transform.sizeDelta / screen;
+                //_comfortImage.anchoredPosition =
+                //_Transform.anchoredPosition == Vector2.zero ? Vector2.zero : _Transform.sizeDelta / screen;
+                //_comfortImage.anchorMin = _Transform.anchorMin;                  //new Vector2(0.5f, 0);
+                //_comfortImage.anchorMax = _Transform.anchorMax;                  //new Vector2(0.5f, 0);
+                //_comfortImage.pivot = _Transform.pivot;                      //new Vector2(0.5f, 0);
+                //_comfortImage.color = _Font.color;
+                //_comfortImage.sprite = _Font.sprite;
+                //var so = Resources.GetBuiltinResource(_comfortImage.GetType(), p);
                 //screen/  _Transform.anchoredPosition     ;  //new Vector2(0, _Transform.sizeDelta.y * 0.38f*0.5f); ;
         //UnityEditor.EditorApplication.isPlaying == false;
         //if (Editor)
