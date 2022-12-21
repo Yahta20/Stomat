@@ -28,5 +28,9 @@ public class EditPageUI : Editor
             ((PageUI)target).PlansForChild();
         }
         GUILayout.EndHorizontal();//BeginHorizontal();
+        if (GUILayout.Button("Update Plans"))
+        {
+            ((PageUI)target).UpdateCI();
+        }
     }
 }
