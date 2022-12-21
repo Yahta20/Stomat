@@ -1,13 +1,19 @@
-﻿using System;
-
+﻿
 using UnityEngine;
-using UnityEngine.UI;
+[CreateAssetMenu(fileName = "ComfortablePlace", menuName = "ScriptableObjects/UI/Creare Button Place", order = 5)]
+public class ComfortButton : ComfortImage
+{
 
-[CreateAssetMenu(fileName = "ComfortablePlace", menuName = "ScriptableObjects/UI/Creare Image Place", order = 2)]
-public class ComfortImage : ComfortablePlace {
+    //public ComfortImage image;
+    //public ComfortText text;
     public Sprite sprite;
-    public Color color  ;
-   
+    public Color color;
+    [Space]
+    public bool alignByGeometry;
+    public int fontSize;
+    public bool resizeTextForBestFit;
+    public Font font;
+    public bool supportRichText;
 }
 
 //var xy = new Vector2(rect.x, rect.y);

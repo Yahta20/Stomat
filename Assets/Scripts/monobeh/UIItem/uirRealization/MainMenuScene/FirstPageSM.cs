@@ -10,6 +10,15 @@ public class FirstPageSM : PageUI
     public Button OptionsPage;
     public Button ExitPage;
 
+ 
+
+
+
+
+
+
+
+
     Text ChosenT;
     Text OptionsT;
     Text ExitT;

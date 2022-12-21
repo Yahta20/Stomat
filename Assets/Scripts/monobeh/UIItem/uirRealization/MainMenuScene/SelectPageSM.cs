@@ -1,3 +1,4 @@
+using KHNMU.Toolkit;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -57,7 +58,7 @@ public class SelectPageSM : PageUI
         ContentLLG.constraintCount = 3;
         ContentLLG.cellSize = contcell;
         ContentLLG.spacing = contspace;
-
+        ToolKit.EraseChildObject(LevelsList.content);
         for (int i = 0; i < QuestMaster.Instance.Pacients.Length; i++)
         {
             var go = Instantiate(LevelPrefab, LevelsList.content);
