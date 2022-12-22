@@ -313,13 +313,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _comfortImage: {fileID: 11400000, guid: 7f3987373dd794247a631710f7dcff93, type: 2}
   _congregation:
+  - {fileID: 1611419236}
   - {fileID: 1611419235}
+  - {fileID: 1587029127}
+  - {fileID: 746391500}
   - {fileID: 746391499}
+  - {fileID: 884904028}
+  - {fileID: 401943551}
   - {fileID: 401943550}
-  _comfortablePlaceObjects:
-  - {fileID: 11400000, guid: c38b14d8baf72134cb3f4b8202a16956, type: 2}
-  - {fileID: 11400000, guid: f4c06cbd17057824b85e1cc5565bd1a7, type: 2}
-  - {fileID: 11400000, guid: 733724f6017a32645af2471c60e9cc02, type: 2}
+  - {fileID: 865612260}
+  _comfortablePlaceObjects: []
   ChosenPage: {fileID: 1611419235}
   OptionsPage: {fileID: 746391499}
   ExitPage: {fileID: 401943550}
