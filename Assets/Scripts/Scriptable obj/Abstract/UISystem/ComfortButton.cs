@@ -4,17 +4,18 @@ using UnityEngine;
 public class ComfortButton : ComfortImage
 {
 
-    //public ComfortImage image;
-    //public ComfortText text;
-    public Sprite sprite;
-    public Color color;
-    [Space]
-    public bool alignByGeometry;
-    public int fontSize;
-    public bool resizeTextForBestFit;
-    public Font font;
-    public bool supportRichText;
+    public ComfortImage image;
+    public ComfortText text;
 }
+
+    //public Sprite sprite;
+    //public Color color;
+    //[Space]
+    //public bool alignByGeometry;
+    //public int fontSize;
+    //public bool resizeTextForBestFit;
+    //public Font font;
+    //public bool supportRichText;
 
 //var xy = new Vector2(rect.x, rect.y);
 //var wh = new Vector2(rect.width, rect.height);
