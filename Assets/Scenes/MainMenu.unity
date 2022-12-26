@@ -313,16 +313,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _comfortImage: {fileID: 11400000, guid: 7f3987373dd794247a631710f7dcff93, type: 2}
   _congregation:
-  - {fileID: 1611419236}
   - {fileID: 1611419235}
-  - {fileID: 1587029127}
-  - {fileID: 746391500}
   - {fileID: 746391499}
-  - {fileID: 884904028}
-  - {fileID: 401943551}
   - {fileID: 401943550}
-  - {fileID: 865612260}
-  _comfortablePlaceObjects: []
+  _comfortablePlaceObjects:
+  - {fileID: 11400000, guid: 09951df62ee18de49bebafe3c0ff5771, type: 2}
+  - {fileID: 11400000, guid: ff9cb23ad4a6e5848bf417d5695848f5, type: 2}
+  - {fileID: 11400000, guid: 80e68b74fd5c755428f06fab5b301beb, type: 2}
   ChosenPage: {fileID: 1611419235}
   OptionsPage: {fileID: 746391499}
   ExitPage: {fileID: 401943550}
@@ -499,11 +496,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _comfortImage: {fileID: 11400000, guid: b8cbe43459f3c1a4b82e82d499526ccc, type: 2}
   _congregation:
+  - {fileID: 57232877}
   - {fileID: 57232876}
+  - {fileID: 846477614}
+  - {fileID: 1925166686}
   - {fileID: 1925166684}
-  _comfortablePlaceObjects:
-  - {fileID: 11400000, guid: 0b5fa0f8bc3b62a478a40d5e27bb895d, type: 2}
-  - {fileID: 11400000, guid: 1a0bd896601bccc4c8137305611a7a52, type: 2}
+  - {fileID: 1332729957}
+  - {fileID: 574837815}
+  - {fileID: 1660054184}
+  - {fileID: 1660054182}
+  - {fileID: 226208495}
+  _comfortablePlaceObjects: []
   LevelPrefab: {fileID: 7604973885769161625, guid: 84b21ca1b61f28c48a791a5b99a1d1fb, type: 3}
   PrevMenu: {fileID: 57232876}
   LevelsList: {fileID: 1925166684}
@@ -1305,13 +1308,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _comfortImage: {fileID: 11400000, guid: e00aa5dd883023c40ad11930705785e2, type: 2}
   _congregation:
+  - {fileID: 209987210}
   - {fileID: 209987209}
+  - {fileID: 169652035}
+  - {fileID: 1715921226}
   - {fileID: 1715921225}
+  - {fileID: 389607754}
   - {fileID: 1795128690}
-  _comfortablePlaceObjects:
-  - {fileID: 11400000, guid: 26687f2c6bd31cb4eb638409053f4b0a, type: 2}
-  - {fileID: 11400000, guid: 98400b945fe115044bd84ac826cca59b, type: 2}
-  - {fileID: 11400000, guid: f796ee9819988f94cb90afaed487e0c7, type: 2}
+  _comfortablePlaceObjects: []
   PrevMenu: {fileID: 209987209}
   LangChange: {fileID: 1715921225}
   CurrenLang: {fileID: 1795128690}

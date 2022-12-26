@@ -5,17 +5,17 @@ public class ComfortDropdown : ComfortablePlace
 {
 
     public ComfortImage currentImage;
-    //public Sprite currentsprite;
-    //public Color currentcolor;
     [Space]
     public ComfortText  Label;
+    [Space]
+    public ComfortImage Arrow;
+    //public Sprite currentsprite;
+    //public Color currentcolor;
     //public bool LabelalignByGeometry;
     //public int  LabelfontSize;
     //public bool LabelresizeTextForBestFit;
     //public Font Labelfont;
     //public bool LabelsupportRichText;
-    [Space]
-    public ComfortImage Arrow;
     //public Sprite Arrowsprite;
     //public Color Arrowcolor;
 }

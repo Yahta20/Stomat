@@ -1,3 +1,4 @@
+using KHNMU.Toolkit;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -25,11 +26,7 @@ public class StartMenu : MenuUI
     }
     public void ExitApp()
     {
-        Application.Quit();
-#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-#endif
-
+        ToolKit.ExitApp();
     }
 
 

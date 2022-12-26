@@ -14,6 +14,8 @@ namespace KHNMU.Toolkit
     static class ToolKit
     {
         //[Obsolete]
+
+
         public static GameObject[] CreateChildArray(GameObject go)
         {
             var resArray = new List<GameObject>();
@@ -102,6 +104,17 @@ namespace KHNMU.Toolkit
             }
             
         }
+
+        public static void ExitApp()
+        {
+            Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+
+        }
+
+
     }
             
 
