@@ -30,7 +30,7 @@ public class EditPageUI : Editor
         GUILayout.EndHorizontal();//BeginHorizontal();
         if (GUILayout.Button("Update Plans"))
         {
-            ((PageUI)target).UpdateCI();
+            ((PageUI)target).UpdateChildPlans();
         }
     }
 }
