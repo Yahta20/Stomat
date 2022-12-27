@@ -148,7 +148,7 @@ public abstract class PageUI : MonoBehaviour
         }
 
 
-        if (_congregation.Count == _comfortablePlaceObjects.Count)
+        if (_congregation.Count != _comfortablePlaceObjects.Count)
         {
             print($"Diferent List size");
         }
@@ -335,10 +335,10 @@ public abstract class PageUI : MonoBehaviour
     //RECTTRANSFORM
     private void UpdateRTplace(ComfortablePlace so, RectTransform Rtransform,  Vector2 screen)
     {
-        
+        print("sasa");
         so.sizeDelta = Rtransform.sizeDelta / screen;
         so.anchoredPosition =
-           Rtransform.anchoredPosition == Vector2.zero ? Vector2.zero : _Transform.anchoredPosition / screen;
+           Rtransform.anchoredPosition == Vector2.zero ? Vector2.zero : Rtransform.anchoredPosition / screen;
         so.anchorMin =   Rtransform.anchorMin;                  //new Vector2(0.5f, 0);
         so.anchorMax =   Rtransform.anchorMax;                  //new Vector2(0.5f, 0);
         so.pivot =       Rtransform.pivot;                      //new Vector2(0.5f, 0);
@@ -346,7 +346,7 @@ public abstract class PageUI : MonoBehaviour
     //Image
     private void UpdateIPlace(ComfortImage so, Image i, Vector2 screen)
     {
-        
+        print("sasa");
         so.color = i.color;
         so.sprite = i.sprite;
         UpdateRTplace(so,i.GetComponent<RectTransform>(), screen);
@@ -354,26 +354,28 @@ public abstract class PageUI : MonoBehaviour
     //text
     private void UpdateTPlace(ComfortText tso, Text t, Vector2 screen)
     {
-        //alignByGeometry     =;
-        //fontSize            =;
-        //resizeTextForBestFit=;
-        //font                =;
-        //supportRichText     =;
+        print("sasa");
         UpdateRTplace(tso,t.GetComponent<RectTransform>(), screen);
+        tso.alignByGeometry     =t.alignByGeometry;
+        tso.fontSize            =t.fontSize;
+        tso.resizeTextForBestFit=t.resizeTextForBestFit;
+        tso.font                =t.font;
+        tso.supportRichText     =t.supportRichText;
     }
     //Button
     private void UpdateBPlace(ComfortButton bso, Button btn, Vector2 screen)
     {
-        var image = btn.image;
-        var text = btn.GetComponentInChildren<Text>();
-        UpdateIPlace    (bso.image, image, screen);
-        UpdateTPlace    ((bso.text), text, screen);
+        print("sasa");
         UpdateRTplace   (bso, btn.GetComponent<RectTransform>(), screen);
+        var image = btn.image;
+        var text = btn.transform.GetChild(0).GetComponent<Text>();
+        UpdateIPlace    (bso.image, image, screen);
+        UpdateTPlace    (bso.text, text, screen);
     }
     //Dropdown
     private void UpdateDDPlace(ComfortDropdown so, Dropdown dd, Vector2 screen)
     {
-
+        print("sasa");
         /*
         SetTextPlaning(so.Label, dd.captionText, screen);
         SetImagePlaning(so.currentImage, dd.GetComponent<Image>(), screen);
@@ -392,7 +394,7 @@ public abstract class PageUI : MonoBehaviour
     //Input
     private void UpdateIPPlace(ComfortInput so, InputField ip, Vector2 screen)
     {
-
+        print("sasa");
 
         /*
         var image = dd.GetComponent<Image>();
@@ -407,7 +409,7 @@ public abstract class PageUI : MonoBehaviour
     //Scrollbar
     private void UpdateSBPlace(ComfortScrollbar so, Scrollbar sb, Vector2 screen)
     {
-
+        print("sasa");
         var image = sb.handleRect.GetComponent<Image>();
         UpdateIPlace(so.handle, image, screen);
         UpdateRTplace(so, sb.GetComponent<RectTransform>(), screen);
@@ -415,6 +417,7 @@ public abstract class PageUI : MonoBehaviour
     //ScrollRect
     private void UpdateSRPlace(ComfortScroll so, ScrollRect sr, Vector2 screen)
     {
+        print("sasa");
         //
         //var image = sb.handleRect.GetComponent<Image>();
         //UpdateIPlace(so.handle, image, screen);
@@ -446,6 +449,7 @@ public abstract class PageUI : MonoBehaviour
     }
     //Toggle
     private void UpdateTGPlace(ComfortToggle so, Toggle tg, Vector2 screen) {
+        print("sasa");
         UpdateIPlace(so.currentImage, tg.GetComponentInChildren<Image>(), screen);
         UpdateIPlace(so.ChekMark, tg.GetComponentInChildren<Image>().GetComponentInChildren<Image>(), screen);
 
@@ -459,7 +463,8 @@ public abstract class PageUI : MonoBehaviour
     {
         if (UnityEditor.EditorApplication.isPlaying == true)
         {
-
+            print($"updating...");
+            UpdateCI();
             var screen = new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height);
             if (_congregation.Count == _comfortablePlaceObjects.Count &
                 _congregation.Count != 0 &
@@ -540,7 +545,7 @@ public abstract class PageUI : MonoBehaviour
                 }
             }
         }
-
+        print($"updating finish");
 
     }
     public void PlansForChild()

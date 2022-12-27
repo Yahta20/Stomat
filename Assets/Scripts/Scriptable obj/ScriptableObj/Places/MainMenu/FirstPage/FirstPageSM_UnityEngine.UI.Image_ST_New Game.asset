@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92158bd9bf5aee844833cb2c7baed98f, type: 3}
   m_Name: FirstPageSM_UnityEngine.UI.Image_ST_New Game
   m_EditorClassIdentifier: 
-  anchoredPosition: {x: 0, y: 0}
+  anchoredPosition: {x: 0.0053274473, y: 0.22239874}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
   anchorMin: {x: 0, y: 0}
   anchorMax: {x: 0, y: 0}
   anchoredPosition3D: {x: 0, y: 0, z: 0}
-  sizeDelta: {x: 0, y: 0}
+  sizeDelta: {x: 0.26011527, y: 0.086370185}
   pivot: {x: 0, y: 0}
-  sprite: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  sprite: {fileID: 21300000, guid: 6b68c3b3498064b49b7a25398583c3df, type: 3}
+  color: {r: 1, g: 1, b: 1, a: 1}
