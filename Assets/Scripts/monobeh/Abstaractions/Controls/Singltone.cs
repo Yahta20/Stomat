@@ -31,7 +31,7 @@ public abstract class Singlton
     static      Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>> MsgHistory
         = new   Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>>();
 
-   protected void Awake() {
+   protected virtual void Awake() {
         if (instance == null)
         { // Экземпляр менеджера был найден
             instance = this; // Задаем ссылку на экземпляр объекта

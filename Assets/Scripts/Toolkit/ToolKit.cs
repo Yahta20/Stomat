@@ -16,6 +16,7 @@ namespace KHNMU.Toolkit
         //[Obsolete]
 
 
+#if UNITY_EDITOR
         public static GameObject[] CreateChildArray(GameObject go)
         {
             var resArray = new List<GameObject>();
@@ -94,6 +95,7 @@ namespace KHNMU.Toolkit
 
 
         }
+#endif
 
         public static void EraseChildObject(Transform parent) {
             for (int i = 0; i < parent.childCount; i++)
@@ -104,6 +106,10 @@ namespace KHNMU.Toolkit
             }
             
         }
+
+
+
+
 
         public static void ExitApp()
         {
