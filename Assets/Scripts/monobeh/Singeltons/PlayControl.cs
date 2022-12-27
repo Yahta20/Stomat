@@ -34,7 +34,9 @@ public class PlayControl : Singlton,IPlayerStateSwitcher
         _diapState = new List<BaseGameState>()
         {
             new CutsceneState(this,this),
-            new LoadingState(this,this)
+            new LoadingState(this,this),
+            new MovingState(this,this),
+            new UIView(this,this)
         };
     }
 

@@ -7,29 +7,13 @@ using System;
 using UnityEditor;
 using KHNMU.Toolkit;
 
-[InitializeOnLoad]
+//[InitializeOnLoad]
 [RequireComponent(typeof(Image))]
 public abstract class PageUI : MonoBehaviour
 {
     protected Image         _Font;
     protected RectTransform _Transform;
-    //protected PlaningUI     _Interier;
-
-    /*
-    recttransf
-    Text txt;// MaskableGraphic :Graphic : UIBehaviour          //*
-    Image i;//create MaskableGraphic : Graphic, UIBehaviour,    //*
-    Toggle t;//             Selectable : UIBehaviour,           //*
-    ToggleGroup tg;//                   :UIBehaviour            //
-    Dropdown dd;//           Selectable : UIBehaviour,          //*
-    ScrollRect sr;//        ScrollRect : UIBehaviour,           //*
-    InputField inf;//       Selectable : UIBehaviour            //*
-    Scrollbar scb;//        Selectable : UIBehaviour,           //*
-    Button btn;//           Selectable : UIBehaviour,           //*
-    Slider sld;//           Selectable : UIBehaviour,           //*
-    //public GameObject[] _congregation;
-     */
-
+    
     public ComfortImage _comfortImage;
     public List<UIBehaviour> _congregation;
 
