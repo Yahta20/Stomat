@@ -23,5 +23,5 @@ MonoBehaviour:
   alignByGeometry: 0
   fontSize: 0
   resizeTextForBestFit: 0
-  font: {fileID: 0}
+  font: {fileID: 12800000, guid: 3586d52533af5dc4b81e82d3270a28b4, type: 3}
   supportRichText: 0
