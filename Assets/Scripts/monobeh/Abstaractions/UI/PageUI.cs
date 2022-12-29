@@ -308,13 +308,17 @@ public abstract class PageUI : MonoBehaviour
                 //print(_Transform.sizeDelta);
                 //print(_Font.rectTransform.anchoredPosition);
                 UpdateIPlace(_comfortImage,_Font,screen);
-
             }
             else {
                 var p = ToolKit.CreateSccriptableObject(new ComfortImage(), "Assets/Scripts/Scriptable obj/ScriptableObj/Places", 
                     this.GetType().ToString());
             }
         }
+        //EditorUtility.SetDirty(_comfortImage);
+        //AssetDatabase.SaveAssetIfDirty(_comfortImage);
+        //AssetDatabase.SaveAssets();
+        //AssetDatabase.Refresh();
+
     }
     //RECTTRANSFORM
     private void UpdateRTplace(ComfortablePlace so, RectTransform Rtransform,  Vector2 screen)
@@ -326,11 +330,15 @@ public abstract class PageUI : MonoBehaviour
         so.anchorMin =   Rtransform.anchorMin;                  //new Vector2(0.5f, 0);
         so.anchorMax =   Rtransform.anchorMax;                  //new Vector2(0.5f, 0);
         so.pivot =       Rtransform.pivot;                      //new Vector2(0.5f, 0);
+        EditorUtility.SetDirty(so);
+        AssetDatabase.SaveAssetIfDirty(so);
+        AssetDatabase.SaveAssets();
+
+        AssetDatabase.Refresh();
     }
     //Image
     private void UpdateIPlace(ComfortImage so, Image i, Vector2 screen)
     {
-        print("sasa");
         so.color = i.color;
         so.sprite = i.sprite;
         UpdateRTplace(so,i.GetComponent<RectTransform>(), screen);
@@ -338,7 +346,7 @@ public abstract class PageUI : MonoBehaviour
     //text
     private void UpdateTPlace(ComfortText tso, Text t, Vector2 screen)
     {
-        print("sasa");
+   
         UpdateRTplace(tso,t.GetComponent<RectTransform>(), screen);
         tso.alignByGeometry     =t.alignByGeometry;
         tso.fontSize            =t.fontSize;
@@ -349,7 +357,7 @@ public abstract class PageUI : MonoBehaviour
     //Button
     private void UpdateBPlace(ComfortButton bso, Button btn, Vector2 screen)
     {
-        print("sasa");
+       
         UpdateRTplace   (bso, btn.GetComponent<RectTransform>(), screen);
         var image = btn.image;
         var text = btn.transform.GetChild(0).GetComponent<Text>();
@@ -359,13 +367,7 @@ public abstract class PageUI : MonoBehaviour
     //Dropdown
     private void UpdateDDPlace(ComfortDropdown so, Dropdown dd, Vector2 screen)
     {
-        print("sasa");
-        /*
-        SetTextPlaning(so.Label, dd.captionText, screen);
-        SetImagePlaning(so.currentImage, dd.GetComponent<Image>(), screen);
-        SetImagePlaning(so.Arrow, dd.transform.GetChild(1).GetComponent<Image>(), screen);
-        SetRectPlaning(so, dd.GetComponent<RectTransform>(), screen);
-         */
+       
 
         var image = dd.GetComponent<Image>();
         var text = dd.captionText;
@@ -378,7 +380,7 @@ public abstract class PageUI : MonoBehaviour
     //Input
     private void UpdateIPPlace(ComfortInput so, InputField ip, Vector2 screen)
     {
-        print("sasa");
+      
 
         /*
         var image = dd.GetComponent<Image>();
@@ -393,7 +395,7 @@ public abstract class PageUI : MonoBehaviour
     //Scrollbar
     private void UpdateSBPlace(ComfortScrollbar so, Scrollbar sb, Vector2 screen)
     {
-        print("sasa");
+        
         var image = sb.handleRect.GetComponent<Image>();
         UpdateIPlace(so.handle, image, screen);
         UpdateRTplace(so, sb.GetComponent<RectTransform>(), screen);
@@ -401,10 +403,7 @@ public abstract class PageUI : MonoBehaviour
     //ScrollRect
     private void UpdateSRPlace(ComfortScroll so, ScrollRect sr, Vector2 screen)
     {
-        print("sasa");
-        //
-        //var image = sb.handleRect.GetComponent<Image>();
-        //UpdateIPlace(so.handle, image, screen);
+        
         var image = sr.GetComponent<Image>();
         var vievPort = sr.viewport;
         var content = sr.content;
@@ -419,21 +418,13 @@ public abstract class PageUI : MonoBehaviour
         UpdateRTplace(so, sr.GetComponent<RectTransform>(), screen);
 
         
-        /*
-        SetImagePlaning     (so.image, image, screen);
-        SetRectPlaning      (so.viewPort, vievPort, screen);
-        SetRectPlaning      (so.Content, content, screen);
-        SetScrollbarPlaning (so.vertical, vscrolbar, screen);
-        SetScrollbarPlaning (so.horizontal, hscrolbar, screen);
-        SetRectPlaning(so, sr.GetComponent<RectTransform>(), screen);
-         */
         
 
 
     }
     //Toggle
     private void UpdateTGPlace(ComfortToggle so, Toggle tg, Vector2 screen) {
-        print("sasa");
+       
         UpdateIPlace(so.currentImage, tg.GetComponentInChildren<Image>(), screen);
         UpdateIPlace(so.ChekMark, tg.GetComponentInChildren<Image>().GetComponentInChildren<Image>(), screen);
 
@@ -526,11 +517,16 @@ public abstract class PageUI : MonoBehaviour
                             break;
 
                     }
+                    //EditorUtility.SetDirty(_comfortablePlaceObjects[i]);
+                    //AssetDatabase.SaveAssetIfDirty(_comfortablePlaceObjects[i]);
                 }
             }
         }
-        print($"updating finish");
 
+
+        AssetDatabase.SaveAssets();
+        print($"updating finish");
+        AssetDatabase.Refresh();
     }
     public void PlansForChild()
     {
@@ -601,43 +597,3 @@ public abstract class PageUI : MonoBehaviour
 #endif
 
 }   
-
-
-        //EditorApplication.update +=
-        //UpdateInfo();
-        //_comfortImage.setPLase(_Transform, screen);
-        //if (_congregation.Count == _comfortablePlaceObjects.Count)
-        //{
-        //    
-        //    for (int i = 0; i < _congregation.Count; i++)
-        //    {
-        //        _comfortablePlaceObjects[i].setPLase(_congregation[i].GetComponent<RectTransform>(),screen);
-        //    }
-        //
-        //}
-    //static
-        //static
-        //_congregation = ToolKit.CreateChildList(this.gameObject);
-
-    //[MenuItem("Update CI")]
-
-                //_comfortImage.sizeDelta = _Transform.sizeDelta / screen;
-                //_comfortImage.anchoredPosition =
-                //_Transform.anchoredPosition == Vector2.zero ? Vector2.zero : _Transform.sizeDelta / screen;
-                //_comfortImage.anchorMin = _Transform.anchorMin;                  //new Vector2(0.5f, 0);
-                //_comfortImage.anchorMax = _Transform.anchorMax;                  //new Vector2(0.5f, 0);
-                //_comfortImage.pivot = _Transform.pivot;                      //new Vector2(0.5f, 0);
-                //_comfortImage.color = _Font.color;
-                //_comfortImage.sprite = _Font.sprite;
-                //var so = Resources.GetBuiltinResource(_comfortImage.GetType(), p);
-                //screen/  _Transform.anchoredPosition     ;  //new Vector2(0, _Transform.sizeDelta.y * 0.38f*0.5f); ;
-        //UnityEditor.EditorApplication.isPlaying == false;
-        //if (Editor)
-        //{
-        //
-        //}
-        //
-    //public List<RectTransform> cildItems;
-
-    //protected List<UIBehaviour> cildItems;
-    //protected List<Action> cildAction;

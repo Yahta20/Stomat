@@ -21,6 +21,8 @@ public class OptionPageSM : PageUI
 
     protected override void setSize(Vector2 screen)
     {
+        base.setSize(screen);
+        /*
         _Font.color = new Color(0, 0, 0, 0);
         _Transform.sizeDelta = screen;
         _Transform.anchoredPosition = Vector2.zero;
@@ -55,6 +57,7 @@ public class OptionPageSM : PageUI
         PrevButText     .resizeTextForBestFit = true;
         LangChangeText  .resizeTextForBestFit = true;
         CurrenLang      .resizeTextForBestFit = true;
+         */
     }
 
     // Start is called before the first frame update

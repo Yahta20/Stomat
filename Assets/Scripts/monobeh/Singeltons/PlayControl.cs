@@ -33,17 +33,38 @@ public class PlayControl : Singlton,IPlayerStateSwitcher
     {
         _diapState = new List<BaseGameState>()
         {
+            new UIViewState(this,this),
             new CutsceneState(this,this),
             new LoadingState(this,this),
-            new MovingState(this,this),
-            new UIView(this,this)
+            new MovingState(this,this)
         };
+        _curState = _diapState[0];
     }
 
-    // Update is called once per frame
+
+    public void CutScene()
+    {
+        _curState.CutScene();
+    }
+
+    public void Loading()
+    {
+        _curState.Loading();
+    }
+
+    public void Moving()
+    {
+        _curState.Moving();
+    }
+    public void UIview()
+    {
+        _curState.UIview();
+    }
+
+
     void Update()
     {
-        
+        _curState.Update();
     }
 
     public void SwitchPlayerState<T>() where T : BaseGameState

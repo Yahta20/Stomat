@@ -16,12 +16,12 @@ MonoBehaviour:
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
   anchorMin: {x: 0, y: 0}
-  anchorMax: {x: 0, y: 0}
+  anchorMax: {x: 1, y: 1}
   anchoredPosition3D: {x: 0, y: 0, z: 0}
   sizeDelta: {x: 0, y: 0}
   pivot: {x: 0, y: 0}
   alignByGeometry: 0
   fontSize: 0
-  resizeTextForBestFit: 0
+  resizeTextForBestFit: 1
   font: {fileID: 12800000, guid: 3586d52533af5dc4b81e82d3270a28b4, type: 3}
   supportRichText: 0
