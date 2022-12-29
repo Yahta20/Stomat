@@ -12,15 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7750f7b4cdc0b2747af9adc0fc539eaa, type: 3}
   m_Name: FirstPageSM_UnityEngine.UI.Button_ST_New Game
   m_EditorClassIdentifier: 
-  anchoredPosition: {x: 0, y: 0}
+  anchoredPosition: {x: -0.002249066, y: -0.09063766}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
-  anchorMin: {x: 0, y: 0}
-  anchorMax: {x: 0, y: 0}
+  anchorMin: {x: 0.5, y: 1}
+  anchorMax: {x: 0.5, y: 1}
   anchoredPosition3D: {x: 0, y: 0, z: 0}
-  sizeDelta: {x: 0, y: 0}
-  pivot: {x: 0, y: 0}
-  sprite: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
-  image: {fileID: 11400000, guid: 5c4aa18687268654f90828b158db24e1, type: 2}
-  text: {fileID: 11400000, guid: 4c6d68403f5ff694e9dc28a4585fb68e, type: 2}
+  sizeDelta: {x: 0.24929354, y: 0.08827055}
+  pivot: {x: 0.5, y: 0.5}
+  image: {fileID: 11400000, guid: b9bca4f02c4b37e428a88414152c6a04, type: 2}
+  text: {fileID: 11400000, guid: 950e3588ca4f3e04590821bacf74e77e, type: 2}

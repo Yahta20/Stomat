@@ -311,15 +311,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc565dca456ffdd4bbcce3436aa1112b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _comfortImage: {fileID: 11400000, guid: 7f3987373dd794247a631710f7dcff93, type: 2}
+  _comfortImage: {fileID: 11400000, guid: 8402b87e9b592f941841885289c186c0, type: 2}
   _congregation:
   - {fileID: 1611419235}
   - {fileID: 746391499}
   - {fileID: 401943550}
   _comfortablePlaceObjects:
-  - {fileID: 11400000, guid: 09951df62ee18de49bebafe3c0ff5771, type: 2}
-  - {fileID: 11400000, guid: ff9cb23ad4a6e5848bf417d5695848f5, type: 2}
-  - {fileID: 11400000, guid: 80e68b74fd5c755428f06fab5b301beb, type: 2}
+  - {fileID: 11400000, guid: fcb8cdbd7803db247a33658041998bc2, type: 2}
+  - {fileID: 11400000, guid: 797afb81ad7781b44b38ca663b5faa63, type: 2}
+  - {fileID: 11400000, guid: 1fe7f7bb39fb41b469078576967dd48e, type: 2}
   ChosenPage: {fileID: 1611419235}
   OptionsPage: {fileID: 746391499}
   ExitPage: {fileID: 401943550}
@@ -502,6 +502,7 @@ MonoBehaviour:
   - {fileID: 1925166686}
   - {fileID: 1925166684}
   - {fileID: 1332729957}
+  - {fileID: 1332729956}
   - {fileID: 574837815}
   - {fileID: 1660054184}
   - {fileID: 1660054182}
@@ -1308,14 +1309,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _comfortImage: {fileID: 11400000, guid: e00aa5dd883023c40ad11930705785e2, type: 2}
   _congregation:
-  - {fileID: 209987210}
   - {fileID: 209987209}
-  - {fileID: 169652035}
-  - {fileID: 1715921226}
   - {fileID: 1715921225}
-  - {fileID: 389607754}
   - {fileID: 1795128690}
-  _comfortablePlaceObjects: []
+  _comfortablePlaceObjects:
+  - {fileID: 11400000, guid: 8e8f5792441d1bb4191ef9113bb589eb, type: 2}
+  - {fileID: 11400000, guid: 3b8c6e11fbb2ba4429eb50b458a26c3e, type: 2}
+  - {fileID: 11400000, guid: e4b2b0dfb7ae9464baa510c803ce72c3, type: 2}
   PrevMenu: {fileID: 209987209}
   LangChange: {fileID: 1715921225}
   CurrenLang: {fileID: 1795128690}

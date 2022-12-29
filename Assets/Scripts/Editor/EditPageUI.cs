@@ -5,6 +5,7 @@ using UnityEngine;
 using KHNMU.Toolkit;
 //[CustomEditor(typeof(FirstPageSM))]
 [CustomEditor(typeof(PageUI),true)]
+//[CustomEditor(typeof(PageUI))]
 
 public class EditPageUI : Editor
 {
