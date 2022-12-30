@@ -45,6 +45,11 @@ public class ScenaController : MonoBehaviour
         currentScene = SceneManager.GetActiveScene();
         //onChangeScene += OnEnable;
     }
+    private void OnDisable()
+    {
+        UICustomES.Instance.onBlockCursor   -= hideCursor;
+        UICustomES.Instance.onReleaseCursor -= showCursor;
+    }
     private void OnEnable()
     {
         ChekScene();
@@ -66,11 +71,6 @@ public class ScenaController : MonoBehaviour
         currentState = GameState.notes;
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.Confined;
-    }
-    private void OnDisable()
-    {
-        UICustomES.Instance.onBlockCursor   -= hideCursor;
-        UICustomES.Instance.onReleaseCursor -= showCursor;
     }
     
     private void ChekScene()
