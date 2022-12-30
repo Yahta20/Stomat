@@ -14,7 +14,7 @@ public abstract class Singlton
         get {
             if (instance==null)
             {
-                var Sgo = new GameObject($"{typeof(Singlton).ToString()}/");
+                var Sgo = new GameObject($"{typeof(Singlton)}/{instance.GetType()}");
                 Sgo.AddComponent<Singlton>();
                 instance = Sgo.GetComponent<Singlton>();
             }

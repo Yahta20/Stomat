@@ -17,14 +17,17 @@ public class PlayControl : Singlton,IPlayerStateSwitcher
 {
 
     private void Awake()
-    {
+    { 
         base.Awake();
-
+        previosScene = SceneManager.GetActiveScene();
+        currentScene = SceneManager.GetActiveScene();
     }
     public Scene previosScene;
     public Scene currentScene;
     public SceneInstance loadScene;
     public event Action onChangeScene;
+
+    public BaseGameState CuState { get => _curState;}
 
     private BaseGameState _curState;
     private List<BaseGameState> _diapState;
@@ -61,7 +64,18 @@ public class PlayControl : Singlton,IPlayerStateSwitcher
         _curState.UIview();
     }
 
-
+    private void hideCursor()
+    {
+        //currentState = GameState.moving;
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
+    private void showCursor()
+    {
+        //currentState = GameState.notes;
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+    }
     void Update()
     {
         _curState.Update();
