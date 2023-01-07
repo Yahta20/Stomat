@@ -8,7 +8,7 @@ public class VocalUI : PageUI
 {
     public GameObject AskingPrefab;
 
-    public PlaningUI Interier;
+    //public PlaningUI Interier;
 
     public Button HideB;
     public Button AnswerInteractive;
@@ -81,14 +81,17 @@ public class VocalUI : PageUI
 
     public void Show()
     {
-        UICustomES.Instance.ReleaseCursor();
+        //UICustomES.Instance.ReleaseCursor();
+        PlayControl.Instance.SwitchPlayerState<UIViewState>();
+
         _Transform.anchoredPosition = new Vector2(0, _Transform.anchoredPosition.y);
        
     }
 
     public void Hide()
     {
-        UICustomES.Instance.BlockCursor();
+        //UICustomES.Instance.BlockCursor();
+        PlayControl.Instance.SwitchPlayerState<MovingState>();
         _Transform.anchoredPosition = new Vector2(UICustomES.Instance.screenResolution.x, _Transform.anchoredPosition.y);
     }
 }

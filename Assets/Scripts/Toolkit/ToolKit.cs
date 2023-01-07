@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.EventSystems;
 
 namespace KHNMU.Toolkit
@@ -109,7 +110,13 @@ namespace KHNMU.Toolkit
 
 
 
-
+      //  public static void LoadScene(string scene)
+      //  {
+      //      Addressables.LoadSceneAsync(scene, LoadSceneMode.Single).Completed += (asyncHandle) =>
+      //      {
+      //          loadScene = asyncHandle.Result;
+      //      };
+      //  }
 
         public static void ExitApp()
         {

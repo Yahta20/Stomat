@@ -22,8 +22,15 @@ public abstract class PageUI : MonoBehaviour
 
     public virtual void OnDisable()
     {
-        UICustomES.Instance.onChangeScreeSize -= setSize;
+        if (UICustomES.Instance!=null)
+        {
+            UICustomES.Instance.onChangeScreeSize -= setSize;
+        }
+        if (Localizator.Instance!=null)
+        {
         Localizator.Instance.OnChangetLang -= setLang;
+
+        }
     }
 
 

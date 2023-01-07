@@ -3,43 +3,56 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Singlton
-    //<T>
-    : MonoBehaviour //where T:MonoBehaviour
+public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
 {
-
-
-    public static Singlton Instance
+    private  static T _instance;
+    //private static object _lock = new object();
+    public static T Instance
     {
-        get {
-            if (instance==null)
-            {
-                var Sgo = new GameObject($"{typeof(Singlton)}/{instance.GetType()}");
-                Sgo.AddComponent<Singlton>();
-                instance = Sgo.GetComponent<Singlton>();
+        get
+        {
+            //if (aplicationQuit)
+            //{
+            //    return null;
+            //}
+            //lock (_lock)
+            //{
+            //    {
+            //        //return 
+            //        _instance=new GameObject(typeof(T).ToString()).AddComponent<T>();
+            //    }
+            //}
+            /*
+            if (_instance == null) { 
             }
-            return instance; } 
-        private set { instance = value; }
+             */
+            return _instance;
+        }
+        private set { }
     }
 
-    protected static Singlton instance;
 
-    
     static      Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour,Message>>> MsgList 
         = new   Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour, Message>>>();
 
     static      Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>> MsgHistory
         = new   Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>>();
+    private static bool aplicationQuit =false;
 
-   protected virtual void Awake() {
-        if (instance == null)
+    protected virtual void Awake() {
+        if (_instance == null)
         { // Экземпляр менеджера был найден
-            instance = this; // Задаем ссылку на экземпляр объекта
-            DontDestroyOnLoad(this);
+            _instance = (T) this;
+            DontDestroyOnLoad((T)this);
             
             return;
         }
-        Destroy(gameObject); // Удаляем объект
+        
+            Destroy(gameObject); // Удаляем объект
 
+
+    }
+    protected virtual void OnDestroy() {
+        aplicationQuit = true;    
     }
 }
