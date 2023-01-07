@@ -3,8 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UICustomES : MonoBehaviour
+public class UICustomES : Singleton<UICustomES>//MonoBehaviour
 {
+    /*
     public static UICustomES Instance
     {
         get
@@ -22,6 +23,7 @@ public class UICustomES : MonoBehaviour
         }
     }
     static UICustomES instance;
+     */
 
     public event Action <string> onInfoTextShow;
     public event Action onInfoTextHide;
@@ -148,8 +150,10 @@ public class UICustomES : MonoBehaviour
             onReleaseCursor();
         }
     }
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
+        /*
         if (instance == null)
         { // Экземпляр менеджера был найден
             instance = this; // Задаем ссылку на экземпляр объекта
@@ -159,7 +163,7 @@ public class UICustomES : MonoBehaviour
         }
 
             Destroy(gameObject); // Удаляем объект
-
+       */
     }
     private void FixedUpdate()
     {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class QuestMaster : MonoBehaviour
+public class QuestMaster : Singleton<QuestMaster>// MonoBehaviour
 {
     //public static QuestMaster Instance;
+    /*
     public static QuestMaster Instance
     {
         get //=>
@@ -22,6 +23,7 @@ public class QuestMaster : MonoBehaviour
     }
     //public 
     static QuestMaster _instance;
+     */
     public PacientStat currentPacient {get; private set;}
     public PacientStat[] Pacients;
 
@@ -40,8 +42,10 @@ public class QuestMaster : MonoBehaviour
             onQuestComplete();
         }
     }
-    void Awake()
+    protected override void Awake()
     {
+        base.Awake();          
+        /*
          // «адаем ссылку на экземпл€р объекта
         if (Instance == null)
         { // Ёкземпл€р менеджера был найден
@@ -50,7 +54,7 @@ public class QuestMaster : MonoBehaviour
             return;
         }
             Destroy(gameObject); // ”дал€ем объект
-                   
+         */
             // Ёкземпл€р объекта уже существует на сцене
     }
     private void OnEnable()
@@ -61,13 +65,13 @@ public class QuestMaster : MonoBehaviour
         }
         //print(ScenaController.Instance);
         //print(ScenaController.Instance.currentScene);
-        if (ScenaController.Instance.currentScene.name == "Cabinet")
-        {
-            if (currentPacient!=null)
-            {
-                CreatingQuest();
-            }
-        }
+        //if (ScenaController.Instance.currentScene.name == "Cabinet")
+        //{
+        //    if (currentPacient!=null)
+        //    {
+        //        CreatingQuest();
+        //    }
+        //}
     }
 
     public void SetPatient(int i) {

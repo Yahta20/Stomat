@@ -18,7 +18,10 @@ public class CutsceneState : BaseGameState
     {}
 
     public override void Start()
-    {}
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+    }
 
     public override void Stop()
     {}

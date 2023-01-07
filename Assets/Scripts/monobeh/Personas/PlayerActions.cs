@@ -75,12 +75,10 @@ public class PlayerActions : MonoBehaviour
                 case ActionObj.None:
                     break;
                 case ActionObj.Pacient:
-                    
                     UICustomES.Instance.AskingBarShowT();
                     UICustomES.Instance.InfoTextHideT();
                     break;
                 case ActionObj.Medcard:
-                    
                     UICustomES.Instance.MedicalCardShowT();
                     UICustomES.Instance.InfoTextHideT();
                     break;
@@ -106,7 +104,9 @@ public class PlayerActions : MonoBehaviour
 
 
         //Debug.DrawRay(raypoint.transform.position, raypoint.transform.forward, Color.green,4);
-            if (ScenaController.Instance.currentState == GameState.moving)
+            //ScenaController.Instance.currentState == GameState.moving
+            if (
+            PlayControl.Instance.CuState.GetType() == typeof(MovingState))
             {
         if (Physics.Raycast(ray, out hit, 4f))
         {
@@ -137,82 +137,4 @@ public class PlayerActions : MonoBehaviour
         }
        }
     }
-
-
 }
-
-                //QuestButton();
-                //print("wer");
-        //mInputs.Player.Action.canceled +=
-        //    ctx =>
-        //    {
-        //        action = false;
-        //    };
-                //print(quest);
-                // quest = true;
-                //print(quest);
-        //mInputs.Player.Quest.canceled +=
-        //    ctx =>
-        //    {
-        //        quest = false;
-        //        //print(quest);
-        //    };
-                        //if (action)
-                        //{
-                        //    UIEventSystem.Instance.AskingBarShowT();
-                        //    UIEventSystem.Instance.InfoTextHideT();
-                        //}
-                        //if (action)
-                        //{
-                        //    UIEventSystem.Instance.AskingBarShowT();
-                        //    UIEventSystem.Instance.InfoTextHideT();
-                        //}
-            /*
-            switch (ScenaManager.Instance.currentState)
-            {
-                case gamestate.moving:
-                    switch (hit.collider.gameObject.name)
-                    {
-                        case "Pacient":
-                            UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
-                            if (action)
-                            {
-                                UIEventSystem.Instance.AskingBarShowT();
-                                UIEventSystem.Instance.InfoTextHideT();
-                            }
-                            break;
-                        case "Exit":
-                            UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
-                            if (action)
-                            {
-                                //ScenaManager.Instance.currentState = gamestate.asking;
-                                //SceneManager.LoadScene(0);
-                                UIEventSystem.Instance.ResultShowT();
-                            }
-                            break;
-                        case "Medcard":
-                            UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
-                            if (action)
-                            {
-                                UIEventSystem.Instance.MedicalCardShowT();
-                            }
-                            break;
-                        default:
-
-                            break;
-
-                    }
-                    break;
-                case gamestate.asking:
-                    break;
-                default:
-                    //UIEventSystem.Instance.InfoTextHideT();
-                    break;
-            }
-          */
-        //    UIEventSystem.Instance.InfoTextHideT();
-        //if (ScenaManager.Instance.currentState == gamestate.moving&& quest)
-        //{
-        //    UIEventSystem.Instance.AskingBarShowT();
-        //}
-            //UIEventSystem.Instance.QuestBarShowT();

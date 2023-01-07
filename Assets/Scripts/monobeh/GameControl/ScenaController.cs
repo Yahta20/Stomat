@@ -10,10 +10,10 @@ using UnityEngine.AddressableAssets;
 public class ScenaController : MonoBehaviour
 {
     public static ScenaController Instance { get {
-            if (instance == null)
-            {
-                return new ScenaController();
-            }
+            //if (instance == null)
+            //{
+            //    return new ScenaController();
+            //}
                 return instance;
             
         } set {

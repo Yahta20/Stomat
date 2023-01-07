@@ -23,7 +23,7 @@ public class ResultMenu : MonoBehaviour
     {
 
         repeatB.onClick.AddListener(() => {
-            ScenaController.Instance.LoadScene("Cabinet");
+            PlayControl.Instance.LoadScene("Cabinet");
         });
         mainmenuB.onClick.AddListener(() => {
 
@@ -35,12 +35,13 @@ public class ResultMenu : MonoBehaviour
             }
 
 #endif
-            ScenaController.Instance.LoadScene(0);
+            PlayControl.Instance.LoadScene(0);
         });
         Hide();
     }
     private void Hide()
     {
+        PlayControl.Instance.SwitchPlayerState<MovingState>();
         UICustomES.Instance.BlockCursor();
         Resblank.SetActive(false);
     }
@@ -48,7 +49,8 @@ public class ResultMenu : MonoBehaviour
 
     private void Show()
     {
-        UICustomES.Instance.ReleaseCursor();
+        PlayControl.Instance.SwitchPlayerState<UIViewState>();
+        //UICustomES.Instance.ReleaseCursor();
         Resblank.SetActive(true);
         setText();
     }

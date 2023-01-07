@@ -9,10 +9,9 @@ public enum gameMode
     examinate = 1
 }
 
-public class Localizator : MonoBehaviour
+public class Localizator : Singleton<Localizator>
 {
     /*
-     */
 
     public static Localizator Instance { get //=>
         {
@@ -25,6 +24,7 @@ public class Localizator : MonoBehaviour
         }// _instance == null ? new Localizator(): _instance;
         set { _instance = value; }                                                           
     }
+     */
     //public 
     static Localizator _instance;
     public TextAsset LocalizationText;
@@ -46,17 +46,20 @@ public class Localizator : MonoBehaviour
 
     //public event Action onReleaseCursor;
 
-    private void Awake()
+    protected override void Awake()
     {
+        /*
         //_instance.init();
         if (_instance ==  null)
         { // Экземпляр менеджера был найден
             _instance = this; // Задаем ссылку на экземпляр объекта
         DontDestroyOnLoad(this);
-        loadLang();
             return;
         }
-            Destroy(gameObject); // Удаляем объект
+        Destroy(gameObject); // Удаляем объект
+         */
+        base.Awake();
+        loadLang();
     }
     
     private void loadLang()
