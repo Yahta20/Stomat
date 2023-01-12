@@ -13,11 +13,13 @@ public abstract class PageUI : MonoBehaviour
 {
     protected Image         _Font;
     protected RectTransform _Transform;
-    
-    public ComfortImage _comfortImage;
-    public List<UIBehaviour> _congregation;
 
-    public List<ComfortablePlace> _comfortablePlaceObjects;
+    public ComfortImage _comfortImage;
+        
+        //ScriptableObject.CreateInstance<ComfortImage>();
+    public List<UIBehaviour>        _congregation;
+
+    public List<ComfortablePlace>   _comfortablePlaceObjects;
 
 
     public virtual void OnDisable()
@@ -440,7 +442,17 @@ public abstract class PageUI : MonoBehaviour
     }
 
 
-
+    ref int FindFirst(int[] numbers, Func<int, bool> predicate)
+    {
+        for (int i = 0; i < numbers.Length; i++)
+        {
+            if (predicate(numbers[i]))
+            {
+                return ref numbers[i];
+            }
+        }
+        throw new InvalidOperationException("No element satisfies the given condition.");
+    }
     public void UpdateChildPlans()
     {
         if (UnityEditor.EditorApplication.isPlaying == true)
@@ -453,6 +465,16 @@ public abstract class PageUI : MonoBehaviour
                 0 != _comfortablePlaceObjects.Count
                 )
             {
+                if (Predecat1(
+                    _congregation,//;
+
+                    _comfortablePlaceObjects//;
+                    ))
+                {
+
+
+
+                }
                 for (int i = 0; i < _congregation.Count; i++)
                 {
                     switch (_congregation[i])
@@ -535,71 +557,125 @@ public abstract class PageUI : MonoBehaviour
         print($"updating finish");
         AssetDatabase.Refresh();
     }
+    
+    private bool Predecat1(List<UIBehaviour> congregation, List<ComfortablePlace> comfortablePlaceObjects)
+    {
+        bool sensetiv   = true;
+        bool sensetiv1  = true;
+        bool sensetiv2  = true;
+        int[]   iterators   = new int   [3] {0, 0, 0};
+        bool[]  sens        = new bool  [3] {true, true, true};
+        
+        do
+        {
+            do
+            {
+                if (congregation[iterators[0]]==comfortablePlaceObjects[iterators[0]])
+                {
+                    
+
+                }
+            } while (sens[1]);
+                do
+                {
+                  //  congregation
+                } while (sens[0]);
+        } while (sens[2]);  
+
+
+
+        throw new NotImplementedException("No element satisfies the given condition.");
+    }
+
     public void PlansForChild()
     {
+        _comfortImage= _comfortImage==null?
+        (ComfortImage)ToolKit.CiRSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{typeof(Image).ToString()}_{gameObject.name}"):_comfortImage;
         for (int i = 0; i < _congregation.Count; i++)
         {
+
             //if (_congregation[i].GetComponent<Text>())//*
             if (_congregation[i].GetType()==typeof(Text))//*
 
             {
-                ToolKit.CreateSccriptableObject(new ComfortText(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+                ToolKit.CiRSccriptableObject(new ComfortText(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                    );
             }
             //if (_congregation[i].GetComponent<>())//*
             if (_congregation[i].GetType() == typeof(Image))//*
 
             {
-                ToolKit.CreateSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+                ToolKit.CiRSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                    );
             }
             //if (_congregation[i].GetComponent<Button>())//*
             if (_congregation[i].GetType() == typeof(Button))
             {
-                ToolKit.CreateSccriptableObject(new ComfortButton(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+                ToolKit.CiRSccriptableObject(new ComfortButton(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                    );
             }
             //if (_congregation[i].GetComponent<Dropdown>())//*
             if (_congregation[i].GetType() == typeof(Dropdown))
             {
-                ToolKit.CreateSccriptableObject(new ComfortDropdown(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+
+                ToolKit.CiRSccriptableObject(new ComfortDropdown(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                    );
             }
             //if (_congregation[i].GetComponent<InputField>())//*
             if (_congregation[i].GetType() == typeof(InputField))
             {
-                ToolKit.CreateSccriptableObject(new ComfortInput(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+                ToolKit.CiRSccriptableObject(new ComfortInput(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                    );
             }
             //if (_congregation[i].GetComponent<ScrollRect>())//*
             if (_congregation[i].GetType() == typeof(ScrollRect))
             {
-                ToolKit.CreateSccriptableObject(new ComfortScroll(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+                ToolKit.CiRSccriptableObject(new ComfortScroll(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                    );
             }
 
             if (_congregation[i].GetType() == typeof(Toggle))
                 //if (_congregation[i].GetComponent<Toggle>())//*
             {
-                ToolKit.CreateSccriptableObject(new ComfortToggle(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+                ToolKit.CiRSccriptableObject(new ComfortToggle(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                    );
             }
             //if (_congregation[i].GetComponent<Scrollbar>())//*
             if (_congregation[i].GetType() == typeof(Scrollbar))
 
             {
-                ToolKit.CreateSccriptableObject(new ComfortScrollbar(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+                ToolKit.CiRSccriptableObject(new ComfortScrollbar(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                    );
             }
             //if (_congregation[i].GetComponent<Slider>())//*
             if (_congregation[i].GetType() == typeof(Slider))
-
             {
-                ToolKit.CreateSccriptableObject(new ComfortSlide(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}");
+                _comfortablePlaceObjects.Add(
+                ToolKit.CiRSccriptableObject(new ComfortSlide(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
+                                                                                                               );
             }
         }
     }
+
+
 
 #endif
 

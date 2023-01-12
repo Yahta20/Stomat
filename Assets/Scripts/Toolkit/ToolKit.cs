@@ -93,10 +93,35 @@ namespace KHNMU.Toolkit
             //EditorUtility.FocusProjectWindow();
             //
             //Selection.activeObject = asset;
+        }
+
+        public static ComfortablePlace CiRSccriptableObject(ScriptableObject so, string path, string nam)
+        {
+            Type sot = so.GetType();
+            var asset = ScriptableObject.CreateInstance(sot.ToString());//sot>()//<sot>();
+                                                                        //Assets\Scripts\Scriptable obj\ScriptableObj\Places
+            string name = AssetDatabase.GenerateUniqueAssetPath($"{path}/{nam}.asset");
+            AssetDatabase.CreateAsset(asset, name);
+
+            AssetDatabase.SaveAssets();
+            return (ComfortablePlace)asset;
+            //EditorUtility.FocusProjectWindow();
+            //
+            //Selection.activeObject = asset;
 
 
         }
+
+
 #endif
+        public static void ExitApp()
+        {
+            Application.Quit();
+#if UNITY_EDITOR
+            UnityEditor.EditorApplication.isPlaying = false;
+#endif
+
+        }
 
         public static void EraseChildObject(Transform parent) {
             for (int i = 0; i < parent.childCount; i++)
@@ -108,24 +133,38 @@ namespace KHNMU.Toolkit
             
         }
 
-
-
-      //  public static void LoadScene(string scene)
-      //  {
-      //      Addressables.LoadSceneAsync(scene, LoadSceneMode.Single).Completed += (asyncHandle) =>
-      //      {
-      //          loadScene = asyncHandle.Result;
-      //      };
-      //  }
-
-        public static void ExitApp()
+        public static void Ordering(Transform parent)
         {
-            Application.Quit();
-#if UNITY_EDITOR
-            UnityEditor.EditorApplication.isPlaying = false;
-#endif
+            var xs = new int[] { 10, 20, 30, 40 };
+            ref int found = ref FindFirst(xs, s => s == 30);
+            found = 0;
+            Debug.Log(string.Join(" ", xs));  // output: 10 20 0 40
+            Debug.Log(string.Join(" ", xs));  // output: 10 20 0 40
+
+            ref int FindFirst(int[] numbers, Func<int, bool> predicate)
+            {
+            for (int i = 0; i < numbers.Length; i++)
+            {
+                if (predicate(numbers[i]))
+                {
+                    return ref numbers[i];
+                }
+            }
+            throw new InvalidOperationException("No element satisfies the given condition.");
+            }
 
         }
+
+
+
+        //  public static void LoadScene(string scene)
+        //  {
+        //      Addressables.LoadSceneAsync(scene, LoadSceneMode.Single).Completed += (asyncHandle) =>
+        //      {
+        //          loadScene = asyncHandle.Result;
+        //      };
+        //  }
+
 
 
     }

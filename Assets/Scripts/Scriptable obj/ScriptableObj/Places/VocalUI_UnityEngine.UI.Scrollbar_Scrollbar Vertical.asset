@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92158bd9bf5aee844833cb2c7baed98f, type: 3}
-  m_Name: SelectPageSM_UnityEngine.UI.Image_Viewport
+  m_Script: {fileID: 11500000, guid: ab47a6dd9b92fe04ea9a5a0e633b7b7e, type: 3}
+  m_Name: VocalUI_UnityEngine.UI.Scrollbar_Scrollbar Vertical
   m_EditorClassIdentifier: 
   anchoredPosition: {x: 0, y: 0}
   offsetMax: {x: 0, y: 0}
@@ -20,5 +20,4 @@ MonoBehaviour:
   anchoredPosition3D: {x: 0, y: 0, z: 0}
   sizeDelta: {x: 0, y: 0}
   pivot: {x: 0, y: 0}
-  sprite: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  handle: {fileID: 0}

@@ -24,6 +24,14 @@
             "Exit"
          ]
       },
+	  {
+         "uiname": "ST_LastAnswer",
+         "uitext": [
+            "Історія анамнезу",
+            "История анамнеза",
+            "History of Anamnes"
+         ]
+      },
       {
          "uiname": "ST_Back",
          "uitext": [
@@ -45,7 +53,7 @@
          "uitext": [
             "Мова",
             "Язык",
-            "Language"
+            "\t"
          ]
       },
 	  {

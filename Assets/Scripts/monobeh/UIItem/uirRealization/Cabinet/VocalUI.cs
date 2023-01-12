@@ -32,6 +32,8 @@ public class VocalUI : PageUI
 
     protected override void setSize(Vector2 screen)
     {
+        base.setSize(screen);
+        /*
         _Transform.sizeDelta = screen*0.88f;
         _Transform.anchoredPosition = Vector2.zero;
         _Transform.anchorMin = new Vector2(0.5f, 0.5f);
@@ -44,8 +46,9 @@ public class VocalUI : PageUI
             HideBRT.anchorMax   = new Vector2(1f, 0f);
             HideBRT.pivot       = new Vector2(0,0f);
             HideBRT.anchoredPosition = Vector2.zero;
-
         //setSize(screen, _Interier);
+         */
+
     }
     protected void setSize(Vector2 screen, PlaningUI obj)
     {
