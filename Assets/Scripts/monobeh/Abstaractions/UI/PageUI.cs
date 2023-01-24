@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using System;
 using UnityEditor;
 using KHNMU.Toolkit;
 
@@ -11,26 +11,26 @@ using KHNMU.Toolkit;
 [RequireComponent(typeof(Image))]
 public abstract class PageUI : MonoBehaviour
 {
-    protected Image         _Font;
+    protected Image _Font;
     protected RectTransform _Transform;
 
     public ComfortImage _comfortImage;
-        
-        //ScriptableObject.CreateInstance<ComfortImage>();
-    public List<UIBehaviour>        _congregation;
 
-    public List<ComfortablePlace>   _comfortablePlaceObjects;
+    //ScriptableObject.CreateInstance<ComfortImage>();
+    public List<UIBehaviour> _congregation;
+    public List<ComfortablePlace> _comfortablePlaceObjects;
+
 
 
     public virtual void OnDisable()
     {
-        if (UICustomES.Instance!=null)
+        if (UICustomES.Instance != null)
         {
             UICustomES.Instance.onChangeScreeSize -= setSize;
         }
-        if (Localizator.Instance!=null)
+        if (Localizator.Instance != null)
         {
-        Localizator.Instance.OnChangetLang -= setLang;
+            Localizator.Instance.OnChangetLang -= setLang;
 
         }
     }
@@ -38,21 +38,22 @@ public abstract class PageUI : MonoBehaviour
 
     public virtual void OnEnable()
     {
-        _Font     =GetComponent<Image>();
-        _Transform=GetComponent<RectTransform>();
+        _Font = GetComponent<Image>();
+        _Transform = GetComponent<RectTransform>();
         UICustomES.Instance.onChangeScreeSize += setSize;
         Localizator.Instance.OnChangetLang += setLang;
         setSize(new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height));
         setLang(Localizator.Instance.CurrLang);
     }
-    protected virtual void setSize(Vector2 screen) {
-        if (_comfortImage!=null)
+    protected virtual void setSize(Vector2 screen)
+    {
+        if (_comfortImage != null)
         {
             SetImagePlaning(_comfortImage, _Font, screen);
         }
-        if (_congregation.Count==_comfortablePlaceObjects.Count&
-            _congregation.Count != 0&
-            0!= _comfortablePlaceObjects.Count
+        if (_congregation.Count == _comfortablePlaceObjects.Count &
+            _congregation.Count != 0 &
+            0 != _comfortablePlaceObjects.Count
             )
         {
             for (int i = 0; i < _congregation.Count; i++)
@@ -60,9 +61,9 @@ public abstract class PageUI : MonoBehaviour
                 switch (_congregation[i])
                 {
                     case Image:
-                        if (_comfortablePlaceObjects[i].GetType() ==typeof(ComfortImage)  )
+                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortImage))
                         {
-                            SetImagePlaning((ComfortImage)_comfortablePlaceObjects[i],(Image) _congregation[i], screen);
+                            SetImagePlaning((ComfortImage)_comfortablePlaceObjects[i], (Image)_congregation[i], screen);
                         }
                         else
                         {
@@ -151,14 +152,14 @@ public abstract class PageUI : MonoBehaviour
         //_Transform.anchorMax        = _comfortImage.anchorMax;                  //new Vector2(0.5f, 0);
         //_Transform.pivot            = _comfortImage.pivot;                      //new Vector2(0.5f, 0);
         //_Font.color                 = _comfortImage.color;
-        
+
     }
     protected abstract void setLang(SystemLanguage lang);
 
     private void SetDropdownPlaning(ComfortDropdown so, Dropdown dd, Vector2 screen)
     {
 
-        SetTextPlaning(so.Label, dd.captionText, screen);      
+        SetTextPlaning(so.Label, dd.captionText, screen);
         SetImagePlaning(so.currentImage, dd.GetComponent<Image>(), screen);
         SetImagePlaning(so.Arrow, dd.transform.GetChild(1).GetComponent<Image>(), screen);
         SetRectPlaning(so, dd.GetComponent<RectTransform>(), screen);
@@ -169,34 +170,34 @@ public abstract class PageUI : MonoBehaviour
         SetImagePlaning(so.currentImage, toggle.GetComponentInChildren<Image>(), screen);
         SetImagePlaning(so.ChekMark, toggle.GetComponentInChildren<Image>().GetComponentInChildren<Image>(), screen);
 
-        SetTextPlaning(so.Label,toggle.GetComponentInChildren<Text>(),screen);
+        SetTextPlaning(so.Label, toggle.GetComponentInChildren<Text>(), screen);
         SetRectPlaning(so, toggle.GetComponent<RectTransform>(), screen);
     }
 
 
-    private void SetRectPlaning(ComfortablePlace so,RectTransform transform,Vector2 screen)
+    private void SetRectPlaning(ComfortablePlace so, RectTransform transform, Vector2 screen)
     {
-        transform.sizeDelta =           so.sizeDelta * screen;
-        transform.anchoredPosition =    so.anchoredPosition * screen;  //new Vector2(0, _Transform.sizeDelta.y * 0.38f*0.5f); ;
-        transform.anchorMin =           so.anchorMin;                  //new Vector2(0.5f, 0);
-        transform.anchorMax =           so.anchorMax;                  //new Vector2(0.5f, 0);
-        transform.pivot =               so.pivot;                      //new Vector2(0.5f, 0);
+        transform.sizeDelta = so.sizeDelta * screen;
+        transform.anchoredPosition = so.anchoredPosition * screen;  //new Vector2(0, _Transform.sizeDelta.y * 0.38f*0.5f); ;
+        transform.anchorMin = so.anchorMin;                  //new Vector2(0.5f, 0);
+        transform.anchorMax = so.anchorMax;                  //new Vector2(0.5f, 0);
+        transform.pivot = so.pivot;                      //new Vector2(0.5f, 0);
     }
 
     private void SetTextPlaning(ComfortText so, Text text, Vector2 screen)
     {
-        text.alignByGeometry      =so.alignByGeometry      ;
-        text.fontSize             =so.fontSize             ;
-        text.resizeTextForBestFit =so.resizeTextForBestFit ;
-        text.font                 =so.font                 ;
-        text.supportRichText      =so.supportRichText      ;
+        text.alignByGeometry = so.alignByGeometry;
+        text.fontSize = so.fontSize;
+        text.resizeTextForBestFit = so.resizeTextForBestFit;
+        text.font = so.font;
+        text.supportRichText = so.supportRichText;
         SetRectPlaning(so, text.rectTransform, screen);
     }
     private void SetImagePlaning(ComfortImage so, Image image, Vector2 screen)
     {
         image.color = so.color;
         image.sprite = so.sprite;
-        SetRectPlaning(so,image.rectTransform,screen);
+        SetRectPlaning(so, image.rectTransform, screen);
     }
 
     private void SetButtonPlaning(ComfortButton so, Button btn, Vector2 screen)
@@ -224,12 +225,23 @@ public abstract class PageUI : MonoBehaviour
         var content = sr.content;
         var vscrolbar = sr.verticalScrollbar;
         var hscrolbar = sr.horizontalScrollbar;
-        SetImagePlaning     (so.image, image, screen);
-        SetRectPlaning      (so.viewPort, vievPort, screen);
-        SetRectPlaning      (so.Content, content, screen);
-        SetScrollbarPlaning (so.vertical, vscrolbar, screen);
-        SetScrollbarPlaning (so.horizontal, hscrolbar, screen);
+        
+        
+        SetImagePlaning(so.image, image, screen);
+        SetRectPlaning(so.viewPort, vievPort, screen);
+        SetRectPlaning(so.Content, content, screen);
+        if (vscrolbar != null)
+        {
+            SetScrollbarPlaning(so.vertical, vscrolbar, screen);
+        }
+        if (hscrolbar != null)
+        {
+            SetScrollbarPlaning(so.horizontal, hscrolbar, screen);
+        }
+
+        
         SetRectPlaning(so, sr.GetComponent<RectTransform>(), screen);
+
     }
 
     private void SetSlidePlaning(ComfortSlide so, Slider sl, Vector2 screen)
@@ -275,8 +287,8 @@ public abstract class PageUI : MonoBehaviour
          */
         var image = btn.image;
         var text = btn.GetComponentInChildren<Text>();
-        SetImagePlaning ((ComfortImage)list[0],image,screen);
-        SetTextPlaning  (((ComfortText)list[1]),text ,screen);
+        SetImagePlaning((ComfortImage)list[0], image, screen);
+        SetTextPlaning(((ComfortText)list[1]), text, screen);
         SetRectPlaning(so, btn.GetComponent<RectTransform>(), screen);
     }
     private void SetScrollPlaning(ComfortScrollbar so, ScrollRect sr, Vector2 screen, params ScriptableObject[] list)
@@ -303,23 +315,26 @@ public abstract class PageUI : MonoBehaviour
 
 
 #if UNITY_EDITOR
-    public void UpdateInfo() {
+    public void UpdateInfo()
+    {
         _congregation = ToolKit.CreateComponentList(this.gameObject);
     }
-    public void UpdateCI() {
+    public void UpdateCI()
+    {
 
         if (UnityEditor.EditorApplication.isPlaying == true)
         {
-                var screen = new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height);
+            var screen = new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height);
             if (_comfortImage != null)
             {
 
                 //print(_Transform.sizeDelta);
                 //print(_Font.rectTransform.anchoredPosition);
-                UpdateIPlace(_comfortImage,_Font,screen);
+                UpdateIPlace(_comfortImage, _Font, screen);
             }
-            else {
-                var p = ToolKit.CreateSccriptableObject(new ComfortImage(), "Assets/Scripts/Scriptable obj/ScriptableObj/Places", 
+            else
+            {
+                var p = ToolKit.CreateSccriptableObject(new ComfortImage(), "Assets/Scripts/Scriptable obj/ScriptableObj/Places",
                     this.GetType().ToString());
             }
         }
@@ -330,15 +345,15 @@ public abstract class PageUI : MonoBehaviour
 
     }
     //RECTTRANSFORM
-    private void UpdateRTplace(ComfortablePlace so, RectTransform Rtransform,  Vector2 screen)
+    private void UpdateRTplace(ComfortablePlace so, RectTransform Rtransform, Vector2 screen)
     {
-        print("sasa");
+        //print("sasa");
         so.sizeDelta = Rtransform.sizeDelta / screen;
         so.anchoredPosition =
            Rtransform.anchoredPosition == Vector2.zero ? Vector2.zero : Rtransform.anchoredPosition / screen;
-        so.anchorMin =   Rtransform.anchorMin;                  //new Vector2(0.5f, 0);
-        so.anchorMax =   Rtransform.anchorMax;                  //new Vector2(0.5f, 0);
-        so.pivot =       Rtransform.pivot;                      //new Vector2(0.5f, 0);
+        so.anchorMin = Rtransform.anchorMin;                  //new Vector2(0.5f, 0);
+        so.anchorMax = Rtransform.anchorMax;                  //new Vector2(0.5f, 0);
+        so.pivot = Rtransform.pivot;                      //new Vector2(0.5f, 0);
         EditorUtility.SetDirty(so);
         AssetDatabase.SaveAssetIfDirty(so);
         AssetDatabase.SaveAssets();
@@ -350,33 +365,33 @@ public abstract class PageUI : MonoBehaviour
     {
         so.color = i.color;
         so.sprite = i.sprite;
-        UpdateRTplace(so,i.GetComponent<RectTransform>(), screen);
+        UpdateRTplace(so, i.GetComponent<RectTransform>(), screen);
     }
     //text
     private void UpdateTPlace(ComfortText tso, Text t, Vector2 screen)
     {
-   
-        UpdateRTplace(tso,t.GetComponent<RectTransform>(), screen);
-        tso.alignByGeometry     =t.alignByGeometry;
-        tso.fontSize            =t.fontSize;
-        tso.resizeTextForBestFit=t.resizeTextForBestFit;
-        tso.font                =t.font;
-        tso.supportRichText     =t.supportRichText;
+
+        UpdateRTplace(tso, t.GetComponent<RectTransform>(), screen);
+        tso.alignByGeometry = t.alignByGeometry;
+        tso.fontSize = t.fontSize;
+        tso.resizeTextForBestFit = t.resizeTextForBestFit;
+        tso.font = t.font;
+        tso.supportRichText = t.supportRichText;
     }
     //Button
     private void UpdateBPlace(ComfortButton bso, Button btn, Vector2 screen)
     {
-       
-        UpdateRTplace   (bso, btn.GetComponent<RectTransform>(), screen);
+
+        UpdateRTplace(bso, btn.GetComponent<RectTransform>(), screen);
         var image = btn.image;
         var text = btn.transform.GetChild(0).GetComponent<Text>();
-        UpdateIPlace    (bso.image, image, screen);
-        UpdateTPlace    (bso.text, text, screen);
+        UpdateIPlace(bso.image, image, screen);
+        UpdateTPlace(bso.text, text, screen);
     }
     //Dropdown
     private void UpdateDDPlace(ComfortDropdown so, Dropdown dd, Vector2 screen)
     {
-       
+
 
         var image = dd.GetComponent<Image>();
         var text = dd.captionText;
@@ -389,7 +404,7 @@ public abstract class PageUI : MonoBehaviour
     //Input
     private void UpdateIPPlace(ComfortInput so, InputField ip, Vector2 screen)
     {
-      
+
 
         /*
         var image = dd.GetComponent<Image>();
@@ -404,7 +419,7 @@ public abstract class PageUI : MonoBehaviour
     //Scrollbar
     private void UpdateSBPlace(ComfortScrollbar so, Scrollbar sb, Vector2 screen)
     {
-        
+
         var image = sb.handleRect.GetComponent<Image>();
         UpdateIPlace(so.handle, image, screen);
         UpdateRTplace(so, sb.GetComponent<RectTransform>(), screen);
@@ -412,28 +427,35 @@ public abstract class PageUI : MonoBehaviour
     //ScrollRect
     private void UpdateSRPlace(ComfortScroll so, ScrollRect sr, Vector2 screen)
     {
-        
+
         var image = sr.GetComponent<Image>();
         var vievPort = sr.viewport;
         var content = sr.content;
-        var vscrolbar = sr.verticalScrollbar;
-        var hscrolbar = sr.horizontalScrollbar;
+        var vscrolbar = sr.verticalScrollbar    ;
+        var hscrolbar = sr.horizontalScrollbar  ;
 
         UpdateIPlace(so.image, image, screen);
         UpdateRTplace(so.viewPort, vievPort, screen);
         UpdateRTplace(so.Content, content, screen);
-        UpdateSBPlace(so.vertical, vscrolbar, screen);
-        UpdateSBPlace(so.horizontal, hscrolbar, screen);
+        if (vscrolbar!=null)
+        {
+            UpdateSBPlace(so.vertical, vscrolbar, screen);
+        }
+        if (hscrolbar != null)
+        {
+            UpdateSBPlace(so.horizontal, hscrolbar, screen);
+        }
         UpdateRTplace(so, sr.GetComponent<RectTransform>(), screen);
 
-        
-        
+
+
 
 
     }
     //Toggle
-    private void UpdateTGPlace(ComfortToggle so, Toggle tg, Vector2 screen) {
-       
+    private void UpdateTGPlace(ComfortToggle so, Toggle tg, Vector2 screen)
+    {
+
         UpdateIPlace(so.currentImage, tg.GetComponentInChildren<Image>(), screen);
         UpdateIPlace(so.ChekMark, tg.GetComponentInChildren<Image>().GetComponentInChildren<Image>(), screen);
 
@@ -442,17 +464,6 @@ public abstract class PageUI : MonoBehaviour
     }
 
 
-    ref int FindFirst(int[] numbers, Func<int, bool> predicate)
-    {
-        for (int i = 0; i < numbers.Length; i++)
-        {
-            if (predicate(numbers[i]))
-            {
-                return ref numbers[i];
-            }
-        }
-        throw new InvalidOperationException("No element satisfies the given condition.");
-    }
     public void UpdateChildPlans()
     {
         if (UnityEditor.EditorApplication.isPlaying == true)
@@ -464,17 +475,8 @@ public abstract class PageUI : MonoBehaviour
                 _congregation.Count != 0 &
                 0 != _comfortablePlaceObjects.Count
                 )
+
             {
-                if (Predecat1(
-                    _congregation,//;
-
-                    _comfortablePlaceObjects//;
-                    ))
-                {
-
-
-
-                }
                 for (int i = 0; i < _congregation.Count; i++)
                 {
                     switch (_congregation[i])
@@ -486,6 +488,7 @@ public abstract class PageUI : MonoBehaviour
                             }
                             else
                             {
+                               // shift2Corect(_congregation[i]);
                                 print($"{_comfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
@@ -546,137 +549,204 @@ public abstract class PageUI : MonoBehaviour
                             break;
 
                     }
-                    //EditorUtility.SetDirty(_comfortablePlaceObjects[i]);
-                    //AssetDatabase.SaveAssetIfDirty(_comfortablePlaceObjects[i]);
                 }
             }
         }
+            /*
+        else
+        {
+            //print($"chek");
+            for (int i = 0; i < _congregation.Count; i++)
+            {
+                shift2Corect(_congregation[i],i);
+            }
+        }         
+             */
 
 
         AssetDatabase.SaveAssets();
-        print($"updating finish");
         AssetDatabase.Refresh();
+        print($"updating finish");
     }
-    
-    private bool Predecat1(List<UIBehaviour> congregation, List<ComfortablePlace> comfortablePlaceObjects)
+
+    private void shift2Corect()
     {
-        bool sensetiv   = true;
-        bool sensetiv1  = true;
-        bool sensetiv2  = true;
-        int[]   iterators   = new int   [3] {0, 0, 0};
-        bool[]  sens        = new bool  [3] {true, true, true};
         
-        do
-        {
-            do
-            {
-                if (congregation[iterators[0]]==comfortablePlaceObjects[iterators[0]])
-                {
-                    
-
-                }
-            } while (sens[1]);
-                do
-                {
-                  //  congregation
-                } while (sens[0]);
-        } while (sens[2]);  
 
 
-
-        throw new NotImplementedException("No element satisfies the given condition.");
     }
 
     public void PlansForChild()
-    {
-        _comfortImage= _comfortImage==null?
-        (ComfortImage)ToolKit.CiRSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{typeof(Image).ToString()}_{gameObject.name}"):_comfortImage;
-        for (int i = 0; i < _congregation.Count; i++)
         {
-
-            //if (_congregation[i].GetComponent<Text>())//*
-            if (_congregation[i].GetType()==typeof(Text))//*
-
+        string FNAME = $"{this.GetType().ToString()}!{typeof(Image).ToString()}!{gameObject.name}";
+        //GENERATION main windov 
+        _comfortImage = _comfortImage == null ?
+            (ComfortImage)ToolKit.CiRSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                    FNAME) : _comfortImage;
+        //generation child image
+        for (int i = 0; i < _congregation.Count; i++)
             {
+            FNAME = $"{this.GetType().ToString()}!{_congregation[i].GetType()}!{_congregation[i].gameObject.name}";
+            //{this.GetType().ToString()}
+            //var cp = ScriptableObject.CreateInstance("ComfortablePlace");// new();   //if (_congregation[i].GetComponent<Text>())//*
+                    //$"{this.GetType().ToString()}|{_congregation[i].GetType()}|{_congregation[i].gameObject.name}")//;
+                //if (_congregation[i].GetComponent<>())//*
+                //$"{this.GetType().ToString()}|{_congregation[i].GetType()}|{_congregation[i].gameObject.name}")//;
+                //if (_congregation[i].GetComponent<Button>())//*
+                if (_congregation[i].GetType() == typeof(Text))//*
+                {
                 _comfortablePlaceObjects.Add(
-                ToolKit.CiRSccriptableObject(new ComfortText(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                    );
-            }
-            //if (_congregation[i].GetComponent<>())//*
-            if (_congregation[i].GetType() == typeof(Image))//*
 
-            {
+                    ToolKit.CiRSccriptableObject(new ComfortText(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                    FNAME));
+                }
+                if (_congregation[i].GetType() == typeof(Image))//*
+                {
                 _comfortablePlaceObjects.Add(
                 ToolKit.CiRSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                    );
-            }
-            //if (_congregation[i].GetComponent<Button>())//*
-            if (_congregation[i].GetType() == typeof(Button))
-            {
-                _comfortablePlaceObjects.Add(
-                ToolKit.CiRSccriptableObject(new ComfortButton(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                    );
-            }
-            //if (_congregation[i].GetComponent<Dropdown>())//*
-            if (_congregation[i].GetType() == typeof(Dropdown))
-            {
-                _comfortablePlaceObjects.Add(
+                FNAME)//;
+                );
+                }
 
-                ToolKit.CiRSccriptableObject(new ComfortDropdown(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                    );
-            }
-            //if (_congregation[i].GetComponent<InputField>())//*
-            if (_congregation[i].GetType() == typeof(InputField))
-            {
-                _comfortablePlaceObjects.Add(
-                ToolKit.CiRSccriptableObject(new ComfortInput(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                    );
-            }
-            //if (_congregation[i].GetComponent<ScrollRect>())//*
-            if (_congregation[i].GetType() == typeof(ScrollRect))
-            {
-                _comfortablePlaceObjects.Add(
-                ToolKit.CiRSccriptableObject(new ComfortScroll(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                    );
-            }
+                if (_congregation[i].GetType() == typeof(Button))
+                {
+                    _comfortablePlaceObjects.Add(
+                     ToolKit.CiRSccriptableObject(new ComfortButton(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME));
+                }
+                if (_congregation[i].GetType() == typeof(Dropdown))
+                {
+                    _comfortablePlaceObjects.Add(
 
-            if (_congregation[i].GetType() == typeof(Toggle))
-                //if (_congregation[i].GetComponent<Toggle>())//*
-            {
-                _comfortablePlaceObjects.Add(
-                ToolKit.CiRSccriptableObject(new ComfortToggle(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                    );
-            }
-            //if (_congregation[i].GetComponent<Scrollbar>())//*
-            if (_congregation[i].GetType() == typeof(Scrollbar))
+                    ToolKit.CiRSccriptableObject(new ComfortDropdown(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME));
+                }
+                if (_congregation[i].GetType() == typeof(InputField))
+                {
+                    _comfortablePlaceObjects.Add(
+                    ToolKit.CiRSccriptableObject(new ComfortInput(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME));
+                }
+                if (_congregation[i].GetType() == typeof(ScrollRect))
+                {
+                    _comfortablePlaceObjects.Add(
+                    ToolKit.CiRSccriptableObject(new ComfortScroll(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME));
+                    FNAME = $"{this.GetType().ToString()}!{((ScrollRect)_congregation[i]).content.GetType()}!" +
+                    $"{((ScrollRect)_congregation[i]).content.name}";
+                    ToolKit.CiRSccriptableObject(new ComfortablePlace(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME);
+                }
 
-            {
-                _comfortablePlaceObjects.Add(
-                ToolKit.CiRSccriptableObject(new ComfortScrollbar(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                    );
-            }
-            //if (_congregation[i].GetComponent<Slider>())//*
-            if (_congregation[i].GetType() == typeof(Slider))
-            {
-                _comfortablePlaceObjects.Add(
-                ToolKit.CiRSccriptableObject(new ComfortSlide(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                $"{this.GetType().ToString()}_{_congregation[i].GetType()}_{_congregation[i].gameObject.name}")//;
-                                                                                                               );
-            }
+                if (_congregation[i].GetType() == typeof(Toggle))
+                {
+                    _comfortablePlaceObjects.Add(
+                    ToolKit.CiRSccriptableObject(new ComfortToggle(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME));
+                }
+                if (_congregation[i].GetType() == typeof(Scrollbar))
+
+                {
+                    _comfortablePlaceObjects.Add(
+                    ToolKit.CiRSccriptableObject(new ComfortScrollbar(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                     FNAME));
+                }
+                if (_congregation[i].GetType() == typeof(Slider))
+                {
+                    _comfortablePlaceObjects.Add(
+                    ToolKit.CiRSccriptableObject(new ComfortSlide(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME));
+                }
         }
+        //linking
+        /*
+        for (int i = 0; i < _congregation.Count; i++)
+        {
+            var child = new List<UIBehaviour>();
+            if (_congregation[i].transform.childCount>0)
+            {
+                child = ToolKit.CreateComponentList(_congregation[i].gameObject);
+                switch (_congregation[i])
+                {
+                    case Button:
+                        for (int j = 0; j < child.Count; j++)
+                        {
+                            if (child[j].GetComponent<Image>()!=null)
+                            {
+                                ((ComfortButton)_comfortablePlaceObjects[i]).image =
+                                    (ComfortImage)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())] ;
+                            }
+                            if (child[j].GetComponent<Text>() != null)
+                            {
+                                ((ComfortButton)_comfortablePlaceObjects[i]).text =
+                                    (ComfortText)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())];
+                            }
+                        }
+                        break;
+                    case ScrollRect:
+                        for (int j = 0; j < child.Count; j++)
+                        {
+                            if (child[j].GetComponent<Image>() != null)
+                            {
+                                ((ComfortScroll)_comfortablePlaceObjects[i]).image =
+                                    (ComfortImage)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())];
+                            }
+                            if (child[j].GetComponent<Scrollbar>() ==
+                                ((ScrollRect)_congregation[i]).verticalScrollbar&
+                                ((ScrollRect)_congregation[i]).verticalScrollbar!=null)
+                            {
+                                ((ComfortScroll)_comfortablePlaceObjects[i]).vertical =
+                                    (ComfortScrollbar)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())];
+                            }
+                            if (child[j].GetComponent<Scrollbar>() ==
+                                ((ScrollRect)_congregation[i]).horizontalScrollbar&
+                                ((ScrollRect)_congregation[i]).horizontalScrollbar != null)
+                            {
+                                ((ComfortScroll)_comfortablePlaceObjects[i]).horizontal =
+                                    (ComfortScrollbar)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())];
+                            }
+                            if (child[j].GetComponent<RectTransform>()==
+                                ((ComfortScroll)_comfortablePlaceObjects[i]).viewPort)
+                            {
+                                ((ComfortScroll)_comfortablePlaceObjects[i]).viewPort =
+                                            (ComfortablePlace)_comfortablePlaceObjects
+                                            [ToolKit.FindExactInt(((ScrollRect)_congregation[i]).viewport, _congregation.ToArray())];
+                            }
+                            if (child[j].GetComponent<RectTransform>() ==
+                                ((ComfortScroll)_comfortablePlaceObjects[i]).Content)
+                            {
+                                ((ComfortScroll)_comfortablePlaceObjects[i]).Content=
+                                            (ComfortablePlace)_comfortablePlaceObjects
+                                            [ToolKit.FindExactInt(((ScrollRect)_congregation[i]).content, _congregation.ToArray())];
+                            }
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }        
+         */
     }
-
-
-
+}
 #endif
 
-}   
+
+
+                        /*
+                            public ComfortImage image;
+                            public ComfortablePlace viewPort;
+                            public ComfortablePlace Content;
+                            public ComfortScrollbar vertical;
+                            public ComfortScrollbar horizontal;
+                         */
+                            //if (child[j].GetComponent<Image>() != null)
+                            //{
+                            //    ((ComfortButton)_comfortablePlaceObjects[i]).image =
+                            //        (ComfortImage)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())];
+                            //}
+                            //if (child[j].GetComponent<Text>() != null)
+                            //{
+                            //    ((ComfortButton)_comfortablePlaceObjects[i]).text =
+                            //        (ComfortText)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())];
+                            //}

@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2519a94f77adee348963164ed9332abb, type: 3}
+  m_Name: VocalUI!UnityEngine.UI.ScrollRect!QuestionScroll
+  m_EditorClassIdentifier: 
+  anchoredPosition: {x: 0.0000052770833, y: -0.00000019779911}
+  offsetMax: {x: 0, y: 0}
+  offsetMin: {x: 0, y: 0}
+  anchorMin: {x: 0.5, y: 1}
+  anchorMax: {x: 0.5, y: 1}
+  anchoredPosition3D: {x: 0, y: 0, z: 0}
+  sizeDelta: {x: 0.66781247, y: 0.33550927}
+  pivot: {x: 0.5, y: 1}
+  image: {fileID: 11400000, guid: 2d560dbc4647faa4d860d32771478fe0, type: 2}
+  viewPort: {fileID: 11400000, guid: 0132d50af8c32c54896a7ceb37013f61, type: 2}
+  Content: {fileID: 11400000, guid: 605129bf1b214ef449e8fcd903e27d2b, type: 2}
+  vertical: {fileID: 11400000, guid: e908e593cbf3e584b9e7e001ab6f71d5, type: 2}
+  horizontal: {fileID: 0}

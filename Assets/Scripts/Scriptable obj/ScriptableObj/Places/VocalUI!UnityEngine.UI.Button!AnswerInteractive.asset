@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7750f7b4cdc0b2747af9adc0fc539eaa, type: 3}
+  m_Name: VocalUI!UnityEngine.UI.Button!AnswerInteractive
+  m_EditorClassIdentifier: 
+  anchoredPosition: {x: 0, y: 0.0055555557}
+  offsetMax: {x: 0, y: 0}
+  offsetMin: {x: 0, y: 0}
+  anchorMin: {x: 0.5, y: 0.5}
+  anchorMax: {x: 0.5, y: 0.5}
+  anchoredPosition3D: {x: 0, y: 0, z: 0}
+  sizeDelta: {x: 0.66781247, y: 0.05962037}
+  pivot: {x: 0.5, y: 1}
+  image: {fileID: 11400000, guid: ad53d9b03fe211e46a0baf1b48abcb55, type: 2}
+  text: {fileID: 11400000, guid: 44a683ddaabca6e45a68066553719e76, type: 2}
