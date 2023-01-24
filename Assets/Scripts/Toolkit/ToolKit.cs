@@ -111,9 +111,31 @@ namespace KHNMU.Toolkit
 
 
         }
-
-
 #endif
+        public static UnityEngine.Object FindExact (UnityEngine.Object comp, UnityEngine.Object[] comparr)//where T :UnityEngine.Object
+        {
+            for (int i = 0; i < comparr.Length; i++)
+            {
+                if (comp==comparr[i])
+                {
+                    return comparr[i];
+                }
+            }
+            return null;
+        }
+
+        public static int FindExactInt(UnityEngine.Object comp, UnityEngine.Object[] comparr)//where T :UnityEngine.Object
+        {
+            for (int i = 0; i < comparr.Length; i++)
+            {
+                if (comp == comparr[i])
+                {
+                    return i;
+                }
+            }
+            return -1;
+        }
+
         public static void ExitApp()
         {
             Application.Quit();
@@ -154,17 +176,7 @@ namespace KHNMU.Toolkit
             }
 
         }
-
-
-
-        //  public static void LoadScene(string scene)
-        //  {
-        //      Addressables.LoadSceneAsync(scene, LoadSceneMode.Single).Completed += (asyncHandle) =>
-        //      {
-        //          loadScene = asyncHandle.Result;
-        //      };
-        //  }
-
+     
 
 
     }
