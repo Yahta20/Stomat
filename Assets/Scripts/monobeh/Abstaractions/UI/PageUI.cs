@@ -385,8 +385,15 @@ public abstract class PageUI : MonoBehaviour
         UpdateRTplace(bso, btn.GetComponent<RectTransform>(), screen);
         var image = btn.image;
         var text = btn.transform.GetChild(0).GetComponent<Text>();
-        UpdateIPlace(bso.image, image, screen);
-        UpdateTPlace(bso.text, text, screen);
+        if (bso.image!=null)
+        {
+            UpdateIPlace(bso.image, image, screen);
+        }
+        if (bso.text != null)
+        {
+            UpdateTPlace(bso.text, text, screen);
+        }
+
     }
     ///Dropdown
     private void UpdateDDPlace(ComfortDropdown so, Dropdown dd, Vector2 screen)
@@ -396,12 +403,22 @@ public abstract class PageUI : MonoBehaviour
         var image = dd.GetComponent<Image>();
         var text = dd.captionText;
         var arrow = dd.transform.GetChild(1).GetComponent<Image>();
-        UpdateIPlace(so.currentImage, image, screen);
-        UpdateIPlace(so.currentImage, arrow, screen);
+        if (so.Label != null)
+        {
         UpdateTPlace(so.Label, text, screen);
+        }
+        if (so.currentImage != null)
+        {
+        UpdateIPlace(so.Arrow, arrow, screen);
+        }
+        if (so.currentImage != null)
+        {
+        UpdateIPlace(so.currentImage, image, screen);
+        }
         UpdateRTplace(so, dd.GetComponent<RectTransform>(), screen);
     }
     ///Input
+    //нужно сделать
     private void UpdateIPPlace(ComfortInput so, InputField ip, Vector2 screen)
     {
 
@@ -422,8 +439,14 @@ public abstract class PageUI : MonoBehaviour
         var cimage = sb.GetComponent<Image>();//handleRect.GetComponent<Image>();
 
         var image = sb.handleRect.GetComponent<Image>();
-        UpdateIPlace(so.image, cimage, screen);
-        UpdateIPlace(so.handle, image, screen);
+        if (so.image != null)
+        {
+            UpdateIPlace(so.image, cimage, screen);
+        }
+        if (so.handle != null)
+        {
+            UpdateIPlace(so.handle, image, screen);
+        }
         UpdateRTplace(so, sb.GetComponent<RectTransform>(), screen);
     }
     ///ScrollRect
@@ -436,13 +459,23 @@ public abstract class PageUI : MonoBehaviour
         var vscrolbar = sr.verticalScrollbar    ;
         var hscrolbar = sr.horizontalScrollbar  ;
 
+        if (so.image!=null)
+        {
         UpdateIPlace(so.image, image, screen);
+        }
+        if (so.viewPort != null)
+        {
         UpdateRTplace(so.viewPort, vievPort, screen);
-        UpdateRTplace(so.Content, content, screen);
-        if (vscrolbar!=null)
+        }
+        if (so.Content!=null)
+        {
+            UpdateRTplace(so.Content, content, screen);
+        }
+        if (so.vertical != null)
         {
             UpdateSBPlace(so.vertical, vscrolbar, screen);
         }
+
         if (hscrolbar != null)
         {
             UpdateSBPlace(so.horizontal, hscrolbar, screen);
@@ -621,7 +654,7 @@ public abstract class PageUI : MonoBehaviour
                         FNAME
                         );
                     UpdateTPlace((ComfortText)cp, (Text)_congregation[i],new Vector2(Screen.width,Screen.height));
-                    _comfortablePlaceObjects.Add((ComfortImage)cp);
+                    _comfortablePlaceObjects.Add((ComfortText)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Image))//*
                 {
@@ -667,13 +700,23 @@ public abstract class PageUI : MonoBehaviour
 
                 if (_congregation[i].GetType() == typeof(ScrollRect))
                 {
+                    cp = ToolKit.CiRSccriptableObject(
+                       new ComfortScroll(),
+                       $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                       FNAME);
+                    UpdateSRPlace((ComfortScroll)cp, (ScrollRect)_congregation[i], new Vector2(Screen.width, Screen.height));
                     _comfortablePlaceObjects.Add(
+                       (ComfortScroll)cp);
+                    cp =ToolKit.CiRSccriptableObject(new ComfortablePlace(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                      FNAME);
+                    UpdateRTplace((ComfortablePlace)cp, ((ScrollRect)_congregation[i]).content, new Vector2(Screen.width, Screen.height));
+                /*
+                _comfortablePlaceObjects.Add(
                     ToolKit.CiRSccriptableObject(new ComfortScroll(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
                       FNAME));
                     FNAME = $"{this.GetType().ToString()}!{((ScrollRect)_congregation[i]).content.GetType()}!" +
                     $"{((ScrollRect)_congregation[i]).content.name}";
-                    ToolKit.CiRSccriptableObject(new ComfortablePlace(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                      FNAME);
+                 */
                 }
 
                 if (_congregation[i].GetType() == typeof(Toggle))
