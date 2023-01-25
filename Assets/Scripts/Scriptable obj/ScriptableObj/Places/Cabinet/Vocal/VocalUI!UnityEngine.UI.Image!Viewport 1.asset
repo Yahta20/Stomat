@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 92158bd9bf5aee844833cb2c7baed98f, type: 3}
-  m_Name: VocalUI!UnityEngine.UI.Image!QuestionScroll
+  m_Name: VocalUI!UnityEngine.UI.Image!Viewport 1
   m_EditorClassIdentifier: 
-  anchoredPosition: {x: 0.0000052770833, y: -0.00000019779911}
+  anchoredPosition: {x: 0, y: 0}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
-  anchorMin: {x: 0.5, y: 1}
-  anchorMax: {x: 0.5, y: 1}
+  anchorMin: {x: 0, y: 0}
+  anchorMax: {x: 1, y: 1}
   anchoredPosition3D: {x: 0, y: 0, z: 0}
-  sizeDelta: {x: 0.66781247, y: 0.33550927}
-  pivot: {x: 0.5, y: 1}
+  sizeDelta: {x: 0, y: 0}
+  pivot: {x: 0, y: 0}
   sprite: {fileID: 0}
-  color: {r: 0, g: 0, b: 0, a: 0}
+  color: {r: 1, g: 1, b: 1, a: 0.003921569}

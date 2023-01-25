@@ -360,14 +360,14 @@ public abstract class PageUI : MonoBehaviour
 
         AssetDatabase.Refresh();
     }
-    //Image
+    ///Image
     private void UpdateIPlace(ComfortImage so, Image i, Vector2 screen)
     {
         so.color = i.color;
         so.sprite = i.sprite;
         UpdateRTplace(so, i.GetComponent<RectTransform>(), screen);
     }
-    //text
+    ///text
     private void UpdateTPlace(ComfortText tso, Text t, Vector2 screen)
     {
 
@@ -378,7 +378,7 @@ public abstract class PageUI : MonoBehaviour
         tso.font = t.font;
         tso.supportRichText = t.supportRichText;
     }
-    //Button
+    ///Button
     private void UpdateBPlace(ComfortButton bso, Button btn, Vector2 screen)
     {
 
@@ -388,7 +388,7 @@ public abstract class PageUI : MonoBehaviour
         UpdateIPlace(bso.image, image, screen);
         UpdateTPlace(bso.text, text, screen);
     }
-    //Dropdown
+    ///Dropdown
     private void UpdateDDPlace(ComfortDropdown so, Dropdown dd, Vector2 screen)
     {
 
@@ -401,7 +401,7 @@ public abstract class PageUI : MonoBehaviour
         UpdateTPlace(so.Label, text, screen);
         UpdateRTplace(so, dd.GetComponent<RectTransform>(), screen);
     }
-    //Input
+    ///Input
     private void UpdateIPPlace(ComfortInput so, InputField ip, Vector2 screen)
     {
 
@@ -416,15 +416,17 @@ public abstract class PageUI : MonoBehaviour
         UpdateRTplace(so, dd.GetComponent<RectTransform>(), screen);
          */
     }
-    //Scrollbar
+    ///Scrollbar
     private void UpdateSBPlace(ComfortScrollbar so, Scrollbar sb, Vector2 screen)
     {
+        var cimage = sb.GetComponent<Image>();//handleRect.GetComponent<Image>();
 
         var image = sb.handleRect.GetComponent<Image>();
+        UpdateIPlace(so.image, cimage, screen);
         UpdateIPlace(so.handle, image, screen);
         UpdateRTplace(so, sb.GetComponent<RectTransform>(), screen);
     }
-    //ScrollRect
+    ///ScrollRect
     private void UpdateSRPlace(ComfortScroll so, ScrollRect sr, Vector2 screen)
     {
 
@@ -452,17 +454,37 @@ public abstract class PageUI : MonoBehaviour
 
 
     }
-    //Toggle
+    ///Toggle
     private void UpdateTGPlace(ComfortToggle so, Toggle tg, Vector2 screen)
     {
 
         UpdateIPlace(so.currentImage, tg.GetComponentInChildren<Image>(), screen);
         UpdateIPlace(so.ChekMark, tg.GetComponentInChildren<Image>().GetComponentInChildren<Image>(), screen);
-
         UpdateTPlace(so.Label, tg.GetComponentInChildren<Text>(), screen);
-        SetRectPlaning(so, tg.GetComponent<RectTransform>(), screen);
-    }
 
+        UpdateRTplace(so, tg.GetComponent<RectTransform>(), screen);
+        //SetRectPlaning
+    }
+    ///Slider
+    private void UpdateSLBPlace(ComfortSlide so ,Slider slb, Vector2 screen) {
+
+        var image           = slb.GetComponent<Image>();
+        var igroundHandle   = slb.handleRect.GetComponent<Image>();
+        var igroundFill     = slb.fillRect.GetComponent<Image>();
+
+        UpdateIPlace    (so.groundImage,    image, screen);
+        UpdateIPlace    (so.groundHandle,   igroundHandle, screen);
+        UpdateIPlace    (so.groundHandle,   igroundFill, screen);
+
+        UpdateRTplace   (so, slb.GetComponent<RectTransform>(), screen);
+
+
+
+        //ComfortImage  groundImage;
+        // ComfortImage groundHandle;
+        //ComfortImage  groundFill;
+
+    }
 
     public void UpdateChildPlans()
     {
@@ -544,6 +566,16 @@ public abstract class PageUI : MonoBehaviour
                                 print($"{_comfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
+                        case Scrollbar:
+                            if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortScrollbar))
+                            {
+                                UpdateSBPlace((ComfortScrollbar)_comfortablePlaceObjects[i], (Scrollbar)_congregation[i], screen);
+                            }
+                            else
+                            {
+                                print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            }
+                            break;
                         default:
                             print($"{_congregation[i]} has wrong type");
                             break;
@@ -569,64 +601,70 @@ public abstract class PageUI : MonoBehaviour
         print($"updating finish");
     }
 
-    private void shift2Corect()
-    {
-        
-
-
-    }
-
     public void PlansForChild()
         {
         string FNAME = $"{this.GetType().ToString()}!{typeof(Image).ToString()}!{gameObject.name}";
-        //GENERATION main windov 
+        //GENERATION main window 
         _comfortImage = _comfortImage == null ?
-            (ComfortImage)ToolKit.CiRSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+            (ComfortImage)ToolKit.CiRSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                     FNAME) : _comfortImage;
         //generation child image
         for (int i = 0; i < _congregation.Count; i++)
             {
             FNAME = $"{this.GetType().ToString()}!{_congregation[i].GetType()}!{_congregation[i].gameObject.name}";
-            //{this.GetType().ToString()}
-            //var cp = ScriptableObject.CreateInstance("ComfortablePlace");// new();   //if (_congregation[i].GetComponent<Text>())//*
-                    //$"{this.GetType().ToString()}|{_congregation[i].GetType()}|{_congregation[i].gameObject.name}")//;
-                //if (_congregation[i].GetComponent<>())//*
-                //$"{this.GetType().ToString()}|{_congregation[i].GetType()}|{_congregation[i].gameObject.name}")//;
-                //if (_congregation[i].GetComponent<Button>())//*
+            var cp= ScriptableObject.CreateInstance(typeof(ComfortablePlace));
                 if (_congregation[i].GetType() == typeof(Text))//*
                 {
-                _comfortablePlaceObjects.Add(
-
-                    ToolKit.CiRSccriptableObject(new ComfortText(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                    FNAME));
+                    cp = ToolKit.CiRSccriptableObject(
+                        new ComfortText(), 
+                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                        FNAME
+                        );
+                    UpdateTPlace((ComfortText)cp, (Text)_congregation[i],new Vector2(Screen.width,Screen.height));
+                    _comfortablePlaceObjects.Add((ComfortImage)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Image))//*
                 {
-                _comfortablePlaceObjects.Add(
-                ToolKit.CiRSccriptableObject(new ComfortImage(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                FNAME)//;
-                );
+                     cp = ToolKit.CiRSccriptableObject(
+                        new ComfortImage(),
+                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                        FNAME);
+                    UpdateIPlace((ComfortImage)cp, (Image)_congregation[i], new Vector2(Screen.width, Screen.height));
+                    _comfortablePlaceObjects.Add((ComfortImage)cp);
                 }
+    
 
                 if (_congregation[i].GetType() == typeof(Button))
                 {
+                    cp = ToolKit.CiRSccriptableObject(new ComfortButton(), 
+                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                     FNAME);
+                    UpdateBPlace((ComfortButton)cp, (Button)_congregation[i], new Vector2(Screen.width, Screen.height));
                     _comfortablePlaceObjects.Add(
-                     ToolKit.CiRSccriptableObject(new ComfortButton(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                      FNAME));
+                        (ComfortButton)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Dropdown))
                 {
+                    cp = ToolKit.CiRSccriptableObject(
+                        new ComfortDropdown(),
+                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                        FNAME);
+                    UpdateDDPlace((ComfortDropdown)cp, (Dropdown)_congregation[i], new Vector2(Screen.width, Screen.height));
                     _comfortablePlaceObjects.Add(
+                        (ComfortDropdown)cp);
 
-                    ToolKit.CiRSccriptableObject(new ComfortDropdown(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                      FNAME));
                 }
                 if (_congregation[i].GetType() == typeof(InputField))
                 {
+                    cp = ToolKit.CiRSccriptableObject(
+                        new ComfortInput(),
+                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                        FNAME);
+                    UpdateIPPlace((ComfortInput)cp, (InputField)_congregation[i], new Vector2(Screen.width, Screen.height));
                     _comfortablePlaceObjects.Add(
-                    ToolKit.CiRSccriptableObject(new ComfortInput(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                      FNAME));
+                       (ComfortInput)cp);
                 }
+
                 if (_congregation[i].GetType() == typeof(ScrollRect))
                 {
                     _comfortablePlaceObjects.Add(
@@ -640,24 +678,48 @@ public abstract class PageUI : MonoBehaviour
 
                 if (_congregation[i].GetType() == typeof(Toggle))
                 {
+                    cp = ToolKit.CiRSccriptableObject(
+                        new ComfortToggle(),
+                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                        FNAME);
+                    UpdateTGPlace((ComfortToggle)cp, (Toggle)_congregation[i], new Vector2(Screen.width, Screen.height));
                     _comfortablePlaceObjects.Add(
-                    ToolKit.CiRSccriptableObject(new ComfortToggle(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                      FNAME));
+                        (ComfortToggle)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Scrollbar))
-
                 {
+                    cp = ToolKit.CiRSccriptableObject(
+                        new ComfortScrollbar(),
+                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                        FNAME);
+                    UpdateSBPlace((ComfortScrollbar)cp, (Scrollbar)_congregation[i], new Vector2(Screen.width, Screen.height));
                     _comfortablePlaceObjects.Add(
-                    ToolKit.CiRSccriptableObject(new ComfortScrollbar(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                     FNAME));
+                        (ComfortScrollbar)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Slider))
                 {
+                    cp = ToolKit.CiRSccriptableObject(
+                        new ComfortSlide(),
+                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
+                        FNAME);
+                    UpdateSLBPlace((ComfortSlide)cp, (Slider)_congregation[i], new Vector2(Screen.width, Screen.height));
                     _comfortablePlaceObjects.Add(
-                    ToolKit.CiRSccriptableObject(new ComfortSlide(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                      FNAME));
+                        (ComfortScrollbar)cp);
                 }
+
+
         }
+                /*
+                    _comfortablePlaceObjects.Add(
+                    ToolKit.CiRSccriptableObject(new ComfortDropdown(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME));
+                 */
+            //{this.GetType().ToString()}
+            //var cp = ScriptableObject.CreateInstance("ComfortablePlace");// new();   //if (_congregation[i].GetComponent<Text>())//*
+                    //$"{this.GetType().ToString()}|{_congregation[i].GetType()}|{_congregation[i].gameObject.name}")//;
+                //if (_congregation[i].GetComponent<>())//*
+                //$"{this.GetType().ToString()}|{_congregation[i].GetType()}|{_congregation[i].gameObject.name}")//;
+                //if (_congregation[i].GetComponent<Button>())//*
         //linking
         /*
         for (int i = 0; i < _congregation.Count; i++)

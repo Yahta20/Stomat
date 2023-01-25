@@ -9,10 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 351ed6464aa944248ad8ba3517b06201, type: 3}
-  m_Name: VocalUI!UnityEngine.RectTransform!Content 1
+  m_Script: {fileID: 11500000, guid: ab47a6dd9b92fe04ea9a5a0e633b7b7e, type: 3}
+  m_Name: VocalUI!UnityEngine.UI.Scrollbar!Scrollbar Vertical
   m_EditorClassIdentifier: 
-  anchoredPosition: {x: -0.00000003075053, y: 0}
+  anchoredPosition: {x: 0, y: 0}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
   anchorMin: {x: 0, y: 0}
@@ -20,3 +20,5 @@ MonoBehaviour:
   anchoredPosition3D: {x: 0, y: 0, z: 0}
   sizeDelta: {x: 0, y: 0}
   pivot: {x: 0, y: 0}
+  image: {fileID: 11400000, guid: 88890d6b6cde31741a0473ec02342f76, type: 2}
+  handle: {fileID: 11400000, guid: c6db999b34918cb4dbabaff462f221fa, type: 2}
