@@ -100,6 +100,7 @@ namespace KHNMU.Toolkit
             Type sot = so.GetType();
             var asset = ScriptableObject.CreateInstance(sot.ToString());//sot>()//<sot>();
                                                                         //Assets\Scripts\Scriptable obj\ScriptableObj\Places
+            System.IO.Directory.CreateDirectory(path);
             string name = AssetDatabase.GenerateUniqueAssetPath($"{path}/{nam}.asset");
             AssetDatabase.CreateAsset(asset, name);
 
