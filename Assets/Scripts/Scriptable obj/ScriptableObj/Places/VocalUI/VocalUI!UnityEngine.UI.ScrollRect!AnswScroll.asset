@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2519a94f77adee348963164ed9332abb, type: 3}
   m_Name: VocalUI!UnityEngine.UI.ScrollRect!AnswScroll
   m_EditorClassIdentifier: 
-  anchoredPosition: {x: 0.00000001788125, y: 0.17875001}
+  anchoredPosition: {x: 0, y: 0.17958574}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
   anchorMin: {x: 0.5, y: 0.5}
   anchorMax: {x: 0.5, y: 0.5}
   anchoredPosition3D: {x: 0, y: 0, z: 0}
-  sizeDelta: {x: 0.3955572, y: 0.32463887}
+  sizeDelta: {x: 0.3955572, y: 0.3229675}
   pivot: {x: 0.5, y: 0.5}
   image: {fileID: 11400000, guid: acd832d9970624d4889219cdc730a61b, type: 2}
   viewPort: {fileID: 11400000, guid: fc01f17657a79394880299dba9d26da9, type: 2}

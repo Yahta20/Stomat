@@ -9,16 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 92158bd9bf5aee844833cb2c7baed98f, type: 3}
-  m_Name: VocalUI!UnityEngine.UI.Image!Scrollbar Vertical 1
+  m_Script: {fileID: 11500000, guid: 351ed6464aa944248ad8ba3517b06201, type: 3}
+  m_Name: VocalUI!RT!Scrollbar Vertical 1
   m_EditorClassIdentifier: 
   anchoredPosition: {x: 0, y: 0}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
-  anchorMin: {x: 0, y: 0}
+  anchorMin: {x: 1, y: 0}
   anchorMax: {x: 1, y: 1}
   anchoredPosition3D: {x: 0, y: 0, z: 0}
-  sizeDelta: {x: -0.010416667, y: -0.018518519}
-  pivot: {x: 0.5, y: 0.5}
-  sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  color: {r: 1, g: 1, b: 1, a: 1}
+  sizeDelta: {x: 0.010416667, y: 0}
+  pivot: {x: 1, y: 1}

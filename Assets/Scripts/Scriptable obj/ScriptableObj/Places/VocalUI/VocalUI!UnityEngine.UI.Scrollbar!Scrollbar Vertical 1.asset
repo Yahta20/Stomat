@@ -15,10 +15,11 @@ MonoBehaviour:
   anchoredPosition: {x: 0, y: 0}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
-  anchorMin: {x: 1, y: 0}
+  anchorMin: {x: 0, y: 0}
   anchorMax: {x: 1, y: 1}
   anchoredPosition3D: {x: 0, y: 0, z: 0}
-  sizeDelta: {x: 0.032206118, y: -0.018619934}
-  pivot: {x: 1, y: 1}
+  sizeDelta: {x: -0.010416667, y: -0.018518519}
+  pivot: {x: 0.5, y: 0.5}
   image: {fileID: 11400000, guid: 4a1d11771e39e7c409e6ade67395590d, type: 2}
+  SlidArea: {fileID: 11400000, guid: 8448b109262ce42409d4a83f0587a26f, type: 2}
   handle: {fileID: 11400000, guid: 3e419243a9aca964cb3742fba6bae7b5, type: 2}

@@ -133,6 +133,17 @@ public abstract class PageUI : MonoBehaviour
                             print($"{_comfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
+                    case Scrollbar:
+                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortScrollbar))
+                        {
+                            SetScrollbarPlaning((ComfortScrollbar)_comfortablePlaceObjects[i], (Scrollbar)_congregation[i], screen);
+                        }
+                        else
+                        {
+                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                        }
+                        break;
+
                     default:
                         print($"{_congregation[i]} has wrong type");
                         break;
@@ -140,8 +151,6 @@ public abstract class PageUI : MonoBehaviour
                 }
             }
         }
-
-
         if (_congregation.Count != _comfortablePlaceObjects.Count)
         {
             print($"Diferent List size");
@@ -155,7 +164,6 @@ public abstract class PageUI : MonoBehaviour
 
     }
     protected abstract void setLang(SystemLanguage lang);
-
     private void SetDropdownPlaning(ComfortDropdown so, Dropdown dd, Vector2 screen)
     {
 
@@ -173,8 +181,6 @@ public abstract class PageUI : MonoBehaviour
         SetTextPlaning(so.Label, toggle.GetComponentInChildren<Text>(), screen);
         SetRectPlaning(so, toggle.GetComponent<RectTransform>(), screen);
     }
-
-
     private void SetRectPlaning(ComfortablePlace so, RectTransform transform, Vector2 screen)
     {
         transform.sizeDelta = so.sizeDelta * screen;
@@ -183,7 +189,6 @@ public abstract class PageUI : MonoBehaviour
         transform.anchorMax = so.anchorMax;                  //new Vector2(0.5f, 0);
         transform.pivot = so.pivot;                      //new Vector2(0.5f, 0);
     }
-
     private void SetTextPlaning(ComfortText so, Text text, Vector2 screen)
     {
         text.alignByGeometry = so.alignByGeometry;
@@ -199,7 +204,6 @@ public abstract class PageUI : MonoBehaviour
         image.sprite = so.sprite;
         SetRectPlaning(so, image.rectTransform, screen);
     }
-
     private void SetButtonPlaning(ComfortButton so, Button btn, Vector2 screen)
     {
         /*
@@ -215,8 +219,10 @@ public abstract class PageUI : MonoBehaviour
     private void SetScrollbarPlaning(ComfortScrollbar so, Scrollbar sb, Vector2 screen)
     {
         var image = sb.handleRect.GetComponent<Image>();
+
         SetImagePlaning((ComfortImage)so.handle, image, screen);
-        SetRectPlaning(so, sb.GetComponent<RectTransform>(), screen);
+        SetRectPlaning(so.SlidArea, sb.GetComponentInChildren<RectTransform>(), screen);
+        SetRectPlaning(so, sb.transform.GetChild(0).GetComponent<RectTransform>(), screen);
     }
     private void SetScrollPlaning(ComfortScroll so, ScrollRect sr, Vector2 screen)
     {
@@ -243,7 +249,6 @@ public abstract class PageUI : MonoBehaviour
         SetRectPlaning(so, sr.GetComponent<RectTransform>(), screen);
 
     }
-
     private void SetSlidePlaning(ComfortSlide so, Slider sl, Vector2 screen)
     {
         /*
@@ -271,8 +276,6 @@ public abstract class PageUI : MonoBehaviour
         SetImagePlaning(so.groundHandle, sl.handleRect.GetComponent<Image>(), screen);
         SetRectPlaning(so, sl.GetComponent<RectTransform>(), screen);
     }
-
-
     private void SetScrollbarPlaning(ComfortScrollbar so, Scrollbar sb, Vector2 screen, params ScriptableObject[] list)
     {
         var image = sb.handleRect.GetComponent<Image>();
@@ -437,8 +440,13 @@ public abstract class PageUI : MonoBehaviour
     private void UpdateSBPlace(ComfortScrollbar so, Scrollbar sb, Vector2 screen)
     {
         var cimage = sb.GetComponent<Image>();//handleRect.GetComponent<Image>();
-
         var image = sb.handleRect.GetComponent<Image>();
+        var slidarea = sb.transform.GetChild(0).GetComponent<RectTransform>();
+
+        if (so.SlidArea!=null)
+        {
+            UpdateRTplace(so.SlidArea, slidarea, screen);
+        }
         if (so.image != null)
         {
             UpdateIPlace(so.image, cimage, screen);
@@ -507,7 +515,7 @@ public abstract class PageUI : MonoBehaviour
 
         UpdateIPlace    (so.groundImage,    image, screen);
         UpdateIPlace    (so.groundHandle,   igroundHandle, screen);
-        UpdateIPlace    (so.groundHandle,   igroundFill, screen);
+        UpdateIPlace    (so.groundFill,   igroundFill, screen);
 
         UpdateRTplace   (so, slb.GetComponent<RectTransform>(), screen);
 
@@ -710,13 +718,6 @@ public abstract class PageUI : MonoBehaviour
                     cp =ToolKit.CiRSccriptableObject(new ComfortablePlace(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                       FNAME);
                     UpdateRTplace((ComfortablePlace)cp, ((ScrollRect)_congregation[i]).content, new Vector2(Screen.width, Screen.height));
-                /*
-                _comfortablePlaceObjects.Add(
-                    ToolKit.CiRSccriptableObject(new ComfortScroll(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
-                      FNAME));
-                    FNAME = $"{this.GetType().ToString()}!{((ScrollRect)_congregation[i]).content.GetType()}!" +
-                    $"{((ScrollRect)_congregation[i]).content.name}";
-                 */
                 }
 
                 if (_congregation[i].GetType() == typeof(Toggle))
@@ -749,9 +750,17 @@ public abstract class PageUI : MonoBehaviour
                     _comfortablePlaceObjects.Add(
                         (ComfortScrollbar)cp);
                 }
-
-
         }
+    }
+#endif
+}
+                /*
+                _comfortablePlaceObjects.Add(
+                    ToolKit.CiRSccriptableObject(new ComfortScroll(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
+                      FNAME));
+                    FNAME = $"{this.GetType().ToString()}!{((ScrollRect)_congregation[i]).content.GetType()}!" +
+                    $"{((ScrollRect)_congregation[i]).content.name}";
+                 */
                 /*
                     _comfortablePlaceObjects.Add(
                     ToolKit.CiRSccriptableObject(new ComfortDropdown(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places",
@@ -832,26 +841,3 @@ public abstract class PageUI : MonoBehaviour
             }
         }        
          */
-    }
-}
-#endif
-
-
-
-                        /*
-                            public ComfortImage image;
-                            public ComfortablePlace viewPort;
-                            public ComfortablePlace Content;
-                            public ComfortScrollbar vertical;
-                            public ComfortScrollbar horizontal;
-                         */
-                            //if (child[j].GetComponent<Image>() != null)
-                            //{
-                            //    ((ComfortButton)_comfortablePlaceObjects[i]).image =
-                            //        (ComfortImage)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())];
-                            //}
-                            //if (child[j].GetComponent<Text>() != null)
-                            //{
-                            //    ((ComfortButton)_comfortablePlaceObjects[i]).text =
-                            //        (ComfortText)_comfortablePlaceObjects[ToolKit.FindExactInt(child[j], _congregation.ToArray())];
-                            //}
