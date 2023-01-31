@@ -4,19 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-    public abstract class QuestBaseState :StateBase
-    {
+public abstract class QuestBaseState :StateBase
+{
     protected readonly QuestMaster _master;
-    protected readonly IQuestStateSwitcher _stateSwith;
-    protected QuestBaseState(QuestMaster control, IQuestStateSwitcher ss)
+    //protected readonly IQuestStateSwitcher _stateSwith;
+    protected QuestBaseState(QuestMaster control)
     {
         control = _master;
-        ss = _stateSwith;
     }
+}
     
     
  
     /*
+        ss = _stateSwith;
     SLEEP,
     ACTIVE,
     DONE
@@ -24,4 +25,3 @@ using System.Threading.Tasks;
 
 
 
-}
