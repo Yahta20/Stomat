@@ -18,6 +18,8 @@ public class QuestTask : ScriptableObject
     {
         State = s;
     }
+
+
 }
 
 public enum QuestState { 

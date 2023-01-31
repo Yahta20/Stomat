@@ -4,6 +4,9 @@
 public class ComfortScrollbar : ComfortablePlace
 {
     public ComfortImage image;
+    public ComfortablePlace SlidArea;
+
     public ComfortImage handle;
+
 }
 

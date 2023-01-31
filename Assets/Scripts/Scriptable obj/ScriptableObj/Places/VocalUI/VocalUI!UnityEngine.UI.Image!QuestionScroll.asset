@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92158bd9bf5aee844833cb2c7baed98f, type: 3}
   m_Name: VocalUI!UnityEngine.UI.Image!QuestionScroll
   m_EditorClassIdentifier: 
-  anchoredPosition: {x: 0.0000004887604, y: -0.23153703}
+  anchoredPosition: {x: 0, y: -0.23153703}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
   anchorMin: {x: 0.5, y: 0.5}
@@ -21,4 +21,4 @@ MonoBehaviour:
   sizeDelta: {x: 0.39555728, y: 0.21905805}
   pivot: {x: 0.5, y: 0.5}
   sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  color: {r: 1, g: 1, b: 1, a: 0.392}
+  color: {r: 1, g: 1, b: 1, a: 0.003921569}

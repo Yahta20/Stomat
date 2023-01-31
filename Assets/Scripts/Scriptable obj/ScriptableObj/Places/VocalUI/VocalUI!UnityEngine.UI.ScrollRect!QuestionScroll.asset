@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2519a94f77adee348963164ed9332abb, type: 3}
   m_Name: VocalUI!UnityEngine.UI.ScrollRect!QuestionScroll
   m_EditorClassIdentifier: 
-  anchoredPosition: {x: 0.0000004887604, y: -0.23153703}
+  anchoredPosition: {x: 0, y: -0.23153703}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
   anchorMin: {x: 0.5, y: 0.5}

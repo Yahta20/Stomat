@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92158bd9bf5aee844833cb2c7baed98f, type: 3}
   m_Name: VocalUI!UnityEngine.UI.Image!Vocal
   m_EditorClassIdentifier: 
-  anchoredPosition: {x: 1, y: 0}
+  anchoredPosition: {x: 0, y: 0}
   offsetMax: {x: 0, y: 0}
   offsetMin: {x: 0, y: 0}
   anchorMin: {x: 0.5, y: 0.5}
@@ -21,4 +21,4 @@ MonoBehaviour:
   sizeDelta: {x: 0.67290056, y: 0.6821368}
   pivot: {x: 0.5, y: 0.5}
   sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
-  color: {r: 0.1764706, g: 0.1764706, b: 0.1764706, a: 0}
+  color: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0}
