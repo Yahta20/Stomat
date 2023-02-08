@@ -21,6 +21,10 @@ MonoBehaviour:
     m_Address: Cabinet
     m_ReadOnly: 0
     m_SerializedLabels: []
+  - m_GUID: 5fb3f06024c9e6143ad41b75860784b0
+    m_Address: Assets/Models/Anatomy/PavelSkull.stl
+    m_ReadOnly: 0
+    m_SerializedLabels: []
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: 0652e95376fdd5b4998cf45f68aa61cc, type: 2}
   m_SchemaSet:

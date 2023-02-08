@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: PacientPrefab
+  m_EditorClassIdentifier: 
+  m_GroupName: PacientPrefab
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8dc7b7bc47161974d9b6be55ccadd359
+  m_SerializeEntries:
+  - m_GUID: 3ff1bebbbea6ba54e8c68a086943fd4e
+    m_Address: Assets/Prefabs/Cabinet/Pacient`/Pacient1.prefab
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 0652e95376fdd5b4998cf45f68aa61cc, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 131c2a141655d8d4c852c76d014ab0e3, type: 2}
+    - {fileID: 11400000, guid: 7fa06461c7c38974b9411943fefa8c6a, type: 2}

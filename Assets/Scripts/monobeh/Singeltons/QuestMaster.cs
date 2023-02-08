@@ -9,7 +9,8 @@ public class QuestMaster : Singleton<QuestMaster>,IQuestStateSwitcher// MonoBeha
     public PacientStat      currentPacient {get; private set;}
     public PacientStat []   Pacients;
 
-
+    public List<SimpleQuestState> CurrentPacientQuest       =new List<SimpleQuestState>();
+    public List<QuestTrasition> currentPacientQTransition   =new List<QuestTrasition>();
 
     public event Action OnQuestTaskComplete;
     public event Action OnQuestComplete;
@@ -32,12 +33,29 @@ public class QuestMaster : Singleton<QuestMaster>,IQuestStateSwitcher// MonoBeha
     {
         if (arg0.name == "Cabinet")
         {
-           // SwitchPlayerState<MovingState>();
+            BuildQuestGrapf();
         }
         if (arg0.name == "MainMenu")
         {
-            //SwitchPlayerState<UIViewState>();
+            currentPacient = ScriptableObject.CreateInstance<PacientStat>();
         }
+    }
+
+    private void BuildQuestGrapf()
+    {
+        foreach (var item in currentPacient.questList)
+        {
+            CurrentPacientQuest.Add(
+                new SimpleQuestState(this,  item)
+                );
+        }
+        for (int i = 0; i <= CurrentPacientQuest.Count; i++)
+        {
+            currentPacientQTransition.Add(
+                new QuestTrasition(CurrentPacientQuest[i], CurrentPacientQuest[i + 1],this)
+                );
+        }
+       // throw new NotImplementedException();
     }
 
     private void OnEnable()
@@ -46,6 +64,7 @@ public class QuestMaster : Singleton<QuestMaster>,IQuestStateSwitcher// MonoBeha
         {
             currentPacient = ScriptableObject.CreateInstance<PacientStat>();//new PacientStat();
         }
+        //print($"quest enable");
     }
 
     public void SetPatient(int i) {

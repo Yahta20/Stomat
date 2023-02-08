@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
+[Serializable]
 public class QuestTrasition : BaseTrasition
 {
     private readonly QuestMaster _master;
@@ -17,6 +17,4 @@ public class QuestTrasition : BaseTrasition
         _from.Stop();
         _to.Start();
     }
-
 }
-
