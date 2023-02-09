@@ -52,7 +52,7 @@ public class QuestMaster : Singleton<QuestMaster>,IQuestStateSwitcher// MonoBeha
         for (int i = 0; i <= CurrentPacientQuest.Count; i++)
         {
             currentPacientQTransition.Add(
-                new QuestTrasition(CurrentPacientQuest[i], CurrentPacientQuest[i + 1],this)
+                new QuestTrasition(CurrentPacientQuest[i], CurrentPacientQuest[i + 2],this)
                 );
         }
        // throw new NotImplementedException();
