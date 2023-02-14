@@ -23,14 +23,48 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
             //    }
             //}
             /*
-            if (_instance == null) { 
-            }
              */
+            //if (_instance == null) {
+            //    return CreateInstance();
+            //}
+
             return _instance;
         }
         private set { }
     }
 
+    private static T CreateInstance()
+    {
+        var go  = new GameObject($"_{Instance.GetType().ToString()}", new Type[1] { typeof(Singleton<T>)});
+        _instance = go.GetComponent<T>(); 
+        return go.GetComponent<T>();
+        //return 
+       //Instance = 
+    }
+
+    private static T CreateInstance(T t)
+    {
+        if (t != null)
+        {
+            _instance = t;
+            return _instance;
+        }
+            return CreateInstance();
+        //GameObject go = CreateInstantGO("instant");
+
+        //throw new NotImplementedException();
+    }
+
+    private static GameObject CreateInstantGO(string v)
+    {
+        //if ("instant" == v) {
+        //    return new GameObject(Instance.GetType().ToString());
+        //}
+        return new GameObject($"{v}_{Instance.GetType().ToString()}");
+        //return GameObject(Instance.GetType().ToString);
+
+
+    }
 
     static      Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour,Message>>> MsgList 
         = new   Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour, Message>>>();
@@ -42,7 +76,10 @@ public abstract class Singleton<T> : MonoBehaviour where T : Singleton<T>
     protected virtual void Awake() {
         if (_instance == null)
         { // Ёкземпл€р менеджера был найден
-            _instance = (T) this;
+            //_instance = (T) this;
+            _instance = CreateInstance((T)this);
+
+
             DontDestroyOnLoad((T)this);
             
             return;

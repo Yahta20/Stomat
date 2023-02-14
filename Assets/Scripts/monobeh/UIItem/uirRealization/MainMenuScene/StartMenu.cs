@@ -13,7 +13,7 @@ public class StartMenu : MenuUI
 
     protected override void setLang(SystemLanguage lang)
     {
-        
+
     }
 
     protected override void setSize(Vector2 screen)
@@ -29,38 +29,46 @@ public class StartMenu : MenuUI
         ToolKit.ExitApp();
     }
 
+    public virtual void OnDisable() {
+        base.OnDisable();
+    }
+    public virtual void OnEnable() {
+        base.OnEnable();
+    }
+}
 
-    //public List<UnityEvent> ActionsOfPages;
-    //public PageUI startPage;
-    //public List<PageUI> ChildList;
-    //[Serializable]
-    //public void ChangePage(PageUI t)
-    //{
-    //    foreach (var item in ChildList)
-    //    {
-    //        if (item.GetType() == t.GetType())
-    //        {
-    //            item.gameObject.SetActive(true);
-    //        }
-    //        else {
-    //            item.gameObject.SetActive(false);
-    //        }
-    //    }
-    //}
-    //private void Awake()
-    //{
-    //    base.Awake();
-    //}
-    //void Start()
-    //{
-    //    base.Start();
-    //}
-    //
-    //private void OnDisable()
-    //{
-    //    base.OnDisable();
-    //}
-    // Update is called once per frame
+
+//public List<UnityEvent> ActionsOfPages;
+//public PageUI startPage;
+//public List<PageUI> ChildList;
+//[Serializable]
+//public void ChangePage(PageUI t)
+//{
+//    foreach (var item in ChildList)
+//    {
+//        if (item.GetType() == t.GetType())
+//        {
+//            item.gameObject.SetActive(true);
+//        }
+//        else {
+//            item.gameObject.SetActive(false);
+//        }
+//    }
+//}
+private void Awake()
+    {
+        base.Awake();
+    }
+    void Start()
+    {
+        base.Start();
+    }
+    
+    private void OnDisable()
+    {
+        base.OnDisable();
+    }
+     //Update is called once per frame
     //void Update()
     //{
     //    

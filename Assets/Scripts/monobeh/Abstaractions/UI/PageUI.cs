@@ -34,8 +34,6 @@ public abstract class PageUI : MonoBehaviour
 
         }
     }
-
-
     public virtual void OnEnable()
     {
         _Font = GetComponent<Image>();
@@ -45,6 +43,8 @@ public abstract class PageUI : MonoBehaviour
         setSize(new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height));
         setLang(Localizator.Instance.CurrLang);
     }
+
+
     protected virtual void setSize(Vector2 screen)
     {
         if (_comfortImage != null)

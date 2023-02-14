@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/CabinetHDRp.unity
+    guid: 7f82c5d4ab0e83a458e6a5a5eed5c5a1
+  - enabled: 0
     path: Assets/Scenes/MainMenu.unity
     guid: cd86b28f21c2c2241a319f6870cd9bdc
   m_configObjects:
