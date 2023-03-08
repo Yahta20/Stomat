@@ -14,7 +14,7 @@ public enum GameState
     cutscene
 }
 
-public class PlayControl : Singleton<PlayControl>,IPlayerStateSwitcher
+public class PlayControl : Singleton<PlayControl>,IPlayerStateSwitcher, ISMInteractiv
 {
 
     protected override void Awake()
@@ -22,9 +22,9 @@ public class PlayControl : Singleton<PlayControl>,IPlayerStateSwitcher
         base.Awake();
         previosScene = SceneManager.GetActiveScene();
         currentScene = SceneManager.GetActiveScene();
-        SceneManager.activeSceneChanged += SceneChanged;
-        SceneManager.sceneUnloaded += sceneUnloaded;
-        SceneManager.sceneLoaded += sceneLoaded;
+        SceneManager.activeSceneChanged += ActiveSceneChanged ;
+        SceneManager.sceneUnloaded      += SceneUnloaded;
+        SceneManager.sceneLoaded        += SceneLoaded;
         _diapState = new List<BaseGameState>()
         {
             new UIViewState(this,this),
@@ -34,34 +34,6 @@ public class PlayControl : Singleton<PlayControl>,IPlayerStateSwitcher
         };
         _curState = _diapState[0];
     }
-
-    private void sceneLoaded(Scene arg0, LoadSceneMode arg1)
-    {
-        
-        if (arg0.name == "Cabinet")
-        {
-            SwitchPlayerState<MovingState>();
-        }
-        if (arg0.name == "MainMenu")
-        {
-            SwitchPlayerState<UIViewState>();
-        }
-    }
-
-    private void sceneUnloaded(Scene arg0)
-    {
-        //print($"Unload scene:{arg0.name}");
-    }
-
-    private void SceneChanged(Scene arg0, Scene arg1)
-    {
-        /*
-        print($"1 scene:{arg0.name},2 scene:{arg1.name}");
-        print(arg0.name);
-        print(arg1.name);
-         */
-    }
-
 
     public Scene previosScene;
     public Scene currentScene;
@@ -143,5 +115,23 @@ public class PlayControl : Singleton<PlayControl>,IPlayerStateSwitcher
         state.Start();
         _curState = state;
         //print($"Stateswitched to {state}");
+    }
+
+    void ISMInteractiv.ActiveSceneChanged(Scene arg0, Scene arg1)
+    {
+       // throw new NotImplementedException();
+
+    }
+
+    void ISMInteractiv.SceneUnloaded(Scene arg0)
+    {
+       // throw new NotImplementedException();
+
+    }
+
+    void ISMInteractiv.SceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+      //  throw new NotImplementedException();
+
     }
 }

@@ -6,7 +6,47 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: Fight Idle To Standing Idle
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ch13_body
+    second: {fileID: 2100000, guid: 83515b2f3598d2f48a544e13e5f3582a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Ch13_hair
+    second: {fileID: 2100000, guid: 37e008055b7086043939c74c12e13fb0, type: 2}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch13_1001_Diffuse
+    second: {fileID: 2800000, guid: eded0ba7cb4c72544b4d0dc89503d53b, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch13_1001_Glossiness
+    second: {fileID: 2800000, guid: 04f9cf27585594543a5d2c97c3e68247, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch13_1001_Normal
+    second: {fileID: 2800000, guid: fc457be652f741f4e990eb5efdda304f, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch13_1001_Specular
+    second: {fileID: 2800000, guid: b64d89e132826944fa37db440b4f5619, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch13_1002_Diffuse
+    second: {fileID: 2800000, guid: b15a0c389fce308478e2a778bcc21a74, type: 3}
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: Ch13_1002_Normal
+    second: {fileID: 2800000, guid: 35d314eec42e5704f92dd9588b99f6b4, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -567,8 +607,7 @@ ModelImporter:
     - name: mixamorig:Hips
       parentName: Fight Idle To Standing Idle(Clone)
       position: {x: 0.0059983153, y: 1.0053129, z: 0.0013845523}
-      rotation: {x: 0.0000000029103835, y: -0.00000002328306, z: 0.0000000029103826,
-        w: 1}
+      rotation: {x: 0.0000000029103835, y: -0.00000002328306, z: 0.0000000029103826, w: 1}
       scale: {x: 1, y: 0.99999994, z: 1}
     - name: mixamorig:Spine
       parentName: mixamorig:Hips
@@ -578,8 +617,7 @@ ModelImporter:
     - name: mixamorig:Spine1
       parentName: mixamorig:Spine
       position: {x: -0, y: 0.10803354, z: -7.1873105e-11}
-      rotation: {x: 0.0000000018626449, y: 8.0518696e-11, z: -0.0000000014529622,
-        w: 1}
+      rotation: {x: 0.0000000018626449, y: 8.0518696e-11, z: -0.0000000014529622, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:Spine2
       parentName: mixamorig:Spine1
@@ -594,8 +632,7 @@ ModelImporter:
     - name: mixamorig:Head
       parentName: mixamorig:Neck
       position: {x: -0, y: 0.089759976, z: 0.025569595}
-      rotation: {x: 0.000000009313225, y: -0.000000008731152, z: 0.000000016734704,
-        w: 1}
+      rotation: {x: 0.000000009313225, y: -0.000000008731152, z: 0.000000016734704, w: 1}
       scale: {x: 1, y: 1, z: 1}
     - name: mixamorig:HeadTop_End
       parentName: mixamorig:Head
@@ -640,8 +677,7 @@ ModelImporter:
     - name: mixamorig:LeftHandIndex4
       parentName: mixamorig:LeftHandIndex3
       position: {x: 0.00002285747, y: 0.025336407, z: -7.988035e-11}
-      rotation: {x: -0.000000035390254, y: -0.00000009545283, z: 0.00000014338303,
-        w: 1}
+      rotation: {x: -0.000000035390254, y: -0.00000009545283, z: 0.00000014338303, w: 1}
       scale: {x: 1.0000001, y: 1.0000004, z: 1.0000002}
     - name: mixamorig:LeftHandRing1
       parentName: mixamorig:LeftHand
@@ -781,8 +817,7 @@ ModelImporter:
     - name: mixamorig:RightHandMiddle4
       parentName: mixamorig:RightHandMiddle3
       position: {x: -0.0000084208, y: 0.026854943, z: -2.339334e-10}
-      rotation: {x: -0.00000013411042, y: -0.000000087155804, z: 0.00000003014386,
-        w: 1}
+      rotation: {x: -0.00000013411042, y: -0.000000087155804, z: 0.00000003014386, w: 1}
       scale: {x: 1.0000002, y: 1.0000004, z: 1.0000006}
     - name: mixamorig:RightHandRing1
       parentName: mixamorig:RightHand

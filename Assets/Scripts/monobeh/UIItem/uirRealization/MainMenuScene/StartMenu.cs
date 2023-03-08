@@ -55,22 +55,22 @@ public class StartMenu : MenuUI
 //        }
 //    }
 //}
-private void Awake()
-    {
-        base.Awake();
-    }
-    void Start()
-    {
-        base.Start();
-    }
-    
-    private void OnDisable()
-    {
-        base.OnDisable();
-    }
+//private void Awake()
+//    {
+//        base.Awake();
+//    }
+//    void Start()
+//    {
+//        base.Start();
+//    }
+//    
+//    private void OnDisable()
+//    {
+//        base.OnDisable();
+//    }
      //Update is called once per frame
     //void Update()
     //{
     //    
     //}
-}
+//}

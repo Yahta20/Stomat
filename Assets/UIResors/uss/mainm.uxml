@@ -1,0 +1,7 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Template name="new t" src="project://database/Assets/UIResors/uss/new%20t.uxml?fileID=9197481963319205126&amp;guid=ec1829f081f36da47949386b4a643bd0&amp;type=3#new t" />
+    <Style src="project://database/Assets/UIResors/uss/ManuResours.uss?fileID=7433441132597879392&amp;guid=bd54f2e59946e5848a322c14ba4fa011&amp;type=3#ManuResours" />
+    <Style src="project://database/Assets/UIResors/uss/new%20t.uss?fileID=7433441132597879392&amp;guid=f57df67b0df8f8444b036de7ca3adf8c&amp;type=3#new t" />
+    <ui:Instance template="new t" name="FirstPage" class="firstpage_style" style="cursor: url(&apos;project://database/Assets/UIResors/EN2iqwtWoAAwOvU.jpg?fileID=2800000&amp;guid=f691350eab64dbb429a3bb970dc6bfd3&amp;type=3#EN2iqwtWoAAwOvU&apos;);" />
+    <ui:Label text="Симулятор стоматолога" display-tooltip-when-elided="true" style="align-items: center; justify-content: center; -unity-text-align: upper-center;" />
+</ui:UXML>

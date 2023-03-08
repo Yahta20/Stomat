@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
+using UnityEngine.SceneManagement;
 
-public class UICustomES : Singleton<UICustomES>//MonoBehaviour
+public class UICustomES : Singleton<UICustomES>, ISMInteractiv//MonoBehaviour
 {
     /*
     public static UICustomES Instance
@@ -47,9 +49,14 @@ public class UICustomES : Singleton<UICustomES>//MonoBehaviour
     public event Action offPause;
 
     public event Action <Vector2> onChangeScreeSize;
+    
     Resolution currentResolution;
     public Resolution Resolution { get { return currentResolution;}}
     public Vector2 screenResolution { get { return new Vector2(currentResolution.width, currentResolution.height);  } }
+
+    List<Canvas> allCanvas =  new List<Canvas>();
+
+    public List<Canvas> CanvasList { get { return allCanvas; } }
 
     public bool UIView { get; private set; } = false;
     public bool UIPaused { get; private set; } = false;
@@ -153,6 +160,8 @@ public class UICustomES : Singleton<UICustomES>//MonoBehaviour
     protected override void Awake()
     {
         base.Awake();
+        //MakeMailForm("InfoTextShow");
+
         /*
         if (instance == null)
         { // Ёкземпл€р менеджера был найден
@@ -167,15 +176,55 @@ public class UICustomES : Singleton<UICustomES>//MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (currentResolution.height !=         Screen.currentResolution.height & 
-            currentResolution.refreshRate !=    Screen.currentResolution.refreshRate &
-            currentResolution.width !=          Screen.currentResolution.width)
+
+        screenRoutin();
+        //canvasRoutin();
+
+        //print($"{currentResolution}");
+    }
+
+    private void screenRoutin()
+    {
+        if (currentResolution.height != Screen.currentResolution.height &
+            currentResolution.refreshRate != Screen.currentResolution.refreshRate &
+            currentResolution.width != Screen.currentResolution.width)
         {
             currentResolution = Screen.currentResolution;
             onChangeScreeSize?.Invoke(new Vector2(currentResolution.width, currentResolution.height));
         }
-        //print($"{currentResolution}");
     }
 
+    private void canvasRoutin()
+    {
+
+
+        var allc = FindObjectsOfType<Canvas>()//;
+            .Where(t => t.renderMode == RenderMode.ScreenSpaceOverlay).ToArray();
+        
+        
+        //print(allc.Length);
+        //foreach (var item in allc)
+        //{
+        //    if (item.renderMode == RenderMode.ScreenSpaceOverlay)
+        //    {
+        //
+        //    }
+        //}
+
+    }
+
+    void ISMInteractiv.ActiveSceneChanged(Scene arg0, Scene arg1)
+    {
+      //  throw new NotImplementedException();
+    }
+
+    void ISMInteractiv.SceneUnloaded(Scene arg0)
+    {// throw new NotImplementedException();
+    }
+
+    void ISMInteractiv.SceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+       // throw new NotImplementedException();
+    }
 }
 

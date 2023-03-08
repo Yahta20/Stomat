@@ -39,6 +39,9 @@ public class FirstPageSM : PageUI
         var ChosenRT =ChosenPage. GetComponent<RectTransform>();
         var OptionsRT=OptionsPage.GetComponent<RectTransform>();
         var ExitRT  = ExitPage   .GetComponent<RectTransform>();
+        ChosenT.resizeTextForBestFit = true; 
+        OptionsT.resizeTextForBestFit = true;
+        ExitT   .resizeTextForBestFit = true;
 
         /*
 
@@ -61,9 +64,6 @@ public class FirstPageSM : PageUI
         ExitRT.anchoredPosition = new Vector2(0, 0);
          */
 
-        ChosenT.resizeTextForBestFit = true; 
-        OptionsT.resizeTextForBestFit = true;
-        ExitT   .resizeTextForBestFit = true;
 
         //var ChosenTRT   = ChosenT .GetComponent<RectTransform>();
         //var OptionsTRT  = OptionsT.GetComponent<RectTransform>();

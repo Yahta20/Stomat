@@ -1,0 +1,151 @@
+fileFormatVersion: 2
+guid: 9604f01bad74d7b419407fe72a274b26
+ModelImporter:
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      74: 8756877297297249881
+    second: Dummy001|BG|Tweezers|BaseLayer
+  - first:
+      74: 3350548922890783906
+    second: Dummy001|Camera01.Target|Tweezers|BaseLayer
+  - first:
+      74: -2746254906790314829
+    second: Dummy001|Camera01|Tweezers|BaseLayer
+  - first:
+      74: -4064041008103868931
+    second: Dummy001|CC_Base_Body|Take 001|BaseLayer
+  - first:
+      74: 7029552212346467470
+    second: Dummy001|CC_Base_EyeOcclusion|Take 001|BaseLayer
+  - first:
+      74: 6557568241713079597
+    second: Dummy001|CC_Base_TearLine|Take 001|BaseLayer
+  - first:
+      74: 6207225907186574732
+    second: Dummy001|CC_Base_Teeth|Take 001|BaseLayer
+  - first:
+      74: -8011779497861411682
+    second: Dummy001|Center_part_curtains|Take 001|BaseLayer
+  - first:
+      74: -1595424939504999940
+    second: Dummy001|Dummy001|Take 001|BaseLayer
+  - first:
+      74: 6888042671661501343
+    second: Dummy001|RUST_3d_Low|Take 001|BaseLayer
+  - first:
+      74: 180226526160688745
+    second: Dummy001|tweezer2|Tweezers|BaseLayer
+  - first:
+      74: 2289030366789668340
+    second: Dummy001|Tweezers1|Tweezers|BaseLayer
+  - first:
+      74: -8377584668852664146
+    second: Dummy001|VRayLight01|Tweezers|BaseLayer
+  - first:
+      74: -8433369509575308701
+    second: Dummy001|VRayLight02|Tweezers|BaseLayer
+  - first:
+      74: -8266790921283411417
+    second: Dummy001|VRayLight03|Tweezers|BaseLayer
+  externalObjects: {}
+  materials:
+    materialImportMode: 2
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    removeConstantScaleCurves: 1
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    nodeNameCollisionStrategy: 1
+    fileIdsGeneration: 2
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    bakeAxisConversion: 0
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 1
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 1
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
+  animationType: 2
+  humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 1
+  remapMaterialsIfMaterialImportModeIsNone: 0
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum gameMode
 {
@@ -9,7 +10,7 @@ public enum gameMode
     examinate = 1
 }
 
-public class Localizator : Singleton<Localizator>
+public class Localizator : Singleton<Localizator>, ISMInteractiv
 {
     /*
 
@@ -116,6 +117,21 @@ public class Localizator : Singleton<Localizator>
         }
         OnChangetLang?.Invoke(CurrLang);
 
+    }
+
+    void ISMInteractiv.ActiveSceneChanged(Scene arg0, Scene arg1)
+    {
+       // throw new NotImplementedException();
+    }
+
+    void ISMInteractiv.SceneUnloaded(Scene arg0)
+    {
+       // throw new NotImplementedException();
+    }
+
+    void ISMInteractiv.SceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        //throw new NotImplementedException();
     }
 
     [Serializable]

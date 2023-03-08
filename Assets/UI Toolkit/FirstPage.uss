@@ -1,0 +1,32 @@
+.Infotext {
+    font-size: 66px;
+    -unity-font: url('project://database/Assets/Samples/High%20Definition%20RP/12.1.7/Material%20Samples/TextMesh%20Pro/Fonts/LiberationSans.ttf?fileID=12800000&guid=e3265ab4bf004d28a9537516768c1c75&type=3#LiberationSans');
+    opacity: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 468px;
+    height: 288px;
+    -unity-text-align: middle-left;
+}
+
+.button_menu {
+    font-size: 66px;
+    -unity-font: url('project://database/Assets/UIResors/Mainmenu/drive-download-20221215T144526Z-001/Ruberoid-Bold.ttf?fileID=12800000&guid=c7e9170f8bf9e1e4db0b244253cb98be&type=3#Ruberoid-Bold');
+    opacity: 1;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-end;
+    width: 468px;
+    height: 288px;
+    -unity-text-align: middle-center;
+    margin-left: 6px;
+    margin-right: 6px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    padding-left: 11px;
+    padding-right: 11px;
+    padding-top: 11px;
+    padding-bottom: 11px;
+    color: rgba(0, 0, 0, 255);
+}

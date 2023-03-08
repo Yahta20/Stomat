@@ -55,7 +55,6 @@ public class PlayerActions : MonoBehaviour
     {
         mInputs.Disable();
     }
-
     private void QuestButton()
     {
         if (!UICustomES.Instance.UIView)
@@ -113,9 +112,15 @@ public class PlayerActions : MonoBehaviour
                 //print(hit.collider.gameObject.name);
                 switch (hit.collider.gameObject.name)
                 {
+                    /*
                     case "Pacient":
                         DetObj = ActionObj.Pacient;
                         UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
+                        //Message msg = new Message(this, "InfoTextShowT",
+                        //    new object[1] { hit.collider.gameObject.name }, new Type[1] { typeof(string) });
+                        //UICustomES.Instance.takeMail("InfoTextShowT", msg);
+                            
+                        //    );
                         break;
                     case "Exit":
                         DetObj = ActionObj.Exit;
@@ -129,11 +134,14 @@ public class PlayerActions : MonoBehaviour
                         DetObj = ActionObj.None;
                         UICustomES.Instance.InfoTextHideT();
                         break;
+                     */
                 }
         }
         else {
+                /*
             DetObj = ActionObj.None;
             UICustomES.Instance.InfoTextHideT();
+                 */
         }
        }
     }

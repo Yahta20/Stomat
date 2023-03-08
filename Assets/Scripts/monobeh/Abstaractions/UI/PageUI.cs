@@ -18,8 +18,38 @@ public abstract class PageUI : MonoBehaviour
 
     //ScriptableObject.CreateInstance<ComfortImage>();
     public List<UIBehaviour> _congregation;
-    public List<ComfortablePlace> _comfortablePlaceObjects;
+    public List<ComfortablePlace> ComfortablePlaceObjects { 
+        get {
+            return new List<ComfortablePlace>(_comfortablePlaceObjects);
+            /*
+                ==null?
+                     new List<ComfortablePlace>():
+                     new List<ComfortablePlace>(_comfortablePlaceObjects);
 
+                    if (_comfortablePlaceObjects==null)
+                    {
+                        print(_comfortablePlaceObjects.Length);
+
+                        if (true)
+                        {
+                        }
+                        _comfortablePlaceObjects    =   new ComfortablePlace[] { };
+                        ComfortablePlaceObjects     =   new List<ComfortablePlace>(_comfortablePlaceObjects);
+
+
+                    }
+                    return new List<ComfortablePlace>(_comfortablePlaceObjects);
+            */
+        }
+        set => registrate(value);
+    }
+    private void registrate(List<ComfortablePlace> value)
+    {
+        //_comfortablePlaceObjects = new ComfortablePlace[];
+        value.CopyTo(_comfortablePlaceObjects);
+    }
+    [SerializeField]
+    protected ComfortablePlace[] _comfortablePlaceObjects;
 
 
     public virtual void OnDisable()
@@ -47,13 +77,15 @@ public abstract class PageUI : MonoBehaviour
 
     protected virtual void setSize(Vector2 screen)
     {
+        if (_comfortImage == null) return;
         if (_comfortImage != null)
         {
             SetImagePlaning(_comfortImage, _Font, screen);
         }
-        if (_congregation.Count == _comfortablePlaceObjects.Count &
-            _congregation.Count != 0 &
-            0 != _comfortablePlaceObjects.Count
+        if (ComfortablePlaceObjects.Count!=null                     &
+            _congregation.Count == ComfortablePlaceObjects.Count    &
+            _congregation.Count != 0                                &
+            0 != ComfortablePlaceObjects.Count
             )
         {
             for (int i = 0; i < _congregation.Count; i++)
@@ -61,86 +93,86 @@ public abstract class PageUI : MonoBehaviour
                 switch (_congregation[i])
                 {
                     case Image:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortImage))
+                        if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortImage))
                         {
-                            SetImagePlaning((ComfortImage)_comfortablePlaceObjects[i], (Image)_congregation[i], screen);
+                            SetImagePlaning((ComfortImage)ComfortablePlaceObjects[i], (Image)_congregation[i], screen);
                         }
                         else
                         {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            print($"{ComfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
                     case Text:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortText))
+                        if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortText))
                         {
-                            SetTextPlaning((ComfortText)_comfortablePlaceObjects[i], (Text)_congregation[i], screen);
+                            SetTextPlaning((ComfortText)ComfortablePlaceObjects[i], (Text)_congregation[i], screen);
                             //SetImagePlaning((ComfortImage)_comfortablePlaceObjects[i], (Image)_congregation[i], screen);
                         }
                         else
                         {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            print($"{ComfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
                     case Button:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortButton))
+                        if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortButton))
                         {
-                            SetButtonPlaning((ComfortButton)_comfortablePlaceObjects[i], (Button)_congregation[i], screen);
+                            SetButtonPlaning((ComfortButton)ComfortablePlaceObjects[i], (Button)_congregation[i], screen);
                         }
                         else
                         {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            print($"{ComfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
                     case ScrollRect:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortScroll))
+                        if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortScroll))
                         {
-                            SetScrollPlaning((ComfortScroll)_comfortablePlaceObjects[i], (ScrollRect)_congregation[i], screen);
+                            SetScrollPlaning((ComfortScroll)ComfortablePlaceObjects[i], (ScrollRect)_congregation[i], screen);
                         }
                         else
                         {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            print($"{ComfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
 
                     case Toggle:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortToggle))
+                        if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortToggle))
                         {
 
-                            SetTogglePlaning((ComfortToggle)_comfortablePlaceObjects[i], (Toggle)_congregation[i], screen);
+                            SetTogglePlaning((ComfortToggle)ComfortablePlaceObjects[i], (Toggle)_congregation[i], screen);
                         }
                         else
                         {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            print($"{ComfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
                     case Slider:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortSlide))
+                        if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortSlide))
                         {
-                            SetSlidePlaning((ComfortSlide)_comfortablePlaceObjects[i], (Slider)_congregation[i], screen);
+                            SetSlidePlaning((ComfortSlide)ComfortablePlaceObjects[i], (Slider)_congregation[i], screen);
                         }
                         else
                         {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            print($"{ComfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
                     case Dropdown:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortDropdown))
+                        if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortDropdown))
                         {
-                            SetDropdownPlaning((ComfortDropdown)_comfortablePlaceObjects[i], (Dropdown)_congregation[i], screen);
+                            SetDropdownPlaning((ComfortDropdown)ComfortablePlaceObjects[i], (Dropdown)_congregation[i], screen);
                         }
                         else
                         {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            print($"{ComfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
                     case Scrollbar:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortScrollbar))
+                        if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortScrollbar))
                         {
-                            SetScrollbarPlaning((ComfortScrollbar)_comfortablePlaceObjects[i], (Scrollbar)_congregation[i], screen);
+                            SetScrollbarPlaning((ComfortScrollbar)ComfortablePlaceObjects[i], (Scrollbar)_congregation[i], screen);
                         }
                         else
                         {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
+                            print($"{ComfortablePlaceObjects[i]} has wrong type");
                         }
                         break;
 
@@ -151,7 +183,7 @@ public abstract class PageUI : MonoBehaviour
                 }
             }
         }
-        if (_congregation.Count != _comfortablePlaceObjects.Count)
+        if (_congregation.Count != ComfortablePlaceObjects.Count)
         {
             print($"Diferent List size");
         }
@@ -534,9 +566,9 @@ public abstract class PageUI : MonoBehaviour
             print($"updating...");
             UpdateCI();
             var screen = new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height);
-            if (_congregation.Count == _comfortablePlaceObjects.Count &
+            if (_congregation.Count == ComfortablePlaceObjects.Count &
                 _congregation.Count != 0 &
-                0 != _comfortablePlaceObjects.Count
+                0 != ComfortablePlaceObjects.Count
                 )
 
             {
@@ -545,76 +577,76 @@ public abstract class PageUI : MonoBehaviour
                     switch (_congregation[i])
                     {
                         case Image:
-                            if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortImage))
+                            if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortImage))
                             {
-                                UpdateIPlace((ComfortImage)_comfortablePlaceObjects[i], (Image)_congregation[i], screen);
+                                UpdateIPlace((ComfortImage)ComfortablePlaceObjects[i], (Image)_congregation[i], screen);
                             }
                             else
                             {
                                // shift2Corect(_congregation[i]);
-                                print($"{_comfortablePlaceObjects[i]} has wrong type");
+                                print($"{ComfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
                         case Text:
-                            if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortText))
+                            if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortText))
                             {
-                                UpdateTPlace((ComfortText)_comfortablePlaceObjects[i], (Text)_congregation[i], screen);
+                                UpdateTPlace((ComfortText)ComfortablePlaceObjects[i], (Text)_congregation[i], screen);
                             }
                             else
                             {
-                                print($"{_comfortablePlaceObjects[i]} has wrong type");
+                                print($"{ComfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
                         case Button:
-                            if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortButton))
+                            if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortButton))
                             {
-                                UpdateBPlace((ComfortButton)_comfortablePlaceObjects[i], (Button)_congregation[i], screen);
+                                UpdateBPlace((ComfortButton)ComfortablePlaceObjects[i], (Button)_congregation[i], screen);
                             }
                             else
                             {
-                                print($"{_comfortablePlaceObjects[i]} has wrong type");
+                                print($"{ComfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
                         case ScrollRect:
-                            if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortScroll))
+                            if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortScroll))
                             {
-                                UpdateSRPlace((ComfortScroll)_comfortablePlaceObjects[i], (ScrollRect)_congregation[i], screen);
+                                UpdateSRPlace((ComfortScroll)ComfortablePlaceObjects[i], (ScrollRect)_congregation[i], screen);
                             }
                             else
                             {
-                                print($"{_comfortablePlaceObjects[i]} has wrong type");
+                                print($"{ComfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
 
                         case Toggle:
-                            if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortToggle))
+                            if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortToggle))
                             {
 
-                                UpdateTGPlace((ComfortToggle)_comfortablePlaceObjects[i], (Toggle)_congregation[i], screen);
+                                UpdateTGPlace((ComfortToggle)ComfortablePlaceObjects[i], (Toggle)_congregation[i], screen);
                             }
                             else
                             {
-                                print($"{_comfortablePlaceObjects[i]} has wrong type");
+                                print($"{ComfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
                         case Dropdown:
-                            if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortDropdown))
+                            if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortDropdown))
                             {
-                                UpdateDDPlace((ComfortDropdown)_comfortablePlaceObjects[i], (Dropdown)_congregation[i], screen);
+                                UpdateDDPlace((ComfortDropdown)ComfortablePlaceObjects[i], (Dropdown)_congregation[i], screen);
                             }
                             else
                             {
-                                print($"{_comfortablePlaceObjects[i]} has wrong type");
+                                print($"{ComfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
                         case Scrollbar:
-                            if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortScrollbar))
+                            if (ComfortablePlaceObjects[i].GetType() == typeof(ComfortScrollbar))
                             {
-                                UpdateSBPlace((ComfortScrollbar)_comfortablePlaceObjects[i], (Scrollbar)_congregation[i], screen);
+                                UpdateSBPlace((ComfortScrollbar)ComfortablePlaceObjects[i], (Scrollbar)_congregation[i], screen);
                             }
                             else
                             {
-                                print($"{_comfortablePlaceObjects[i]} has wrong type");
+                                print($"{ComfortablePlaceObjects[i]} has wrong type");
                             }
                             break;
                         default:
@@ -662,7 +694,7 @@ public abstract class PageUI : MonoBehaviour
                         FNAME
                         );
                     UpdateTPlace((ComfortText)cp, (Text)_congregation[i],new Vector2(Screen.width,Screen.height));
-                    _comfortablePlaceObjects.Add((ComfortText)cp);
+                    ComfortablePlaceObjects.Add((ComfortText)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Image))//*
                 {
@@ -671,7 +703,7 @@ public abstract class PageUI : MonoBehaviour
                         $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                         FNAME);
                     UpdateIPlace((ComfortImage)cp, (Image)_congregation[i], new Vector2(Screen.width, Screen.height));
-                    _comfortablePlaceObjects.Add((ComfortImage)cp);
+                    ComfortablePlaceObjects.Add((ComfortImage)cp);
                 }
     
 
@@ -681,7 +713,7 @@ public abstract class PageUI : MonoBehaviour
                         $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                      FNAME);
                     UpdateBPlace((ComfortButton)cp, (Button)_congregation[i], new Vector2(Screen.width, Screen.height));
-                    _comfortablePlaceObjects.Add(
+                    ComfortablePlaceObjects.Add(
                         (ComfortButton)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Dropdown))
@@ -691,7 +723,7 @@ public abstract class PageUI : MonoBehaviour
                         $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                         FNAME);
                     UpdateDDPlace((ComfortDropdown)cp, (Dropdown)_congregation[i], new Vector2(Screen.width, Screen.height));
-                    _comfortablePlaceObjects.Add(
+                    ComfortablePlaceObjects.Add(
                         (ComfortDropdown)cp);
 
                 }
@@ -702,7 +734,7 @@ public abstract class PageUI : MonoBehaviour
                         $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                         FNAME);
                     UpdateIPPlace((ComfortInput)cp, (InputField)_congregation[i], new Vector2(Screen.width, Screen.height));
-                    _comfortablePlaceObjects.Add(
+                    ComfortablePlaceObjects.Add(
                        (ComfortInput)cp);
                 }
 
@@ -713,7 +745,7 @@ public abstract class PageUI : MonoBehaviour
                        $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                        FNAME);
                     UpdateSRPlace((ComfortScroll)cp, (ScrollRect)_congregation[i], new Vector2(Screen.width, Screen.height));
-                    _comfortablePlaceObjects.Add(
+                    ComfortablePlaceObjects.Add(
                        (ComfortScroll)cp);
                     cp =ToolKit.CiRSccriptableObject(new ComfortablePlace(), $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                       FNAME);
@@ -727,7 +759,7 @@ public abstract class PageUI : MonoBehaviour
                         $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                         FNAME);
                     UpdateTGPlace((ComfortToggle)cp, (Toggle)_congregation[i], new Vector2(Screen.width, Screen.height));
-                    _comfortablePlaceObjects.Add(
+                    ComfortablePlaceObjects.Add(
                         (ComfortToggle)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Scrollbar))
@@ -737,7 +769,7 @@ public abstract class PageUI : MonoBehaviour
                         $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                         FNAME);
                     UpdateSBPlace((ComfortScrollbar)cp, (Scrollbar)_congregation[i], new Vector2(Screen.width, Screen.height));
-                    _comfortablePlaceObjects.Add(
+                    ComfortablePlaceObjects.Add(
                         (ComfortScrollbar)cp);
                 }
                 if (_congregation[i].GetType() == typeof(Slider))
@@ -747,7 +779,7 @@ public abstract class PageUI : MonoBehaviour
                         $"Assets/Scripts/Scriptable obj/ScriptableObj/Places/{this.GetType().ToString()}",
                         FNAME);
                     UpdateSLBPlace((ComfortSlide)cp, (Slider)_congregation[i], new Vector2(Screen.width, Screen.height));
-                    _comfortablePlaceObjects.Add(
+                    ComfortablePlaceObjects.Add(
                         (ComfortScrollbar)cp);
                 }
         }
