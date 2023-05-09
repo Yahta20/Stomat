@@ -1,0 +1,16 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/mainmenu.uss?fileID=7433441132597879392&amp;guid=a343699a2262f314e90a3d30cb6b56b2&amp;type=3#mainmenu" />
+    <ui:VisualElement name="root" style="flex-grow: 1; margin-left: 7%; margin-right: 7%; margin-top: 7%; margin-bottom: 7%; flex-basis: auto; width: 100%; height: 100px;">
+        <ui:VisualElement style="flex-grow: 62; flex-direction: column; justify-content: center; flex-shrink: 1; margin-left: 3px; margin-right: 3px; margin-top: 3px; margin-bottom: 3px;">
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="gamename" class="gameNameLogo" style="align-items: stretch; -unity-text-align: middle-left; margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-direction: row; flex-grow: 1;">
+            <ui:VisualElement name="buttonPlane" class="planebutton" style="flex-shrink: 1; flex-direction: column; flex-grow: 1; align-items: stretch; flex-wrap: nowrap; justify-content: space-around; width: auto; height: auto;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="newgame" class="menubutton" style="width: auto; height: auto;" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="options" class="menubutton" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="exit" class="menubutton" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1; width: 100%; height: 100%;" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

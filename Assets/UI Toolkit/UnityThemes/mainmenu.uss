@@ -1,0 +1,120 @@
+:root {
+    width: auto;
+    flex-grow: 1;
+}
+
+.menubutton:checked {
+    background-color: rgb(156, 153, 40);
+    flex-grow: 3;
+    justify-content: space-around;
+    -unity-background-image-tint-color: rgb(231, 226, 68);
+}
+
+.menubutton:hover {
+    background-color: rgb(39, 118, 51);
+    -unity-background-image-tint-color: rgb(255, 3, 8);
+}
+
+.menubutton {
+    -unity-font: url('project://database/Assets/UIResors/Mainmenu/drive-download-20221215T144526Z-001/Ruberoid-Regular.ttf?fileID=12800000&guid=3586d52533af5dc4b81e82d3270a28b4&type=3#Ruberoid-Regular');
+    -unity-text-align: middle-center;
+    font-size: 50px;
+    -unity-font-style: normal;
+    align-items: stretch;
+    justify-content: space-around;
+    background-color: rgb(91, 82, 82);
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: ease;
+    transition-delay: 0.5s;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    margin-left: 4px;
+    margin-right: 4px;
+    margin-top: 4px;
+    margin-bottom: 4px;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    height: auto;
+    width: auto;
+    flex-grow: 1;
+    color: rgb(255, 172, 172);
+}
+
+.gameNameLogo {
+    font-size: 35px;
+    -unity-text-align: middle-left;
+    -unity-font: url('project://database/Assets/UIResors/Mainmenu/drive-download-20221215T144526Z-001/Ruberoid-Bold.ttf?fileID=12800000&guid=c7e9170f8bf9e1e4db0b244253cb98be&type=3#Ruberoid-Bold');
+    color: rgb(15, 219, 0);
+    margin-left: 11%;
+    margin-right: 11px;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.planebutton:hide {
+    width: 0;
+    height: 0;
+}
+
+.planebutton {
+    width: auto;
+    height: auto;
+}
+
+.back-button {
+    align-items: flex-start;
+    flex-grow: 1;
+    width: 10%;
+    height: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-left-radius: 5%;
+    border-bottom-left-radius: 5%;
+    border-top-right-radius: 5%;
+    border-bottom-right-radius: 5%;
+    -unity-text-align: middle-center;
+    font-size: 100%;
+    background-color: rgb(180, 45, 45);
+    border-left-color: rgb(144, 135, 100);
+    border-right-color: rgb(147, 0, 131);
+    border-top-color: rgb(212, 137, 253);
+    border-bottom-color: rgb(1, 226, 201);
+}
+
+.spaceElement {
+    height: 100%;
+}
+
+.quit_Button {
+    flex-grow: 1;
+    font-size: 100%;
+    -unity-text-align: middle-center;
+    border-left-width: 25px;
+    border-right-width: 25px;
+    border-top-width: 25px;
+    border-bottom-width: 25px;
+    border-left-color: rgba(63, 164, 55, 255);
+    border-right-color: rgba(63, 164, 55, 255);
+    border-top-color: rgba(63, 164, 55, 255);
+    border-bottom-color: rgba(63, 164, 55, 255);
+    border-top-left-radius: 97px;
+    border-bottom-left-radius: 97px;
+    border-top-right-radius: 97px;
+    border-bottom-right-radius: 97px;
+    -unity-font: url('project://database/Assets/Resour%D1%81es/Fonts%20&%20Materials/Ruberoid-Regular.ttf?fileID=12800000&guid=5d159957327c7f44c8370ea26b58946b&type=3#Ruberoid-Regular');
+}

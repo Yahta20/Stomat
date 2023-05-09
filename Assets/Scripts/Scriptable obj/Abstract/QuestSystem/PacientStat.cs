@@ -15,7 +15,6 @@ public class PacientStat : ScriptableObject
     [Space]
     public string Diagnos;
 
-
     public Faucibus PacientJaw;
 
     public Quest[] questList;
@@ -58,4 +57,6 @@ public class PacientStat : ScriptableObject
         q.TaskList[0].setState(QuestState.ACTIVE);
         return q.TaskList[0];
     }
+
+
 }

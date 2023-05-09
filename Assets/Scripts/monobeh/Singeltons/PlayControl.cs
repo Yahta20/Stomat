@@ -13,14 +13,15 @@ public enum GameState
     cutscene
 }
 
-public class PlayControl : Singlton,IPlayerStateSwitcher
+public class PlayControl : Singlton<PlayControl>,IPlayerStateSwitcher
 {
 
-    private void Awake()
+    protected override void  Awake()
     {
         base.Awake();
 
     }
+
     public Scene previosScene;
     public Scene currentScene;
     public SceneInstance loadScene;

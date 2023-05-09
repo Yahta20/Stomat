@@ -1,0 +1,7 @@
+.quit-button {
+    flex-grow: 1;
+    font-size: 151%;
+    -unity-text-align: middle-center;
+    -unity-background-image-tint-color: rgba(241, 235, 35, 255);
+    background-color: rgba(89, 161, 81, 0.53);
+}

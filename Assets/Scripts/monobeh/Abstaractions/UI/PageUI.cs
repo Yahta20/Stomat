@@ -6,146 +6,185 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEditor;
 using KHNMU.Toolkit;
+using UnityEngine.UIElements;
 
 //[InitializeOnLoad]
-[RequireComponent(typeof(Image))]
+//[RequireComponent(typeof(UIDocument))]
+[Serializable]
 public abstract class PageUI : MonoBehaviour
 {
-    protected Image         _Font;
-    protected RectTransform _Transform;
-    
-    public ComfortImage _comfortImage;
-    public List<UIBehaviour> _congregation;
-
-    public List<ComfortablePlace> _comfortablePlaceObjects;
-
-
+    public MenuUI master;
+    public VisualTreeAsset root;
+    //public UIDocument doc;
     public virtual void OnDisable()
     {
-        UICustomES.Instance.onChangeScreeSize -= setSize;
-        Localizator.Instance.OnChangetLang -= setLang;
     }
 
 
     public virtual void OnEnable()
     {
-        _Font     =GetComponent<Image>();
-        _Transform=GetComponent<RectTransform>();
-        UICustomES.Instance.onChangeScreeSize += setSize;
-        Localizator.Instance.OnChangetLang += setLang;
-        setSize(new Vector2(UICustomES.Instance.Resolution.width, UICustomES.Instance.Resolution.height));
-        setLang(Localizator.Instance.CurrLang);
+        //doc = GetComponent<UIDocument>();
+        //root = doc.rootVisualElement;
     }
-    protected virtual void setSize(Vector2 screen) {
-        if (_comfortImage!=null)
-        {
-            SetImagePlaning(_comfortImage, _Font, screen);
-        }
-        if (_congregation.Count==_comfortablePlaceObjects.Count&
-            _congregation.Count != 0&
-            0!= _comfortablePlaceObjects.Count
-            )
-        {
-            for (int i = 0; i < _congregation.Count; i++)
-            {
-                switch (_congregation[i])
-                {
-                    case Image:
-                        if (_comfortablePlaceObjects[i].GetType() ==typeof(ComfortImage)  )
-                        {
-                            SetImagePlaning((ComfortImage)_comfortablePlaceObjects[i],(Image) _congregation[i], screen);
-                        }
-                        else
-                        {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
-                        }
-                        break;
-                    case Text:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortText))
-                        {
-                            SetTextPlaning((ComfortText)_comfortablePlaceObjects[i], (Text)_congregation[i], screen);
-                            //SetImagePlaning((ComfortImage)_comfortablePlaceObjects[i], (Image)_congregation[i], screen);
-                        }
-                        else
-                        {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
-                        }
-                        break;
-                    case Button:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortButton))
-                        {
-                            SetButtonPlaning((ComfortButton)_comfortablePlaceObjects[i], (Button)_congregation[i], screen);
-                        }
-                        else
-                        {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
-                        }
-                        break;
-                    case ScrollRect:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortScroll))
-                        {
-                            SetScrollPlaning((ComfortScroll)_comfortablePlaceObjects[i], (ScrollRect)_congregation[i], screen);
-                        }
-                        else
-                        {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
-                        }
-                        break;
-
-                    case Toggle:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortToggle))
-                        {
-
-                            SetTogglePlaning((ComfortToggle)_comfortablePlaceObjects[i], (Toggle)_congregation[i], screen);
-                        }
-                        else
-                        {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
-                        }
-                        break;
-                    case Slider:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortSlide))
-                        {
-                            SetSlidePlaning((ComfortSlide)_comfortablePlaceObjects[i], (Slider)_congregation[i], screen);
-                        }
-                        else
-                        {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
-                        }
-                        break;
-                    case Dropdown:
-                        if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortDropdown))
-                        {
-                            SetDropdownPlaning((ComfortDropdown)_comfortablePlaceObjects[i], (Dropdown)_congregation[i], screen);
-                        }
-                        else
-                        {
-                            print($"{_comfortablePlaceObjects[i]} has wrong type");
-                        }
-                        break;
-                    default:
-                        print($"{_congregation[i]} has wrong type");
-                        break;
-
-                }
-            }
-        }
-
-
-        if (_congregation.Count != _comfortablePlaceObjects.Count)
-        {
-            print($"Diferent List size");
-        }
-        //_Transform.sizeDelta        = _comfortImage.sizeDelta*screen;
-        //_Transform.anchoredPosition = _comfortImage.anchoredPosition * screen;  //new Vector2(0, _Transform.sizeDelta.y * 0.38f*0.5f); ;
-        //_Transform.anchorMin        = _comfortImage.anchorMin;                  //new Vector2(0.5f, 0);
-        //_Transform.anchorMax        = _comfortImage.anchorMax;                  //new Vector2(0.5f, 0);
-        //_Transform.pivot            = _comfortImage.pivot;                      //new Vector2(0.5f, 0);
-        //_Font.color                 = _comfortImage.color;
         
-    }
+        
     protected abstract void setLang(SystemLanguage lang);
 
+    protected abstract void setSize(Vector2 screen);
+    /*
+    public virtual void ShowUID() {
+
+        if (root != null)
+        {
+            root.SetEnabled(true);
+        }
+                print($"{root}");
+    }
+
+         
+    public virtual void HideUID() {
+        if (root != null)
+        {
+            root.SetEnabled(false);
+        }
+    }
+     */
+        
+
+
+        //UICustomES.Instance.onChangeScreeSize -= setSize;
+        //Localizator.Instance.OnChangetLang -= setLang;
+        //root.childCount;
+        //UICustomES.Instance.onChangeScreeSize += setSize;
+        //Localizator.Instance.OnChangetLang += setLang;
+        //setLang(Localizator.Instance.CurrLang);
+        //setSize(new Vector2(Screen.width, Screen.height));
+    /*
+        protected Image         _Font;
+        protected RectTransform _Transform;
+
+        public ComfortImage _comfortImage;
+        public List<UIBehaviour> _congregation;
+        public List<ComfortablePlace> _comfortablePlaceObjects;
+     */
+
+    /*
+    _Font     =GetComponent<Image>();
+    _Transform=GetComponent<RectTransform>();
+     */
+    //var root = doc.rootVisualElement;
+    ////var textLabels = root.Q<Label>("gamename");
+    //var textLabels = root.Q<Label>();
+    /*
+    if (_comfortImage!=null)
+    {
+        SetImagePlaning(_comfortImage, _Font, screen);
+    }
+    if (_congregation.Count==_comfortablePlaceObjects.Count&
+        _congregation.Count != 0&
+        0!= _comfortablePlaceObjects.Count
+        )
+    {
+        for (int i = 0; i < _congregation.Count; i++)
+        {
+            switch (_congregation[i])
+            {
+                case Image:
+                    if (_comfortablePlaceObjects[i].GetType() ==typeof(ComfortImage)  )
+                    {
+                        SetImagePlaning((ComfortImage)_comfortablePlaceObjects[i],(Image) _congregation[i], screen);
+                    }
+                    else
+                    {
+                        print($"{_comfortablePlaceObjects[i]} has wrong type");
+                    }
+                    break;
+                case Text:
+                    if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortText))
+                    {
+                        SetTextPlaning((ComfortText)_comfortablePlaceObjects[i], (Text)_congregation[i], screen);
+                        //SetImagePlaning((ComfortImage)_comfortablePlaceObjects[i], (Image)_congregation[i], screen);
+                    }
+                    else
+                    {
+                        print($"{_comfortablePlaceObjects[i]} has wrong type");
+                    }
+                    break;
+                case Button:
+                    if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortButton))
+                    {
+                        SetButtonPlaning((ComfortButton)_comfortablePlaceObjects[i], (Button)_congregation[i], screen);
+                    }
+                    else
+                    {
+                        print($"{_comfortablePlaceObjects[i]} has wrong type");
+                    }
+                    break;
+                case ScrollRect:
+                    if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortScroll))
+                    {
+                        SetScrollPlaning((ComfortScroll)_comfortablePlaceObjects[i], (ScrollRect)_congregation[i], screen);
+                    }
+                    else
+                    {
+                        print($"{_comfortablePlaceObjects[i]} has wrong type");
+                    }
+                    break;
+
+                case Toggle:
+                    if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortToggle))
+                    {
+
+                        SetTogglePlaning((ComfortToggle)_comfortablePlaceObjects[i], (Toggle)_congregation[i], screen);
+                    }
+                    else
+                    {
+                        print($"{_comfortablePlaceObjects[i]} has wrong type");
+                    }
+                    break;
+                case Slider:
+                    if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortSlide))
+                    {
+                        SetSlidePlaning((ComfortSlide)_comfortablePlaceObjects[i], (Slider)_congregation[i], screen);
+                    }
+                    else
+                    {
+                        print($"{_comfortablePlaceObjects[i]} has wrong type");
+                    }
+                    break;
+                case Dropdown:
+                    if (_comfortablePlaceObjects[i].GetType() == typeof(ComfortDropdown))
+                    {
+                        SetDropdownPlaning((ComfortDropdown)_comfortablePlaceObjects[i], (Dropdown)_congregation[i], screen);
+                    }
+                    else
+                    {
+                        print($"{_comfortablePlaceObjects[i]} has wrong type");
+                    }
+                    break;
+                default:
+                    print($"{_congregation[i]} has wrong type");
+                    break;
+
+            }
+        }
+    }
+
+
+    if (_congregation.Count != _comfortablePlaceObjects.Count)
+    {
+        print($"Diferent List size");
+    }
+     */
+
+
+    /*
+/// ////////////////////////////////////////////////////////////////////////////////
+/// </summary>
+/// <param name="so"></param>
+/// <param name="dd"></param>
+/// <param name="screen"></param>
+ 
     private void SetDropdownPlaning(ComfortDropdown so, Dropdown dd, Vector2 screen)
     {
 
@@ -192,10 +231,10 @@ public abstract class PageUI : MonoBehaviour
 
     private void SetButtonPlaning(ComfortButton so, Button btn, Vector2 screen)
     {
-        /*
+        
         image.color = so.color;
         image.sprite = so.sprite;
-         */
+         
         var image = btn.image;
         var text = btn.GetComponentInChildren<Text>();
         SetImagePlaning((ComfortImage)so.image, image, screen);
@@ -240,7 +279,7 @@ public abstract class PageUI : MonoBehaviour
         SetRectPlaning(so.Content, content, screen);
         SetScrollbarPlaning(so.vertical, vscrolbar, screen);
         SetScrollbarPlaning(so.horizontal, hscrolbar, screen);
-         */
+         
         //sl.fillRect
         //    sl.fillRect
 
@@ -263,7 +302,7 @@ public abstract class PageUI : MonoBehaviour
         /*
         image.color = so.color;
         image.sprite = so.sprite;
-         */
+         
         var image = btn.image;
         var text = btn.GetComponentInChildren<Text>();
         SetImagePlaning ((ComfortImage)list[0],image,screen);
@@ -278,7 +317,7 @@ public abstract class PageUI : MonoBehaviour
     public ComfortablePlace Content;
     public ComfortScrollbar vertical;
     public ComfortScrollbar horizontal;
-         */
+         
         var image = sr.GetComponent<Image>();
         var vievPort = sr.viewport;
         var content = sr.content;
@@ -382,7 +421,7 @@ public abstract class PageUI : MonoBehaviour
     {
       
 
-        /*
+        
         var image = dd.GetComponent<Image>();
         var text = dd.captionText;
         var arrow = dd.transform.GetChild(1).GetComponent<Image>();
@@ -390,7 +429,7 @@ public abstract class PageUI : MonoBehaviour
         UpdateIPlace(so.currentImage, arrow, screen);
         UpdateTPlace(so.Label, text, screen);
         UpdateRTplace(so, dd.GetComponent<RectTransform>(), screen);
-         */
+         
     }
     //Scrollbar
     private void UpdateSBPlace(ComfortScrollbar so, Scrollbar sb, Vector2 screen)
@@ -595,5 +634,5 @@ public abstract class PageUI : MonoBehaviour
     }
 
 #endif
-
+     */
 }   

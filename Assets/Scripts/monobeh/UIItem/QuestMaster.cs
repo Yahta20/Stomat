@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class QuestMaster : MonoBehaviour
+public class QuestMaster : Singlton<QuestMaster>
 {
     //public static QuestMaster Instance;
     public static QuestMaster Instance
@@ -40,17 +40,17 @@ public class QuestMaster : MonoBehaviour
             onQuestComplete();
         }
     }
-    void Awake()
+    protected override void Awake()
     {
-         // Задаем ссылку на экземпляр объекта
-        if (Instance == null)
-        { // Экземпляр менеджера был найден
-            Instance = this; // Задаем ссылку на экземпляр объекта
-            DontDestroyOnLoad(this);
-            return;
-        }
-            Destroy(gameObject); // Удаляем объект
-                   
+        base.Awake();            
+        //    // Задаем ссылку на экземпляр объекта
+        //   if (Instance == null)
+        //   { // Экземпляр менеджера был найден
+        //       Instance = this; // Задаем ссылку на экземпляр объекта
+        //       DontDestroyOnLoad(this);
+        //       return;
+        //   }
+        //       Destroy(gameObject); // Удаляем объект
             // Экземпляр объекта уже существует на сцене
     }
     private void OnEnable()

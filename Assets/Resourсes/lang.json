@@ -1,15 +1,23 @@
 {
   "LangList":[
           {
-         "uiname": "ST_New Game",
+         "uiname": "chPacient",
          "uitext": [
             "Нова гра",
             "Новая игра",
             "New Game"
          ]
       },
+	        {
+         "uiname": "GameName",
+         "uitext": [
+            "Стоматологічна практика",
+            "Стоматологическая практика",
+            "Dental practice"
+         ]
+      },
       {
-         "uiname": "ST_Options",
+         "uiname": "options",
          "uitext": [
             "Опції",
             "Настройки",
@@ -17,7 +25,7 @@
          ]
       },
       {
-         "uiname": "ST_Exit",
+         "uiname": "exitButton",
          "uitext": [
             "Вихід",
             "Выход",
@@ -25,7 +33,7 @@
          ]
       },
       {
-         "uiname": "ST_Back",
+         "uiname": "regect",
          "uitext": [
             "Назад",
             "Назад",
@@ -89,7 +97,7 @@
          ]
       },
 	  {
-         "uiname": "ST_ExitQ",
+         "uiname": "QuitQuesion",
          "uitext": [
             "Ти справді хочеш піти?",
             "Вы действительно хотите уйти?",

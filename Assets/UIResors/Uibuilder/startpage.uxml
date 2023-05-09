@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements">
+    <Style src="project://database/Assets/UIResors/Uibuilder/menuscene.uss?fileID=7433441132597879392&amp;guid=078964d5ff18ac54cad4cbc1e30dc8d3&amp;type=3#menuscene" />
+</ui:UXML>

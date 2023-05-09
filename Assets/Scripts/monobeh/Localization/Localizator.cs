@@ -9,7 +9,7 @@ public enum gameMode
     examinate = 1
 }
 
-public class Localizator : MonoBehaviour
+public class Localizator : Singlton<Localizator>
 {
     /*
      */
@@ -41,21 +41,19 @@ public class Localizator : MonoBehaviour
         }
     }
     
-    public Action<SystemLanguage> OnChangetLang;
+    public Action OnChangetLang;
     private SystemLanguage currLang;
 
     //public event Action onReleaseCursor;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         //_instance.init();
-        if (_instance ==  null)
-        { // Экземпляр менеджера был найден
-            _instance = this; // Задаем ссылку на экземпляр объекта
-        DontDestroyOnLoad(this);
+        
         loadLang();
             return;
-        }
+        
             Destroy(gameObject); // Удаляем объект
     }
     
@@ -68,7 +66,7 @@ public class Localizator : MonoBehaviour
             currentLangPack = new LocalizationMap();
         }
         else { 
-        string s = LocalizationText == null ? Resources.Load<TextAsset>("lang").text: LocalizationText.text;
+            string s = LocalizationText == null ? Resources.Load<TextAsset>("lang.json").text: LocalizationText.text;
             currentLangPack = JsonUtility.FromJson<LocalizationMap>(s);
             currentLangPack.fillText();
 
@@ -111,7 +109,7 @@ public class Localizator : MonoBehaviour
                 CurrLang = SystemLanguage.Ukrainian;
                 break;
         }
-        OnChangetLang?.Invoke(CurrLang);
+        OnChangetLang?.Invoke();
 
     }
 

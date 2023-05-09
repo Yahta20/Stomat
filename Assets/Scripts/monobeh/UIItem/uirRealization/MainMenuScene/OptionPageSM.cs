@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class OptionPageSM : PageUI
 {
+    /**/
     public Button   PrevMenu;
     public Button   LangChange;
     public Text     CurrenLang;
@@ -14,14 +15,14 @@ public class OptionPageSM : PageUI
     Text LangChangeText;
     protected override void setLang(SystemLanguage lang)
     {
-        PrevButText.text = Localizator.Instance.GetLocalText(PrevMenu.gameObject.name);
-        LangChangeText.text = Localizator.Instance.GetLocalText(LangChange.gameObject.name);
-        CurrenLang.text = Localizator.Instance.GetLocalText(CurrenLang.gameObject.name);
     }
 
     protected override void setSize(Vector2 screen)
     {
-        base.setSize(screen);
+       // PrevButText.text = Localizator.Instance.GetLocalText(PrevMenu.gameObject.name);
+       // LangChangeText.text = Localizator.Instance.GetLocalText(LangChange.gameObject.name);
+       // CurrenLang.text = Localizator.Instance.GetLocalText(CurrenLang.gameObject.name);
+       // base.setSize(screen);
         /*
         _Font.color = new Color(0, 0, 0, 0);
         _Transform.sizeDelta = screen;
@@ -63,11 +64,11 @@ public class OptionPageSM : PageUI
     // Start is called before the first frame update
     void Awake()
     {
-        PrevButText = PrevMenu.gameObject.transform.GetComponentInChildren<Text>();
-        LangChangeText = LangChange.gameObject.transform.GetComponentInChildren<Text>();
-        LangChange.onClick.AddListener(
-            () => { Localizator.Instance.ChangeLang(); }
-            );
+       // PrevButText = PrevMenu.gameObject.transform.GetComponentInChildren<Text>();
+       // LangChangeText = LangChange.gameObject.transform.GetComponentInChildren<Text>();
+       // LangChange.onClick.AddListener(
+       //     () => { Localizator.Instance.ChangeLang(); }
+       //     );
 
     }
     private void OnEnable()
