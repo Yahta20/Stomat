@@ -37,13 +37,14 @@ public class PlayerActions : MonoBehaviour
         mInputs.Player.Pause.started +=
             ctx =>
             {
-                if (UICustomES.Instance.UIPaused)
-                {
-                    UICustomES.Instance.PauseOff();
-                }
-                else {
-                    UICustomES.Instance.PauseOn();
-                }
+                print("as");
+                //if (UICustomES.Instance.UIPaused)
+                //{
+                //    UICustomES.Instance.PauseOff();
+                //}
+                //else {
+                //    UICustomES.Instance.PauseOn();
+                //}
             };
             };
     }
@@ -58,11 +59,12 @@ public class PlayerActions : MonoBehaviour
 
     private void QuestButton()
     {
-        if (!UICustomES.Instance.UIView)
-        {
-            UICustomES.Instance.QuestBarShowT();
-            UICustomES.Instance.InfoTextHideT();
-        }
+        print("q");
+        //if (!UICustomES.Instance.UIView)
+        //{
+        //    UICustomES.Instance.QuestBarShowT();
+        //    UICustomES.Instance.InfoTextHideT();
+        //}
     }
 
     private void ActionButton()
@@ -115,25 +117,25 @@ public class PlayerActions : MonoBehaviour
                 {
                     case "Pacient":
                         DetObj = ActionObj.Pacient;
-                        UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
+                        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
                         break;
                     case "Exit":
                         DetObj = ActionObj.Exit;
-                        UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
+                        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
                         break;
                     case "Medcard":
-                        UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);
+                        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);
                         DetObj = ActionObj.Medcard;
                         break;
                     default:
                         DetObj = ActionObj.None;
-                        UICustomES.Instance.InfoTextHideT();
+                        //UICustomES.Instance.InfoTextHideT();
                         break;
                 }
         }
         else {
             DetObj = ActionObj.None;
-            UICustomES.Instance.InfoTextHideT();
+            //UICustomES.Instance.InfoTextHideT();
         }
        }
     }

@@ -7,19 +7,19 @@ using UnityEngine.SceneManagement;
 public class QuestMaster : Singlton<QuestMaster>
 {
     //public static QuestMaster Instance;
-    public static QuestMaster Instance
-    {
-        get //=>
-        {
-            if (_instance == null)
-            {
-                Instance = new QuestMaster();
-            }
-            return _instance;
-
-        }// _instance == null ? new Localizator(): _instance;
-        set { _instance = value; }
-    }
+    //public static QuestMaster Instance
+    //{
+    //    get //=>
+    //    {
+    //        if (_instance == null)
+    //        {
+    //            Instance = new QuestMaster();
+    //        }
+    //        return _instance;
+    //
+    //    }// _instance == null ? new Localizator(): _instance;
+    //    set { _instance = value; }
+    //}
     //public 
     static QuestMaster _instance;
     public PacientStat currentPacient {get; private set;}
@@ -27,6 +27,8 @@ public class QuestMaster : Singlton<QuestMaster>
 
     public event Action onQuestTaskComplete;
     public event Action onQuestComplete;
+     
+
     //public event Action onComplete;
     public void QTaskComplete() {
         if (onQuestTaskComplete !=null)
@@ -42,8 +44,7 @@ public class QuestMaster : Singlton<QuestMaster>
     }
     protected override void Awake()
     {
-        base.Awake();            
-        //    // Задаем ссылку на экземпляр объекта
+        base.Awake();    //    // Задаем ссылку на экземпляр объекта
         //   if (Instance == null)
         //   { // Экземпляр менеджера был найден
         //       Instance = this; // Задаем ссылку на экземпляр объекта

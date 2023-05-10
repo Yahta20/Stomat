@@ -107,12 +107,11 @@ public class PlayMovement : MonoBehaviour
     
     private void OnAnimatorMove()
     {
-        if (ScenaController.Instance.currentState == GameState.moving) { 
-            transform.position = nextPosition;
+        transform.position = nextPosition;
         //var movment = Vector2.ClampMagnitude(move,1);
         animator.SetFloat("MovementX", move.x);
         animator.SetFloat("MovementY", move.y);
-        }
+       
     }
         
 

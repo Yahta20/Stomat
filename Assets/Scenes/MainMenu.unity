@@ -169,6 +169,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   menuDoc: {fileID: 314920095}
+  Menu: {fileID: 9197481963319205126, guid: b667ddec625e3fd4ead5b67611bb04d3, type: 3}
   patientBtn: {fileID: 9197481963319205126, guid: e356588f36481104dbd11088c05573ab, type: 3}
 --- !u!114 &314920095
 MonoBehaviour:
@@ -177,7 +178,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 314920090}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: 
@@ -887,7 +888,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320329597864867159}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e81e82bada10e354faf1f40453cd8adb, type: 3}
   m_Name: 
@@ -902,6 +903,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1320329597864867157}
   - component: {fileID: 1320329597864867158}
+  - component: {fileID: 1320329597864867161}
+  - component: {fileID: 1320329597864867160}
   m_Layer: 0
   m_Name: uisys
   m_TagString: Untagged
@@ -909,6 +912,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1320329597864867160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320329597864867159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9afad6fe10b954046b9f5a02e349fe9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  doc: {fileID: 0}
+  currentOrator: {fileID: 0}
+--- !u!114 &1320329597864867161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1320329597864867159}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: be5220ffbe45bb04d818685c7e491ace, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: b667ddec625e3fd4ead5b67611bb04d3, type: 3}
+  m_SortingOrder: 0
 --- !u!114 &1320329598773666710
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -11,9 +11,9 @@ public class Operator : MonoBehaviour
     public bool isfp;
 
     enum CameraList {
-         CM_FreeLook2
-        ,FV_Camera
-        ,CM_vcam1
+        CM_FreeLook2
+        , FV_Camera
+        , CM_vcam1
     }
 
     CameraList cls = CameraList.CM_vcam1;
@@ -35,6 +35,7 @@ public class Operator : MonoBehaviour
     private void View()
     {
         var sts = ScenaController.Instance.currentState;
+        
         switch (sts)
         {
             
@@ -42,10 +43,10 @@ public class Operator : MonoBehaviour
                 if (isfp)
                 {
                     print(sts);
-                    //animator.Play(CameraList.CM_FreeLook2.ToString());
+                    animator.Play(CameraList.FV_Camera.ToString());
                 }
                 {
-                    //animator.Play(CameraList.FV_Camera.ToString());
+                    animator.Play(CameraList.CM_vcam1.ToString());
                 }
                 isfp = !isfp;
 

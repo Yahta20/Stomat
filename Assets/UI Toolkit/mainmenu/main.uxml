@@ -1,41 +1,43 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
-    <Style src="project://database/Assets/UI%20Toolkit/UnityThemes/mainmenu.uss?fileID=7433441132597879392&amp;guid=a343699a2262f314e90a3d30cb6b56b2&amp;type=3#mainmenu" />
-    <ui:VisualElement name="mainPage" style="opacity: 1; flex-grow: 1; flex-basis: auto; justify-content: space-around; align-items: stretch; -unity-background-image-tint-color: rgb(255, 255, 255); width: 100%; height: 100%; border-left-width: 17px; border-right-width: 17px; border-top-width: 17px; border-bottom-width: 17px; display: none; flex-direction: column;">
-        <ui:Label text="65yu465y" display-tooltip-when-elided="true" focusable="false" binding-path="gnLogo" name="GameName" class="gameNameLogo" style="flex-grow: 3; font-size: 100%; -unity-text-align: middle-left;" />
-        <ui:VisualElement style="align-items: stretch; justify-content: space-around; height: 35%; flex-grow: 1;">
-            <ui:VisualElement style="align-items: stretch; width: 32%; justify-content: space-around; height: 100%;">
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="chPacient" class="menubutton" style="align-items: stretch;" />
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="options" class="menubutton" />
-                <ui:Button text="Button" display-tooltip-when-elided="true" name="exitButton" class="menubutton" />
+    <Style src="project://database/Assets/UI%20Toolkit/mainmenu.uss?fileID=7433441132597879392&amp;guid=a343699a2262f314e90a3d30cb6b56b2&amp;type=3#mainmenu" />
+    <ui:VisualElement style="flex-grow: 1; flex-basis: auto; background-image: url(&apos;project://database/Assets/UIResors/Mainmenu/drive-download-20221215T144526Z-001/image_2022-02-18_12-59-39.png?fileID=2800000&amp;guid=524f37fd928cac44c9fb301ab47c5d8b&amp;type=3#image_2022-02-18_12-59-39&apos;);">
+        <ui:VisualElement name="settingPage" style="display: none; visibility: visible; overflow: visible; flex-grow: 1; flex-direction: row; justify-content: flex-start; align-items: stretch;">
+            <ui:VisualElement style="flex-grow: 1;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Back-to-Main" class="menubutton" style="flex-shrink: 0; flex-grow: 0; flex-basis: auto; height: 10%; -unity-font: url(&apos;project://database/Assets/Resour%D1%81es/Fonts%20&amp;%20Materials/Ruberoid-Regular.ttf?fileID=12800000&amp;guid=5d159957327c7f44c8370ea26b58946b&amp;type=3#Ruberoid-Regular&apos;); font-size: 50%; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 15;">
+                <ui:VisualElement style="flex-grow: 1;" />
+                <ui:VisualElement style="flex-grow: 5;" />
+                <ui:VisualElement style="flex-grow: 1;" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1;" />
+        </ui:VisualElement>
+        <ui:VisualElement name="quitPage" style="position: absolute; left: 20%; top: 20%; right: 20%; bottom: 20%; flex-basis: 50%; flex-grow: 1; display: none; background-color: rgba(149, 126, 126, 0.35); margin-left: 0;">
+            <ui:VisualElement style="flex-grow: 1;">
+                <ui:Label text="Label" display-tooltip-when-elided="true" name="quit-question" style="flex-grow: 1; font-size: 100%; -unity-text-align: middle-center; -unity-font: url(&apos;project://database/Assets/UIResors/Mainmenu/drive-download-20221215T144526Z-001/Ruberoid-Bold.ttf?fileID=12800000&amp;guid=c7e9170f8bf9e1e4db0b244253cb98be&amp;type=3#Ruberoid-Bold&apos;); -unity-text-outline-color: rgba(0, 0, 0, 0);" />
+            </ui:VisualElement>
+            <ui:VisualElement style="flex-grow: 1;" />
+            <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="quit-accept" class="quit_Button" style="flex-grow: 1; font-size: 100%;" />
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Back-to-Main" class="quit_Button" style="font-size: 100%;" />
             </ui:VisualElement>
         </ui:VisualElement>
-    </ui:VisualElement>
-    <ui:VisualElement name="settingPage" style="display: none; visibility: visible; overflow: visible; flex-grow: 1; flex-direction: row; justify-content: flex-start; align-items: stretch;">
-        <ui:VisualElement style="flex-grow: 1;">
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="Back-to-Main" class="menubutton" style="flex-shrink: 0; flex-grow: 0; flex-basis: auto; height: 10%; -unity-font: url(&apos;project://database/Assets/Resour%D1%81es/Fonts%20&amp;%20Materials/Ruberoid-Regular.ttf?fileID=12800000&amp;guid=5d159957327c7f44c8370ea26b58946b&amp;type=3#Ruberoid-Regular&apos;); font-size: 50%; -unity-text-align: middle-center;" />
-        </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 15;">
-            <ui:VisualElement style="flex-grow: 1;" />
-            <ui:VisualElement style="flex-grow: 5;" />
+        <ui:VisualElement name="patientPage" style="display: flex; flex-grow: 1; visibility: visible; opacity: 1; flex-direction: row; justify-content: space-around;">
+            <ui:VisualElement style="flex-grow: 1;">
+                <ui:Button text="Button" display-tooltip-when-elided="true" name="Back-to-Main" class="menubutton" style="flex-shrink: 0; flex-grow: 0; flex-basis: auto; height: 10%; -unity-font: url(&apos;project://database/Assets/Resour%D1%81es/Fonts%20&amp;%20Materials/Ruberoid-Regular.ttf?fileID=12800000&amp;guid=5d159957327c7f44c8370ea26b58946b&amp;type=3#Ruberoid-Regular&apos;); font-size: 50%; -unity-text-align: middle-center;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="PatientBoard" style="flex-grow: 15; display: flex;" />
             <ui:VisualElement style="flex-grow: 1;" />
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1;" />
-    </ui:VisualElement>
-    <ui:VisualElement name="quitPage" style="position: absolute; left: 20%; top: 20%; right: 20%; bottom: 20%; flex-basis: 50%; flex-grow: 1; display: none; background-color: rgba(149, 126, 126, 0.35); margin-left: 0;">
-        <ui:VisualElement style="flex-grow: 1;">
-            <ui:Label text="Label" display-tooltip-when-elided="true" name="quit-question" style="flex-grow: 1; font-size: 100%; -unity-text-align: middle-center; -unity-font: url(&apos;project://database/Assets/UIResors/Mainmenu/drive-download-20221215T144526Z-001/Ruberoid-Bold.ttf?fileID=12800000&amp;guid=c7e9170f8bf9e1e4db0b244253cb98be&amp;type=3#Ruberoid-Bold&apos;); -unity-text-outline-color: rgba(0, 0, 0, 0);" />
+        <ui:VisualElement name="mainPage" style="opacity: 1; flex-grow: 1; flex-basis: auto; justify-content: space-around; align-items: stretch; -unity-background-image-tint-color: rgb(255, 255, 255); width: 100%; height: 100%; border-left-width: 17px; border-right-width: 17px; border-top-width: 17px; border-bottom-width: 17px; display: none; flex-direction: column;">
+            <ui:Label text="65yu465y" display-tooltip-when-elided="true" focusable="false" binding-path="gnLogo" name="GameName" class="gameNameLogo" style="flex-grow: 3; font-size: 100%; -unity-text-align: middle-left;" />
+            <ui:VisualElement style="align-items: stretch; justify-content: space-around; height: 35%; flex-grow: 1;">
+                <ui:VisualElement style="align-items: stretch; width: 32%; justify-content: space-around; height: 100%;">
+                    <ui:Button text="Button" display-tooltip-when-elided="true" name="chPacient" class="menubutton" style="align-items: stretch;" />
+                    <ui:Button text="Button" display-tooltip-when-elided="true" name="options" class="menubutton" />
+                    <ui:Button text="Button" display-tooltip-when-elided="true" name="exitButton" class="menubutton" />
+                </ui:VisualElement>
+            </ui:VisualElement>
         </ui:VisualElement>
-        <ui:VisualElement style="flex-grow: 1;" />
-        <ui:VisualElement style="flex-grow: 1; flex-direction: row;">
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="quit-accept" class="quit_Button" style="flex-grow: 1; font-size: 100%;" />
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="Back-to-Main" class="quit_Button" style="font-size: 100%;" />
-        </ui:VisualElement>
-    </ui:VisualElement>
-    <ui:VisualElement name="patientPage" style="display: flex; flex-grow: 1; visibility: visible; opacity: 1; flex-direction: row; justify-content: space-around;">
-        <ui:VisualElement style="flex-grow: 1;">
-            <ui:Button text="Button" display-tooltip-when-elided="true" name="Back-to-Main" class="menubutton" style="flex-shrink: 0; flex-grow: 0; flex-basis: auto; height: 10%; -unity-font: url(&apos;project://database/Assets/Resour%D1%81es/Fonts%20&amp;%20Materials/Ruberoid-Regular.ttf?fileID=12800000&amp;guid=5d159957327c7f44c8370ea26b58946b&amp;type=3#Ruberoid-Regular&apos;); font-size: 50%; -unity-text-align: middle-center;" />
-        </ui:VisualElement>
-        <ui:VisualElement name="PatientBoard" style="flex-grow: 15; display: flex;" />
-        <ui:VisualElement style="flex-grow: 1;" />
     </ui:VisualElement>
 </ui:UXML>

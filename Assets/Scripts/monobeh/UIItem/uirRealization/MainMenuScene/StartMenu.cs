@@ -10,6 +10,7 @@ public class StartMenu : MonoBehaviour
 {
 
     public UIDocument menuDoc;
+    public VisualTreeAsset Menu;
     public VisualTreeAsset patientBtn;
 
     VisualElement root;
@@ -25,26 +26,32 @@ public class StartMenu : MonoBehaviour
     }
     private void Start()
     {
+
         root = menuDoc.rootVisualElement;
         SetupMenu();
     }
 
     private void OnEnable()
     {
-        Singlton<Localizator>.Instance.OnChangetLang += ChangeLang;
+        Singlton<Localizator>.Instance.OnChangetLang += SetupMenu;
     }
+
+    private void OnDisable()
+    {
+        Singlton<Localizator>.Instance.OnChangetLang -= SetupMenu;
+    }
+        
+    //{
+    //}
 
     private void ChangeLang()
     {
-        for (int i = 0; i < root.hierarchy.childCount; i++)
-        {
-            var a = root.hierarchy.ElementAt(i);
-            if (a.GetType()==typeof(TextElement) )
-            {
-                print(a);
-            }
 
-        }
+
+
+        //
+
+
 
 
     }
@@ -91,7 +98,7 @@ public class StartMenu : MonoBehaviour
         var quitGame = root.Q<Button>("quit-accept");
 
 
-        var back = pacientPage.Q<Button>("Back-to-Main");
+        var back =  pacientPage.Q<Button>("Back-to-Main");
         var back1 = settingPage.Q<Button>("Back-to-Main");
         var back2 = quitPage.Q<Button>("Back-to-Main");
         //var back3 = root.Q<Button>("Back-to-Main");
@@ -120,6 +127,16 @@ public class StartMenu : MonoBehaviour
         exitbtn.clicked += exitButton;
         quitGame.clicked += ExitApp;
 
+        var loco = Singlton<Localizator>.Instance;
+        mainPage.Q<Label>("GameName").text = loco.GetLocalText("GameName");
+        mainPage.Q<Button>("chPacient").text = loco.GetLocalText("chPacient");
+        mainPage.Q<Button>("options").text = loco.GetLocalText("options");
+        mainPage.Q<Button>("exitButton").text = loco.GetLocalText("exitButton");
+        root.Q<Button>("quit-accept").text = loco.GetLocalText("quit-accept") ;
+
+        pacientPage.Q<Button>   ("Back-to-Main").text=loco.GetLocalText ("regect") ;
+        settingPage.Q<Button>   ("Back-to-Main").text=loco.GetLocalText ("regect") ;
+        quitPage.Q<Button>      ("Back-to-Main").text= loco.GetLocalText("regect");
     }
 
     private void LevelStart(int pacient)

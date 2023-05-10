@@ -13,7 +13,7 @@ public enum GameState
     cutscene
 }
 
-public class PlayControl : Singlton<PlayControl>,IPlayerStateSwitcher
+public class PlayControl : Singlton<PlayControl>, IPlayerStateSwitcher
 {
 
     protected override void  Awake()

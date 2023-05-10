@@ -40,6 +40,14 @@
             "Back"
          ]
       },
+	        {
+         "uiname": "quit-accept",
+         "uitext": [
+            "Згода",
+            "Согласен",
+            "Accept"
+         ]
+      },
       {
          "uiname": "ST_Language",
          "uitext": [
