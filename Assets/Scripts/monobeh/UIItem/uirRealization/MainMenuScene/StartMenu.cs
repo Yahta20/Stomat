@@ -26,8 +26,8 @@ public class StartMenu : MonoBehaviour
     }
     private void Start()
     {
-
-        root = menuDoc.rootVisualElement;
+        Singlton<UIControl>.Instance.setOrator(Menu);
+        root = Singlton<UIControl>.Instance.doc.rootVisualElement;
         SetupMenu();
     }
 
@@ -57,7 +57,7 @@ public class StartMenu : MonoBehaviour
     }
 
     private void SetupMenu() {
-        root = menuDoc.rootVisualElement;
+        //root = menuDoc.rootVisualElement;
 
         mainPage = root.Q<VisualElement>("mainPage");
         pacientPage = root.Q<VisualElement>("patientPage");
@@ -94,7 +94,7 @@ public class StartMenu : MonoBehaviour
 
         var ngbtn = root.Q<Button>("chPacient");
         var optbtn = root.Q<Button>("options");
-        var exitbtn = root.Q<Button>("exitButton");
+        var exitbtn = root.Q<Button>("ST_Exit");
         var quitGame = root.Q<Button>("quit-accept");
 
 
@@ -131,7 +131,7 @@ public class StartMenu : MonoBehaviour
         mainPage.Q<Label>("GameName").text = loco.GetLocalText("GameName");
         mainPage.Q<Button>("chPacient").text = loco.GetLocalText("chPacient");
         mainPage.Q<Button>("options").text = loco.GetLocalText("options");
-        mainPage.Q<Button>("exitButton").text = loco.GetLocalText("exitButton");
+        mainPage.Q<Button>("ST_Exit").text = loco.GetLocalText("ST_Exit");
         root.Q<Button>("quit-accept").text = loco.GetLocalText("quit-accept") ;
 
         pacientPage.Q<Button>   ("Back-to-Main").text=loco.GetLocalText ("regect") ;
@@ -143,6 +143,8 @@ public class StartMenu : MonoBehaviour
     {
 
         Singlton<QuestMaster>.Instance.SetPatient(pacient);
+        //Singlton<UIControl>.Instance.unsetOrator();// SetPatient(pacient);
+
         ScenaController.Instance.LoadScene("Cabinet");
 
     }

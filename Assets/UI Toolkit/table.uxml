@@ -35,7 +35,7 @@
                 <ui:VisualElement style="align-items: stretch; width: 32%; justify-content: space-around; height: 100%;">
                     <ui:Button text="Button" display-tooltip-when-elided="true" name="chPacient" class="menubutton" style="align-items: stretch;" />
                     <ui:Button text="Button" display-tooltip-when-elided="true" name="options" class="menubutton" />
-                    <ui:Button text="Button" display-tooltip-when-elided="true" name="ST_Exit" class="menubutton" />
+                    <ui:Button text="Button" display-tooltip-when-elided="true" name="exitButton" class="menubutton" />
                 </ui:VisualElement>
             </ui:VisualElement>
         </ui:VisualElement>

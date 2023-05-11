@@ -112,18 +112,21 @@ public class PlayerActions : MonoBehaviour
             {
         if (Physics.Raycast(ray, out hit, 4f))
         {
-                //print(hit.collider.gameObject.name);
+                print(hit.collider.gameObject.name);
                 switch (hit.collider.gameObject.name)
                 {
                     case "Pacient":
                         DetObj = ActionObj.Pacient;
+                        Singlton<UIControl>.Instance.InfoTextShowT(hit.collider.gameObject.name);
                         //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
                         break;
                     case "Exit":
                         DetObj = ActionObj.Exit;
+                        Singlton<UIControl>.Instance.InfoTextShowT(hit.collider.gameObject.name);
                         //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
                         break;
                     case "Medcard":
+                        Singlton<UIControl>.Instance.InfoTextShowT(hit.collider.gameObject.name);
                         //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);
                         DetObj = ActionObj.Medcard;
                         break;
@@ -135,8 +138,8 @@ public class PlayerActions : MonoBehaviour
         }
         else {
             DetObj = ActionObj.None;
-            //UICustomES.Instance.InfoTextHideT();
-        }
+                Singlton<UIControl>.Instance.InfoTextShowT("");
+            }
        }
     }
 

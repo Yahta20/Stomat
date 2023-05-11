@@ -1,0 +1,10 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI%20Toolkit/mainmenu.uss?fileID=7433441132597879392&amp;guid=a343699a2262f314e90a3d30cb6b56b2&amp;type=3#mainmenu" />
+    <ui:VisualElement style="background-image: none; flex-grow: 1; flex-shrink: 1; flex-basis: 100%; flex-direction: column; background-color: rgba(0, 0, 0, 0);">
+        <ui:VisualElement style="flex-grow: 3;" />
+        <ui:VisualElement style="flex-grow: 1; -unity-text-align: middle-center; color: rgba(210, 210, 210, 0);">
+            <ui:Label text="Label" display-tooltip-when-elided="true" name="info-label" style="flex-grow: 1; flex-shrink: 1; width: 100%; height: 100%; -unity-font: url(&apos;project://database/Assets/Resour%D1%81es/Fonts%20&amp;%20Materials/Ruberoid-Regular.ttf?fileID=12800000&amp;guid=5d159957327c7f44c8370ea26b58946b&amp;type=3#Ruberoid-Regular&apos;); font-size: 100%; color: rgb(255, 0, 0); -unity-text-align: middle-center;" />
+        </ui:VisualElement>
+        <ui:VisualElement style="flex-grow: 1;" />
+    </ui:VisualElement>
+</ui:UXML>
