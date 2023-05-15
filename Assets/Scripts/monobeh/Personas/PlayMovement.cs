@@ -46,7 +46,7 @@ public class PlayMovement : MonoBehaviour
         
     public void Update()
     {
-        if (ScenaController.Instance.currentState==GameState.moving)
+        if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
         {
             Looking();
             Moving();
@@ -107,10 +107,15 @@ public class PlayMovement : MonoBehaviour
     
     private void OnAnimatorMove()
     {
-        transform.position = nextPosition;
-        //var movment = Vector2.ClampMagnitude(move,1);
-        animator.SetFloat("MovementX", move.x);
-        animator.SetFloat("MovementY", move.y);
+        if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
+        {
+            transform.position = nextPosition;
+            //var movment = Vector2.ClampMagnitude(move,1);
+            animator.SetFloat("MovementX", move.x);
+            animator.SetFloat("MovementY", move.y);
+        }
+         
+         
        
     }
         

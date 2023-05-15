@@ -25,7 +25,7 @@
          ]
       },
       {
-         "uiname": "exitButton",
+         "uiname": "ST_Exit",
          "uitext": [
             "Вихід",
             "Выход",

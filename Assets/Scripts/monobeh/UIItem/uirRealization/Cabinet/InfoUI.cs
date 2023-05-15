@@ -12,15 +12,22 @@ public class InfoUI : MonoBehaviour
 
     void Start()
     {
-        Singlton<UIControl>.Instance.setOrator(Menu);
-        root = Singlton<UIControl>.Instance.doc.rootVisualElement;
-        text = root.Q<Label>("info-label");
-        text.text = "";
+        Establid();
     }
 
     private void OnEnable()
     {
         Singlton<UIControl>.Instance.OnInfo += TextShow;
+        Singlton<UIControl>.Instance.onInformation += Establid;
+
+    }
+
+    private void Establid()
+    {
+        Singlton<UIControl>.Instance.setOrator(Menu);
+        root = Singlton<UIControl>.Instance.doc.rootVisualElement;
+        text = root.Q<Label>("info-label");
+        text.text = "";
     }
 
     private void TextShow(string obj)

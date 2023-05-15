@@ -1,0 +1,16 @@
+:root {
+    position: absolute;
+    left: 5%;
+    top: 5%;
+    right: 5%;
+    bottom: 5%;
+    -unity-font: url('project://database/Assets/Resour%D1%81es/Fonts%20&%20Materials/Ruberoid-Regular.ttf?fileID=12800000&guid=5d159957327c7f44c8370ea26b58946b&type=3#Ruberoid-Regular');
+    color: rgba(0, 0, 0, 255);
+    font-size: 12%;
+}
+
+.text-label {
+    font-size: 35%;
+    -unity-font: url('project://database/Assets/Resour%D1%81es/Fonts%20&%20Materials/Ruberoid-Regular.ttf?fileID=12800000&guid=5d159957327c7f44c8370ea26b58946b&type=3#Ruberoid-Regular');
+    -unity-text-align: middle-left;
+}

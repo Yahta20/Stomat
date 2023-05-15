@@ -942,22 +942,6 @@ MonoBehaviour:
   m_ParentUI: {fileID: 0}
   sourceAsset: {fileID: 9197481963319205126, guid: b667ddec625e3fd4ead5b67611bb04d3, type: 3}
   m_SortingOrder: 0
---- !u!114 &1320329598773666710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320329598773666712}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 48c4a0f3e3548c747a92495781a81a52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  previosScene:
-    m_Handle: 0
-  currentScene:
-    m_Handle: 0
 --- !u!4 &1320329598773666711
 Transform:
   m_ObjectHideFlags: 0
@@ -982,7 +966,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1320329598773666711}
-  - component: {fileID: 1320329598773666710}
   - component: {fileID: 1320329598773666713}
   m_Layer: 0
   m_Name: GameObject

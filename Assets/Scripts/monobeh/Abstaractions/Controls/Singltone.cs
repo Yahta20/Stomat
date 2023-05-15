@@ -50,11 +50,15 @@ public abstract class Singlton<T>: MonoBehaviour where T : Singlton<T>
         
     }
 
-    protected virtual void OnEnable()
+    protected virtual void OnDestroy()
     {
-        
+        if (instance != null)
+        {
 
-
+            instance = null;
+        }
     }
+
+
 
 }

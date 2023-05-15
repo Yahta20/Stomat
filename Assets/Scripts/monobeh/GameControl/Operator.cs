@@ -27,35 +27,60 @@ public class Operator : MonoBehaviour
         animator.Play(CameraList.FV_Camera.ToString());
         mInputs.Player.View.started +=
             _ => View();
-        
+        PlayControl.Instance.onChangeState += changeView;
     }
 
-
+    private void changeView(BaseGameState obj)
+    {
+        if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
+        {
+            animator.Play(CameraList.FV_Camera.ToString());
+        }
+        if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
+        {
+            animator.Play(CameraList.CM_vcam1.ToString());
+        }
+    }
 
     private void View()
     {
-        var sts = ScenaController.Instance.currentState;
-        
-        switch (sts)
+        if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
         {
-            
-            case GameState.moving:
-                if (isfp)
+            if (isfp)
                 {
-                    print(sts);
+                    
                     animator.Play(CameraList.FV_Camera.ToString());
                 }
                 {
                     animator.Play(CameraList.CM_vcam1.ToString());
                 }
                 isfp = !isfp;
+        
 
 
-                break;
-            case GameState.notes:
-                
-                break;
         }
+        //var sts = ScenaController.Instance.currentState;
+        //
+        //switch (sts)
+        //{
+        //    
+        //    case GameState.moving:
+        //        if (isfp)
+        //        {
+        //            //print(sts);
+        //            animator.Play(CameraList.FV_Camera.ToString());
+        //        }
+        //        {
+        //            animator.Play(CameraList.CM_vcam1.ToString());
+        //        }
+        //        isfp = !isfp;
+        //
+        //
+        //        break;
+        //    case GameState.notes:
+        //        
+        //        break;
+        //}
     }
     private void OnEnable()
     {

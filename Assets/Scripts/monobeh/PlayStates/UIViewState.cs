@@ -1,4 +1,6 @@
-﻿internal class UIViewState : BaseGameState
+﻿using UnityEngine;
+
+internal class UIViewState : BaseGameState
 {
     public UIViewState(PlayControl control, IPlayerStateSwitcher ss) : base(control, ss)
     {
@@ -20,7 +22,9 @@
 
     public override void Start()
     {
-     
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.Confined;
+        //_control.oper.animator.Play("CM_vcam1");
     }
 
     public override void Stop()

@@ -70,25 +70,28 @@ public class PlayerActions : MonoBehaviour
     private void ActionButton()
     {
         
-        if (!UICustomES.Instance.UIView)
+        if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
         {
             switch (DetObj)
             {
                 case ActionObj.None:
                     break;
                 case ActionObj.Pacient:
-                    
-                    UICustomES.Instance.AskingBarShowT();
-                    UICustomES.Instance.InfoTextHideT();
+
+                    Singlton<UIControl>.Instance.VocalShowT();
+                    PlayControl.Instance.SwitchPlayerState<UIViewState>();
+                    //UICustomES.Instance.InfoTextHideT();
                     break;
                 case ActionObj.Medcard:
-                    
-                    UICustomES.Instance.MedicalCardShowT();
-                    UICustomES.Instance.InfoTextHideT();
+                    Singlton<UIControl>.Instance.MedcardShowT();
+                    PlayControl.Instance.SwitchPlayerState<UIViewState>();
+                    //UICustomES.Instance.InfoTextHideT();
                     break;
                 case ActionObj.Exit:
-                    UICustomES.Instance.ResultShowT();
-                    UICustomES.Instance.InfoTextHideT();
+                    Singlton<UIControl>.Instance.ResultShowT();
+                    PlayControl.Instance.SwitchPlayerState<UIViewState>();
+                    //UICustomES.Instance.ResultShowT();
+                    //UICustomES.Instance.InfoTextHideT();
                     break;
                 default:
                     break;
@@ -108,11 +111,11 @@ public class PlayerActions : MonoBehaviour
 
 
         //Debug.DrawRay(raypoint.transform.position, raypoint.transform.forward, Color.green,4);
-            if (ScenaController.Instance.currentState == GameState.moving)
+            if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
             {
         if (Physics.Raycast(ray, out hit, 4f))
         {
-                print(hit.collider.gameObject.name);
+                //print(hit.collider.gameObject.name);
                 switch (hit.collider.gameObject.name)
                 {
                     case "Pacient":

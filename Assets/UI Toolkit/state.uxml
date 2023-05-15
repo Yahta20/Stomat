@@ -7,4 +7,5 @@
         </ui:VisualElement>
         <ui:VisualElement style="flex-grow: 1;" />
     </ui:VisualElement>
+    <ui:VisualElement style="position: absolute; left: 49.5%; top: 49.5%; right: 49.5%; bottom: 49.5%; -unity-background-image-tint-color: rgba(255, 0, 0, 255); background-color: rgba(255, 0, 0, 255); border-top-left-radius: 100px; border-bottom-left-radius: 100px; border-top-right-radius: 100px; border-bottom-right-radius: 100px;" />
 </ui:UXML>

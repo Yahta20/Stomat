@@ -19,19 +19,6 @@ public class PlayControl : Singlton<PlayControl>, IPlayerStateSwitcher
     protected override void  Awake()
     {
         base.Awake();
-
-    }
-
-    public Scene previosScene;
-    public Scene currentScene;
-    public SceneInstance loadScene;
-    public event Action onChangeScene;
-
-    private BaseGameState _curState;
-    private List<BaseGameState> _diapState;
-
-    void Start()
-    {
         _diapState = new List<BaseGameState>()
         {
             new UIViewState(this,this),
@@ -42,6 +29,43 @@ public class PlayControl : Singlton<PlayControl>, IPlayerStateSwitcher
         _curState = _diapState[0];
     }
 
+
+    public Scene previosScene;
+    public Scene currentScene;
+    public SceneInstance loadScene;
+    public event Action<BaseGameState> onChangeState;
+    //public Operator oper;
+
+    public BaseGameState _curState { get; private set; }
+    private List<BaseGameState> _diapState;
+
+    
+    
+    void Start()
+    {
+
+    }
+
+
+    private void OnEnable()
+    {
+        SceneManager.sceneLoaded += sceneLoaded;
+
+    }
+
+    private void sceneLoaded(Scene arg0, LoadSceneMode arg1)
+    {
+        if (arg0.name == "MainMenu")
+        {
+            SwitchPlayerState<UIViewState>();
+        }
+        if (arg0.name == "Cabinet")
+        {
+            //oper = FindObjectOfType<Operator>();
+            SwitchPlayerState<MovingState>();
+
+        }
+    }
 
     public void CutScene()
     {
@@ -74,5 +98,6 @@ public class PlayControl : Singlton<PlayControl>, IPlayerStateSwitcher
         _curState.Stop();
         state.Start();
         _curState = state;
+        onChangeState?.Invoke(_curState);
     }
 }
