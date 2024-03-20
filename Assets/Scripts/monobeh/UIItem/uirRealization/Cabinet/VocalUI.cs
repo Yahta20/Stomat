@@ -4,91 +4,138 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class VocalUI : PageUI
+public class VocalUI : MonoBehaviour
 {
-    public GameObject AskingPrefab;
-
-    public PlaningUI Interier;
-
-    public Button HideB;
+    
+    public GameObject QButton;
+    public GameObject TButton;
     public Button AnswerInteractive;
+    public Button Exit;
 
-    public ScrollRect AnswerRect;
-    public ScrollRect QuestionRect;
+    //ScrollView AnswerRect;
+    //ScrollView QuestionRect;
+    public ScrollRect AnsverContent;
+    public ScrollRect QuestionContent;
 
+    RectTransform mainRT;
+    bool visiable=false;
+    List<serviceText> questions  = new List<serviceText>();
+    List<serviceText> answers    = new List<serviceText>();
 
-
-    private void OnEnable()
-    {
-        base.OnEnable();
-        UICustomES.Instance.onAskingBarShow += Show;
-        UICustomES.Instance.onAskingBarHide += Hide;
-    }
-
-    protected override void setLang(SystemLanguage lang)
-    {
-       
-    }
-
-    protected override void setSize(Vector2 screen)
-    {
-       // _Transform.sizeDelta = screen*0.88f;
-       // _Transform.anchoredPosition = Vector2.zero;
-       // _Transform.anchorMin = new Vector2(0.5f, 0.5f);
-       // _Transform.anchorMax = new Vector2(0.5f, 0.5f);
-       //
-       // var HideBRT = HideB.GetComponent<RectTransform>();
-       //
-       //     HideBRT.sizeDelta = screen * 0.09f;
-       //     HideBRT.anchorMin   = new Vector2(1f, 0f);
-       //     HideBRT.anchorMax   = new Vector2(1f, 0f);
-       //     HideBRT.pivot       = new Vector2(0,0f);
-       //     HideBRT.anchoredPosition = Vector2.zero;
-
-        //setSize(screen, _Interier);
-    }
-    protected void setSize(Vector2 screen, PlaningUI obj)
-    {
-        
-    }
-
-    void CleareContent(ScrollRect sr) {
-        for (int i = 0; i < sr.content.childCount; i++)
-        {
-            Destroy(sr.content.transform.GetChild(i).gameObject);
-        }
-        sr.content.sizeDelta = Vector2.zero;
-    }
 
     void Awake()
     {
-        CleareContent(AnswerRect);
-        CleareContent(QuestionRect);
+        mainRT=GetComponent<RectTransform>();
+        CompleatErase();
+        AnswerInteractive.onClick.AddListener(
+            () => {
+                AnsverContent.gameObject.SetActive(
+                AnsverContent.gameObject.active ? false : true
+                    ) ;
+            }
+            );
     }
+
+    private void OnEnable()
+    {
+        Show(false);
+        ControlUI.Instance.onAskingBar += Show;
+        SetSize();
+        QuestMaster.Instance.onQuestTaskStart += Taskreaction;
+
+    }
+
+    private void Taskreaction(QuestTask obj)
+    {
+            //print(obj.InteractionGO);
+        if (obj.InteractionGO == this.GetType().ToString()) { 
+            
+        }
+    
+    }
+
+    private void SetSize()
+    {
+        var canvas = new Vector2(Screen.width, Screen.height);
+        mainRT.sizeDelta = canvas * 0.93f;
+        mainRT.anchoredPosition = Vector2.zero;
+
+        Exit.GetComponent<RectTransform>().sizeDelta 
+            = new Vector2(mainRT.sizeDelta.y*0.07f, mainRT.sizeDelta.y * 0.07f);
+        AnsverContent.GetComponent<RectTransform>().sizeDelta 
+            = new Vector2(mainRT.sizeDelta.x*0.93f, mainRT.sizeDelta.y * 0.4f);
+        QuestionContent.GetComponent<RectTransform>().sizeDelta
+            = new Vector2(mainRT.sizeDelta.x * 0.93f, mainRT.sizeDelta.y * 0.4f);
+        AnswerInteractive.GetComponent<RectTransform>().sizeDelta
+            = new Vector2(mainRT.sizeDelta.x * 0.93f, mainRT.sizeDelta.y * 0.1f);
+
+        AnsverContent.GetComponent<RectTransform>().anchoredPosition
+            = new Vector2(0, mainRT.sizeDelta.y * 0.06f);
+        QuestionContent.GetComponent<RectTransform>().anchoredPosition
+            = new Vector2(0, -mainRT.sizeDelta.y * 0.06f);
+        AnswerInteractive.GetComponent<RectTransform>().anchoredPosition
+            = Vector2.zero;
+        //QuestionContent;
+
+    }
+
+   
     private void OnDisable()
     {
-        base.OnDisable();
-        UICustomES.Instance.onAskingBarShow -= Show;
-        UICustomES.Instance.onAskingBarHide -= Hide;
-        //LAButton.onClick.AddListener(Hide);
-    }
-    void Start()
-    {
-      
-      //  _Transform.anchoredPosition = new Vector2(UICustomES.Instance.screenResolution.x, _Transform.anchoredPosition.y);
-      //  HideB.onClick.AddListener(Hide);
+        ControlUI.Instance.onAskingBar -= Show;
     }
 
-    public void Show()
+    void Update()
     {
-        //UICustomES.Instance.ReleaseCursor();
-        //_Transform.anchoredPosition = new Vector2(0, _Transform.anchoredPosition.y);
-       
+        if (visiable)
+        {
+            mainRT.anchoredPosition = new Vector2(Mathf.Lerp(mainRT.anchoredPosition.x, 0, Time.deltaTime * 3), 0);
+        }
+        else
+        {
+            mainRT.anchoredPosition = new Vector2(Mathf.Lerp(mainRT.anchoredPosition.x, Screen.width, Time.deltaTime * 3), 0);
+        }
     }
 
-    public void Hide()
-    {
-        //UICustomES.Instance.BlockCursor();
-        //_Transform.anchoredPosition = new Vector2(UICustomES.Instance.screenResolution.x, _Transform.anchoredPosition.y);
+    public void RecordAnswer(serviceText record) { 
+        answers.Add(record);
+        var btn = Instantiate(TButton, AnsverContent.transform);
+        //var qb = btn.GetComponent<questButton>();
+        btn.GetComponent<RectTransform>().sizeDelta =
+            new Vector2(0, mainRT.sizeDelta.y * 0.1f);
+        //qb.SetButton(this, st[i], (int)(mainRT.sizeDelta.y * 0.9f));
+        AnsverContent.content.sizeDelta += new Vector2(0, mainRT.sizeDelta.y * 0.1f + 8);
     }
+
+    public void FillQuestion(serviceText[] st) {
+        QuestionContent.content.sizeDelta = Vector2.zero;
+        for (int i = 0; i < st.Length; i++)
+        {
+            var btn = Instantiate(QButton,QuestionContent.transform);
+            var qb = btn.GetComponent<questButton>();
+            btn.GetComponent<RectTransform>().sizeDelta =
+                new Vector2(0, mainRT.sizeDelta.y * 0.1f);
+            qb.SetButton(this,st[i],(int)(mainRT.sizeDelta.y * 0.9f));
+            QuestionContent.content.sizeDelta += new Vector2(0, mainRT.sizeDelta.y * 0.1f+8);
+        }
+    
+    }
+
+    public void Show(bool obj)
+    {
+        visiable = obj;
+        SetSize();
+    }
+    public void CompleatErase() {
+        CleareContent(QuestionContent.content);
+        CleareContent(AnsverContent.content);
+    }    
+    void CleareContent(Transform t) {
+        for (int i = 0; i < t.childCount; i++)
+        {
+            Destroy(t.transform.GetChild(i).gameObject);
+        }
+        t.GetComponent<RectTransform>().sizeDelta = Vector2.zero;
+    }
+
 }

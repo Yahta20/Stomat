@@ -12,3 +12,4 @@ EditorBuildSettings:
     com.unity.addressableassets: {fileID: 11400000, guid: 1ccf323b132e56a46b6fcd9c1e00ffb2, type: 2}
     com.unity.localization.addressable-group-rules: {fileID: 11400000, guid: d0d97b5aaa912c04ab9b7a36ab73a8fa, type: 2}
     com.unity.localization.settings: {fileID: 11400000, guid: 046dd2bb74e443b449e29844fe33386f, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: 0fe05999d0711af4b990681df04574d2, type: 2}

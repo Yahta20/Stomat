@@ -12,14 +12,14 @@ public enum ActionObj {
 
 public class PlayerActions : MonoBehaviour
 {
-    
-    
+
+    public QuestBoardUI qbui;
     public Inputs mInputs;
     bool action;
-    bool quest;
-    ActionObj DetObj;
+    bool quest = false;
+    
     public GameObject raypoint;
-
+    IInteracte interact;
     void Awake()
     {
         mInputs = new Inputs();
@@ -32,8 +32,8 @@ public class PlayerActions : MonoBehaviour
         mInputs.Player.Quest.started +=
             ctx =>
             {
+                quest = !quest;
                 QuestButton();
-                quest = true;
         mInputs.Player.Pause.started +=
             ctx =>
             {
@@ -59,7 +59,17 @@ public class PlayerActions : MonoBehaviour
 
     private void QuestButton()
     {
-        print("q");
+        
+        if (quest)
+        {
+            PlayControl.Instance.SwitchPlayerState<UIViewState>();
+        }
+        else
+        {
+            PlayControl.Instance.SwitchPlayerState<MovingState>();
+
+        }
+        qbui.changeView();
         //if (!UICustomES.Instance.UIView)
         //{
         //    UICustomES.Instance.QuestBarShowT();
@@ -72,30 +82,11 @@ public class PlayerActions : MonoBehaviour
         
         if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
         {
-            switch (DetObj)
-            {
-                case ActionObj.None:
-                    break;
-                case ActionObj.Pacient:
-
-                    Singlton<UIControl>.Instance.VocalShowT();
-                    PlayControl.Instance.SwitchPlayerState<UIViewState>();
-                    //UICustomES.Instance.InfoTextHideT();
-                    break;
-                case ActionObj.Medcard:
-                    Singlton<UIControl>.Instance.MedcardShowT();
-                    PlayControl.Instance.SwitchPlayerState<UIViewState>();
-                    //UICustomES.Instance.InfoTextHideT();
-                    break;
-                case ActionObj.Exit:
-                    Singlton<UIControl>.Instance.ResultShowT();
-                    PlayControl.Instance.SwitchPlayerState<UIViewState>();
-                    //UICustomES.Instance.ResultShowT();
-                    //UICustomES.Instance.InfoTextHideT();
-                    break;
-                default:
-                    break;
+            if (interact!=null) {
+                interact.Show();
             }
+            
+           
         }
     }
 
@@ -115,112 +106,147 @@ public class PlayerActions : MonoBehaviour
             {
         if (Physics.Raycast(ray, out hit, 4f))
         {
-                //print(hit.collider.gameObject.name);
-                switch (hit.collider.gameObject.name)
+
+                if (hit.collider.gameObject.TryGetComponent<IInteracte>(out interact))
                 {
-                    case "Pacient":
-                        DetObj = ActionObj.Pacient;
-                        Singlton<UIControl>.Instance.InfoTextShowT(hit.collider.gameObject.name);
-                        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
-                        break;
-                    case "Exit":
-                        DetObj = ActionObj.Exit;
-                        Singlton<UIControl>.Instance.InfoTextShowT(hit.collider.gameObject.name);
-                        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
-                        break;
-                    case "Medcard":
-                        Singlton<UIControl>.Instance.InfoTextShowT(hit.collider.gameObject.name);
-                        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);
-                        DetObj = ActionObj.Medcard;
-                        break;
-                    default:
-                        DetObj = ActionObj.None;
-                        //UICustomES.Instance.InfoTextHideT();
-                        break;
+                    interact.Interaction();
+                    //print(hit.collider.gameObject);
                 }
         }
         else {
-            DetObj = ActionObj.None;
-                Singlton<UIControl>.Instance.InfoTextShowT("");
+                //interact?.Hide();
+                interact = null;
+                ControlUI.Instance.InfoTextShowT("",false);
             }
        }
     }
 
 
 }
+/*
+           switch (DetObj)
+           {
+               case ActionObj.None:
+                   break;
+               case ActionObj.Pacient:
 
-                //QuestButton();
-                //print("wer");
-        //mInputs.Player.Action.canceled +=
-        //    ctx =>
-        //    {
-        //        action = false;
-        //    };
-                //print(quest);
-                // quest = true;
-                //print(quest);
-        //mInputs.Player.Quest.canceled +=
-        //    ctx =>
-        //    {
-        //        quest = false;
-        //        //print(quest);
-        //    };
-                        //if (action)
-                        //{
-                        //    UIEventSystem.Instance.AskingBarShowT();
-                        //    UIEventSystem.Instance.InfoTextHideT();
-                        //}
-                        //if (action)
-                        //{
-                        //    UIEventSystem.Instance.AskingBarShowT();
-                        //    UIEventSystem.Instance.InfoTextHideT();
-                        //}
-            /*
-            switch (ScenaManager.Instance.currentState)
-            {
-                case gamestate.moving:
-                    switch (hit.collider.gameObject.name)
-                    {
-                        case "Pacient":
-                            UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
-                            if (action)
-                            {
-                                UIEventSystem.Instance.AskingBarShowT();
-                                UIEventSystem.Instance.InfoTextHideT();
-                            }
-                            break;
-                        case "Exit":
-                            UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
-                            if (action)
-                            {
-                                //ScenaManager.Instance.currentState = gamestate.asking;
-                                //SceneManager.LoadScene(0);
-                                UIEventSystem.Instance.ResultShowT();
-                            }
-                            break;
-                        case "Medcard":
-                            UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
-                            if (action)
-                            {
-                                UIEventSystem.Instance.MedicalCardShowT();
-                            }
-                            break;
-                        default:
+                   ControlUI.Instance.Vocal(true);
+                   PlayControl.Instance.SwitchPlayerState<UIViewState>();
+                   //UICustomES.Instance.InfoTextHideT();
+                   break;
+               case ActionObj.Medcard:
+                   ControlUI.Instance.MedCard(true);
+                   PlayControl.Instance.SwitchPlayerState<UIViewState>();
+                   //UICustomES.Instance.InfoTextHideT();
+                   break;
+               case ActionObj.Exit:
+                   ControlUI.Instance.Result(true);
+                   PlayControl.Instance.SwitchPlayerState<UIViewState>();
+                   //UICustomES.Instance.ResultShowT();
+                   //UICustomES.Instance.InfoTextHideT();
+                   break;
+               default:
+                   break;
+           }
+            */
 
-                            break;
+//QuestButton();
+/*
+//print(hit.collider.gameObject.name);
+switch (hit.collider.gameObject.name)
+{
+    case "Pacient":
+        DetObj = ActionObj.Pacient;
+        ControlUI.Instance.InfoTextShowT(hit.collider.gameObject.name,true);
+        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
+        break;
+    case "Exit":
+        DetObj = ActionObj.Exit;
+        ControlUI.Instance.InfoTextShowT(hit.collider.gameObject.name, true);
+        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
+        break;
+    case "Medcard":
+        ControlUI.Instance.InfoTextShowT(hit.collider.gameObject.name, true);
+        //UICustomES.Instance.InfoTextShowT(hit.collider.gameObject.name);
+        DetObj = ActionObj.Medcard;
+        break;
+    default:
+        DetObj = ActionObj.None;
+        //UICustomES.Instance.InfoTextHideT();
+        break;
+}
+ */
+//print("wer");
+//mInputs.Player.Action.canceled +=
+//    ctx =>
+//    {
+//        action = false;
+//    };
+//print(quest);
+// quest = true;
+//print(quest);
+//mInputs.Player.Quest.canceled +=
+//    ctx =>
+//    {
+//        quest = false;
+//        //print(quest);
+//    };
+//if (action)
+//{
+//    UIEventSystem.Instance.AskingBarShowT();
+//    UIEventSystem.Instance.InfoTextHideT();
+//}
+//if (action)
+//{
+//    UIEventSystem.Instance.AskingBarShowT();
+//    UIEventSystem.Instance.InfoTextHideT();
+//}
+/*
+switch (ScenaManager.Instance.currentState)
+{
+    case gamestate.moving:
+        switch (hit.collider.gameObject.name)
+        {
+            case "Pacient":
+                UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
+                if (action)
+                {
+                    UIEventSystem.Instance.AskingBarShowT();
+                    UIEventSystem.Instance.InfoTextHideT();
+                }
+                break;
+            case "Exit":
+                UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
+                if (action)
+                {
+                    //ScenaManager.Instance.currentState = gamestate.asking;
+                    //SceneManager.LoadScene(0);
+                    UIEventSystem.Instance.ResultShowT();
+                }
+                break;
+            case "Medcard":
+                UIEventSystem.Instance.InfoTextShowT(hit.collider.gameObject.name);//ui dynamic
+                if (action)
+                {
+                    UIEventSystem.Instance.MedicalCardShowT();
+                }
+                break;
+            default:
 
-                    }
-                    break;
-                case gamestate.asking:
-                    break;
-                default:
-                    //UIEventSystem.Instance.InfoTextHideT();
-                    break;
-            }
-          */
-        //    UIEventSystem.Instance.InfoTextHideT();
-        //if (ScenaManager.Instance.currentState == gamestate.moving&& quest)
-        //{
-        //    UIEventSystem.Instance.AskingBarShowT();
-        //}
-            //UIEventSystem.Instance.QuestBarShowT();
+                break;
+
+        }
+        break;
+    case gamestate.asking:
+        break;
+    default:
+        //UIEventSystem.Instance.InfoTextHideT();
+        break;
+}
+*/
+//    UIEventSystem.Instance.InfoTextHideT();
+//if (ScenaManager.Instance.currentState == gamestate.moving&& quest)
+//{
+//    UIEventSystem.Instance.AskingBarShowT();
+//}
+//UIEventSystem.Instance.QuestBarShowT();

@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3997900af3307b3458f9bcee36b52ad8, type: 3}
   m_Name: Passport Data_medcard
   m_EditorClassIdentifier: 
-  Name: 
+  <id>k__BackingField: Passport Data_medcard
+  Name:
+    uiname: 
+    uitext: []
   InteractionGO: MedicalCard
   MustCondition:
   - Name_1
@@ -20,6 +23,7 @@ MonoBehaviour:
   - DateOfBirth_3
   - Address_4
   PerfectCondition: []
-  Description: MedicalCard_PD
-  State: 0
-  Result: 0
+  Description:
+    uiname: 
+    uitext: []
+  Data: []

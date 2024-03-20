@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+//using static UnityEditor.ShaderGraph.Internal.KeywordDependentCollection;
 
 public abstract class Singlton<T>: MonoBehaviour where T : Singlton<T>
 {
@@ -13,51 +14,48 @@ public abstract class Singlton<T>: MonoBehaviour where T : Singlton<T>
         get {
             if (instance == null)
             {
-                Debug.LogError(typeof(T).ToString() + " is missing.");
-                //var Sgo = new GameObject($"{typeof(Singlton<T>).ToString()}/");
-                //Sgo.AddComponent<Singlton<T>>();
-                //instance = Sgo.GetComponent<Singlton<T>>();
+
+                instance = FindObjectOfType<T>();
+
+                if (instance == null)
+                { 
+                    var Sgo = new GameObject($"{typeof(Singlton<T>).ToString()}/");
+                    instance = Sgo.AddComponent<T>();
+                
+                }
+
+                   // Debug.LogError(typeof(T).ToString() + " is missing.");
             }
             return instance; }
         private set { instance = value; }
     }
 
-    protected static T instance;
+    private static T instance;
 
-    static Dictionary<string, UnityAction> Skills = new Dictionary<string, UnityAction>();
-    //static Dictionary<string,UnityAction<object>> Skills = new Dictionary<string, UnityAction<object>>();
-        //= new Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour, Message>>>();
 
-    static      Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour,Message>>> MsgList 
-        = new   Queue<Action<MessageClass<MonoBehaviour, MonoBehaviour, Message>>>();
 
-    static      Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>> MsgHistory
-        = new   Stack<MessageClass<MonoBehaviour, MonoBehaviour,Message>>();
-
-   protected virtual void Awake() {
+   public virtual void Awake() {
         if (instance == null)
         { // Экземпляр менеджера был найден
             instance = this as T; // Задаем ссылку на экземпляр объекта
             DontDestroyOnLoad(this);
-            return;
+            //return;
         }
+        else { 
         Destroy(gameObject); // Удаляем объект
-            
+        }
    }
-
-
-    static void addAction(string name,object obj) { 
-        
-    }
-
-    protected virtual void OnDestroy()
+    public virtual void OnApplicationQuit()
     {
+
         if (instance != null)
         {
-
-            instance = null;
+            //print($"{instance.name}?");
+            Destroy(gameObject);
         }
     }
+
+
 
 
 

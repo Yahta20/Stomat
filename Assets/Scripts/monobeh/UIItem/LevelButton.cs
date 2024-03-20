@@ -39,6 +39,7 @@ public class LevelButton : MonoBehaviour
     }
     void clicToCabinet() {
         QuestMaster.Instance.SetPatient(PacientNumber);
-        ScenaController.Instance.LoadScene("Cabinet");
+        PlayControl.Instance.LoadScene("Cabinet");
+        //ScenaController.Instance.LoadScene("Cabinet");
     }
 }

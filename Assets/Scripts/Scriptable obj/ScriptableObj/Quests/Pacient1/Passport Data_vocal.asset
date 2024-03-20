@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3997900af3307b3458f9bcee36b52ad8, type: 3}
   m_Name: Passport Data_vocal
   m_EditorClassIdentifier: 
-  Name: 
-  InteractionGO: Vocal
+  <id>k__BackingField: Passport Data_vocal
+  Name:
+    uiname: 
+    uitext: []
+  InteractionGO: VocalUI
   MustCondition:
   - Name_1
   - DateOfBirth_3
@@ -24,6 +27,54 @@ MonoBehaviour:
   - Nationality
   - Profession
   - Work
-  Description: Vocal_PD
-  State: 0
-  Result: 0
+  Description:
+    uiname: 
+    uitext: []
+  Data:
+  - uiname: Name_1
+    uitext:
+    - "\u0422\u043E\u043A\u0430\u0440\u0454\u0432 \u0410\u0440\u0442\u0443\u0440
+      \u0406\u0433\u043E\u0440\u043E\u0432\u0438\u0447"
+    - "\u0422\u043E\u043A\u0430\u0440\u0435\u0432 \u0410\u0440\u0442\u0443\u0440
+      \u0418\u0433\u043E\u0440\u0435\u0432\u0438\u0447"
+    - Tokarev Artur Igorovich
+  - uiname: DateOfBirth_3
+    uitext:
+    - "27 \u0440\u043E\u043A\u0456\u0432"
+    - "27 \u043B\u0435\u0442"
+    - 27 years old
+  - uiname: Nationality
+    uitext:
+    - "\u0423\u043A\u0440\u0430\u0457\u043D\u0435\u0446\u044C"
+    - "\u0423\u043A\u0440\u0430\u0438\u043D\u0435\u0446"
+    - Ukrainian
+  - uiname: Address_4
+    uitext:
+    - "\u041C\u0456\u0441\u0442\u043E \u0425\u0430\u0440\u043A\u0456\u0432 \u0432\u0443\u043B\u0438\u0446\u044F
+      \u041A\u0443\u0440\u0438\u043B\u0456\u0432\u0441\u044C\u043A\u0430, 95"
+    - "\u0413\u043E\u0440\u043E\u0434 \u0425\u0430\u0440\u044C\u043A\u043E\u0432
+      \u0443\u043B\u0438\u0446\u0430 \u041A\u0443\u0440\u0438\u043B\u043E\u0432\u0441\u043A\u0430\u044F,
+      95"
+    - The city of Kharkiv, 95 Kurylivska Street
+  - uiname: Work
+    uitext:
+    - "\u0425\u0430\u0440\u044C\u043A\u0456\u0432\u0441\u043A\u0438\u0439 \u0442\u0440\u0430\u043A\u0442\u043E\u0440\u043D\u0438\u0439
+      \u0437\u0430\u0432\u043E\u0434"
+    - "\u0425\u0430\u0440\u044C\u043A\u043E\u0432\u0441\u043A\u0438\u0439 \u0442\u0440\u0430\u043A\u0442\u043E\u0440\u043D\u044B\u0439
+      \u0437\u0430\u0432\u043E\u0434"
+    - Kharkiv Tractor Plant
+  - uiname: Profession
+    uitext:
+    - "\u0421\u043B\u044E\u0441\u0430\u0440"
+    - "\u0421\u043B\u0435\u0441\u0430\u0440\u044C"
+    - Mechanic
+  - uiname: DateToClinic
+    uitext:
+    - "\u0421\u044C\u043E\u0433\u043E\u0434\u043D\u0456"
+    - "\u0421\u0435\u0433\u043E\u0434\u043D\u044F"
+    - Today
+  - uiname: Diagnosis
+    uitext:
+    - "\u041F\u0440\u0438\u0439\u0448\u043E\u0432 \u0441\u0430\u043C\u043E\u0441\u0442\u0456\u0439\u043D\u043E"
+    - "\u041F\u0440\u0438\u0448\u0435\u043B \u0441\u0430\u043C\u043E\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C\u043D\u043E"
+    - I came on my own

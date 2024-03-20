@@ -14,43 +14,114 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Sex: 1
   PacientOrder: Patient1
+  prefab: {fileID: 0}
   PasportData:
-  - Name_1
-  - DateOfBirth_3
-  - Nationality
-  - Address_4
-  - Work
-  - Profession
-  - DateToClinic
-  - Diagnosis
+  - uiname: Name_1
+    uitext:
+    - "\u0422\u043E\u043A\u0430\u0440\u0454\u0432 \u0410\u0440\u0442\u0443\u0440
+      \u0406\u0433\u043E\u0440\u043E\u0432\u0438\u0447"
+    - "\u0422\u043E\u043A\u0430\u0440\u0435\u0432 \u0410\u0440\u0442\u0443\u0440
+      \u0418\u0433\u043E\u0440\u0435\u0432\u0438\u0447"
+    - Tokarev Artur Igorovich
+  - uiname: DateOfBirth_3
+    uitext:
+    - "27 \u0440\u043E\u043A\u0456\u0432"
+    - "27 \u043B\u0435\u0442"
+    - 27 years old
+  - uiname: Nationality
+    uitext:
+    - "\u0423\u043A\u0440\u0430\u0457\u043D\u0435\u0446\u044C"
+    - "\u0423\u043A\u0440\u0430\u0438\u043D\u0435\u0446"
+    - Ukrainian
+  - uiname: Address_4
+    uitext:
+    - "\u041C\u0456\u0441\u0442\u043E \u0425\u0430\u0440\u043A\u0456\u0432 \u0432\u0443\u043B\u0438\u0446\u044F
+      \u041A\u0443\u0440\u0438\u043B\u0456\u0432\u0441\u044C\u043A\u0430, 95"
+    - "\u0413\u043E\u0440\u043E\u0434 \u0425\u0430\u0440\u044C\u043A\u043E\u0432
+      \u0443\u043B\u0438\u0446\u0430 \u041A\u0443\u0440\u0438\u043B\u043E\u0432\u0441\u043A\u0430\u044F,
+      95"
+    - The city of Kharkiv, 95 Kurylivska Street
+  - uiname: Work
+    uitext:
+    - "\u0425\u0430\u0440\u044C\u043A\u0456\u0432\u0441\u043A\u0438\u0439 \u0442\u0440\u0430\u043A\u0442\u043E\u0440\u043D\u0438\u0439
+      \u0437\u0430\u0432\u043E\u0434"
+    - "\u0425\u0430\u0440\u044C\u043A\u043E\u0432\u0441\u043A\u0438\u0439 \u0442\u0440\u0430\u043A\u0442\u043E\u0440\u043D\u044B\u0439
+      \u0437\u0430\u0432\u043E\u0434"
+    - Kharkiv Tractor Plant
+  - uiname: Profession
+    uitext:
+    - "\u0421\u043B\u044E\u0441\u0430\u0440"
+    - "\u0421\u043B\u0435\u0441\u0430\u0440\u044C"
+    - Mechanic
+  - uiname: DateToClinic
+    uitext:
+    - "\u0421\u044C\u043E\u0433\u043E\u0434\u043D\u0456"
+    - "\u0421\u0435\u0433\u043E\u0434\u043D\u044F"
+    - Today
+  - uiname: Diagnosis
+    uitext:
+    - "\u041F\u0440\u0438\u0439\u0448\u043E\u0432 \u0441\u0430\u043C\u043E\u0441\u0442\u0456\u0439\u043D\u043E"
+    - "\u041F\u0440\u0438\u0448\u0435\u043B \u0441\u0430\u043C\u043E\u0441\u0442\u043E\u044F\u0442\u0435\u043B\u044C\u043D\u043E"
+    - I came on my own
   PatientComplaints:
-  - Reason
-  - Pain
-  - Swelling
-  - Dysfunction
-  - Neoplasm
-  - Smell
-  - Selections
-  - Salivation
-  - Taste
-  - Sensitivity
+  - uiname: Reason
+    uitext: []
+  - uiname: Pain
+    uitext: []
+  - uiname: Swelling
+    uitext: []
+  - uiname: Dysfunction
+    uitext: []
+  - uiname: Neoplasm
+    uitext: []
+  - uiname: Smell
+    uitext: []
+  - uiname: Selections
+    uitext: []
+  - uiname: Salivation
+    uitext: []
+  - uiname: Taste
+    uitext: []
+  - uiname: Sensitivity
+    uitext: []
   Anamnez:
-  - PeriodPain
-  - DynamicPain
-  - AskHelp
-  - Treatment
+  - uiname: PeriodPain
+    uitext: []
+  - uiname: DynamicPain
+    uitext: []
+  - uiname: AskHelp
+    uitext: []
+  - uiname: Treatment
+    uitext: []
   ADiseases:
-  - Cardio
-  - Nervous
-  - Endocrine
-  - Digestive
-  - Breath
-  - Infectious
-  - Allergic
-  - Medicines
-  - Harmful
-  - Other
-  Diagnos: Chronic periodontitis 46
+  - uiname: Cardio
+    uitext: []
+  - uiname: Nervous
+    uitext: []
+  - uiname: Endocrine
+    uitext: []
+  - uiname: Digestive
+    uitext: []
+  - uiname: Breath
+    uitext: []
+  - uiname: Infectious
+    uitext: []
+  - uiname: Allergic
+    uitext: []
+  - uiname: Medicines
+    uitext: []
+  - uiname: Harmful
+    uitext: []
+  - uiname: Other
+    uitext: []
+  Diagnos:
+    uiname: Diagnos
+    uitext:
+    - "\u0425\u0440\u043E\u043D\u0456\u0447\u043D\u0438\u0439 \u043F\u0435\u0440\u0456\u043E\u0434\u043E\u043D\u0442\u0438\u0442
+      46"
+    - "\u0425\u0440\u043E\u043D\u0438\u0447\u0435\u0441\u043A\u0438\u0439 \u043F\u0430\u0440\u043E\u0434\u043E\u043D\u0442\u0438\u0442
+      46"
+    - Chronic periodontitis 46
   PacientJaw:
     Bite: 1
     superior: 070000000300000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000030000000000000007000000
@@ -58,3 +129,4 @@ MonoBehaviour:
     colorVita: 0
   questList:
   - {fileID: 11400000, guid: c6a7a79553d3c1648a4752ebd77b0a29, type: 2}
+  - {fileID: 11400000, guid: 8d6668b1c17b5264192c77334321bb3b, type: 2}

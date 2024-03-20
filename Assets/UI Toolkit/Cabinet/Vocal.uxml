@@ -1,23 +1,9 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
     <Style src="project://database/Assets/UI%20Toolkit/Cabinet/vocalstyle.uss?fileID=7433441132597879392&amp;guid=422e4f4172a4a2145aabe17ed979184b&amp;type=3#vocalstyle" />
-    <ui:VisualElement name="Root" style="flex-grow: 1;">
-        <ui:VisualElement style="position: absolute; left: 5%; top: 5%; right: 5%; bottom: 5%;">
-            <ui:VisualElement style="flex-grow: 5; position: relative; flex-direction: row;">
-                <ui:VisualElement style="flex-grow: 1;" />
-                <ui:VisualElement style="flex-grow: 5; flex-direction: column;">
-                    <ui:VisualElement style="flex-grow: 5;">
-                        <ui:ListView focusable="true" name="AnswerList" style="flex-grow: 5; display: flex;" />
-                    </ui:VisualElement>
-                    <ui:Button text="HIstory" display-tooltip-when-elided="true" name="hIstoryBtn" style="flex-grow: 1; font-size: 10%; -unity-text-align: middle-center;" />
-                    <ui:VisualElement style="flex-grow: 5;">
-                        <ui:ListView focusable="true" name="QuestionList" style="flex-grow: 5;" />
-                    </ui:VisualElement>
-                </ui:VisualElement>
-                <ui:VisualElement style="flex-grow: 1; flex-direction: column-reverse; align-items: stretch; justify-content: space-around;">
-                    <ui:Button display-tooltip-when-elided="true" name="exitButton" style="flex-grow: 1; background-image: url(&apos;project://database/Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/icondeletedremote.png?fileID=2800000&amp;guid=b85a4b2ec6433d04895612d791edc260&amp;type=3#icondeletedremote&apos;); -unity-text-align: middle-center;" />
-                    <ui:VisualElement style="flex-grow: 12; align-items: center;" />
-                </ui:VisualElement>
-            </ui:VisualElement>
-        </ui:VisualElement>
+    <ui:VisualElement name="root" style="position: absolute; left: 5%; top: 5%; right: 5%; bottom: 5%; background-color: rgba(0, 0, 0, 0.49);">
+        <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" name="AnswerList" style="position: absolute; left: 5%; top: 5%; right: 5%; bottom: 50%;" />
+        <ui:Button text="Button" display-tooltip-when-elided="true" name="Interaction" style="position: absolute; left: 5%; top: 50%; right: 5%; bottom: 40%; -unity-text-align: middle-center; font-size: 50%; -unity-font: url(&apos;project://database/Assets/Resour%D1%81es/Fonts%20&amp;%20Materials/Ruberoid-Regular.ttf?fileID=12800000&amp;guid=5d159957327c7f44c8370ea26b58946b&amp;type=3#Ruberoid-Regular&apos;); color: rgb(21, 255, 0);" />
+        <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" name="QuestionList" usage-hints="DynamicTransform" focusable="false" horizontal-scroller-visibility="Hidden" vertical-scroller-visibility="AlwaysVisible" touch-scroll-type="Elastic" vertical-page-size="-1" nested-interaction-kind="Default" tabindex="0" picking-mode="Ignore" style="position: absolute; left: 5%; top: 60%; right: 5%; bottom: 5%; background-color: rgb(255, 255, 255); align-items: center;" />
+        <ui:Button display-tooltip-when-elided="true" name="exitbutton" style="position: absolute; left: 94%; top: 90%; right: 0; bottom: 0; background-image: url(&apos;project://database/Packages/com.unity.collab-proxy/Editor/PlasticSCM/Assets/Images/d_secondarytabclosehover@2x.png?fileID=2800000&amp;guid=9aa4348290784b2468144a97eb15d8d7&amp;type=3#d_secondarytabclosehover@2x&apos;);" />
     </ui:VisualElement>
 </ui:UXML>

@@ -1,6 +1,5 @@
 using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum gameMode
@@ -11,22 +10,6 @@ public enum gameMode
 
 public class Localizator : Singlton<Localizator>
 {
-    /*
-     */
-
-    public static Localizator Instance { get //=>
-        {
-            if (_instance ==null)
-            {
-                Instance = new Localizator();
-            }
-            return _instance;
-
-        }// _instance == null ? new Localizator(): _instance;
-        set { _instance = value; }                                                           
-    }
-    //public 
-    static Localizator _instance;
     public TextAsset LocalizationText;
     public LocalizationMap currentLangPack;
     public SystemLanguage CurrLang { get {
@@ -44,19 +27,11 @@ public class Localizator : Singlton<Localizator>
     public Action OnChangetLang;
     private SystemLanguage currLang;
 
-    //public event Action onReleaseCursor;
-
-    protected override void Awake()
+    public override void Awake()
     {
         base.Awake();
-        //_instance.init();
-        
         loadLang();
-            return;
-        
-            Destroy(gameObject); // ׃האכÿול מבתוךע
     }
-    
     private void loadLang()
     {
         //TODO make Adressable loading
@@ -69,8 +44,8 @@ public class Localizator : Singlton<Localizator>
             string s = LocalizationText == null ? Resources.Load<TextAsset>("lang.json").text: LocalizationText.text;
             currentLangPack = JsonUtility.FromJson<LocalizationMap>(s);
             currentLangPack.fillText();
-
         }
+
         CurrLang = SystemLanguage.Ukrainian;
         if (Application.systemLanguage == SystemLanguage.Russian)
         {
@@ -112,23 +87,6 @@ public class Localizator : Singlton<Localizator>
         OnChangetLang?.Invoke();
 
     }
-
-    [Serializable]
-public class serviceText
-{
-
-    public string uiname;
-    public string[] uitext;
-    public Dictionary<SystemLanguage, string> uiTextD = new Dictionary<SystemLanguage, string>();
-
-    public void fillText()
-    {
-        uiTextD.Add(SystemLanguage.Ukrainian, uitext[0]);
-        uiTextD.Add(SystemLanguage.Russian, uitext[1]);
-        uiTextD.Add(SystemLanguage.English, uitext[2]);
-    }
-
-}
 [Serializable]
 public class LocalizationMap{
 

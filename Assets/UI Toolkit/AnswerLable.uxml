@@ -1,0 +1,3 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="False">
+    <ui:Label text="Label" display-tooltip-when-elided="true" style="-unity-font: url(&apos;project://database/Assets/Resour%D1%81es/Fonts%20&amp;%20Materials/Ruberoid-Regular.ttf?fileID=12800000&amp;guid=5d159957327c7f44c8370ea26b58946b&amp;type=3#Ruberoid-Regular&apos;); -unity-text-align: middle-center; font-size: 30%; color: rgba(0, 0, 0, 255); margin-left: 0; margin-right: 0; margin-top: 20px; margin-bottom: 20px;" />
+</ui:UXML>

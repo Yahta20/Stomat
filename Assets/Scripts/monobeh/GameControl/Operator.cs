@@ -11,9 +11,9 @@ public class Operator : MonoBehaviour
     public bool isfp;
 
     enum CameraList {
-        CM_FreeLook2
-        , FV_Camera
-        , CM_vcam1
+            CM_FreeLook2
+        ,   FV_Camera
+        ,   CM_vcam1
     }
 
     CameraList cls = CameraList.CM_vcam1;
@@ -32,14 +32,14 @@ public class Operator : MonoBehaviour
 
     private void changeView(BaseGameState obj)
     {
-        if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
+        if (PlayControl.Instance._curState.GetType() == typeof(UIViewState))
         {
             animator.Play(CameraList.FV_Camera.ToString());
         }
-        if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
-        {
-            animator.Play(CameraList.CM_vcam1.ToString());
-        }
+        //  if (PlayControl.Instance._curState.GetType() == typeof(MovingState))
+        //  {
+        //      animator.Play(CameraList.CM_vcam1.ToString());
+        //  }
     }
 
     private void View()
@@ -48,40 +48,19 @@ public class Operator : MonoBehaviour
         {
             if (isfp)
                 {
-                    
                     animator.Play(CameraList.FV_Camera.ToString());
                 }
                 {
                     animator.Play(CameraList.CM_vcam1.ToString());
                 }
                 isfp = !isfp;
+        }
+    }
+                    
         
 
 
-        }
-        //var sts = ScenaController.Instance.currentState;
-        //
-        //switch (sts)
-        //{
-        //    
-        //    case GameState.moving:
-        //        if (isfp)
-        //        {
-        //            //print(sts);
-        //            animator.Play(CameraList.FV_Camera.ToString());
-        //        }
-        //        {
-        //            animator.Play(CameraList.CM_vcam1.ToString());
-        //        }
-        //        isfp = !isfp;
-        //
-        //
-        //        break;
-        //    case GameState.notes:
-        //        
-        //        break;
-        //}
-    }
+       
     private void OnEnable()
     {
         mInputs.Enable();
@@ -89,6 +68,7 @@ public class Operator : MonoBehaviour
     private void OnDisable()
     {
         mInputs.Disable();
+        PlayControl.Instance.onChangeState -= changeView;
     }
     void Start()
     {

@@ -12,9 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1058d0f61f75c094c8d810d3b75ee6b3, type: 3}
   m_Name: PasportDataQuest
   m_EditorClassIdentifier: 
-  Name: PasportData
+  <id>k__BackingField: PasportDataQuest
+  Name:
+    uiname: 
+    uitext: []
   TaskList:
   - {fileID: 11400000, guid: 7eb36233a4733f640818007de14434c9, type: 2}
   - {fileID: 11400000, guid: 8318a1c1e794cae478c09c93c79c0707, type: 2}
-  Description: PD_Desc
-  State: 0
+  Description:
+    uiname: 
+    uitext: []

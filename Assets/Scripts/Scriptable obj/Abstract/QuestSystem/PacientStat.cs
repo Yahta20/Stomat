@@ -2,18 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using KHNMU.BodyAnatomy;
+using static Localizator;
+
 [CreateAssetMenu(fileName = "Pacient", menuName = "ScriptableObjects/Quests/Creare Pacient", order = 1)]
 public class PacientStat : ScriptableObject
 {
-    public string Sex;
+    public int Sex; // 1-male 2-female
     public string PacientOrder;
 
-    public string[] PasportData;
-    public string[] PatientComplaints;
-    public string[] Anamnez;
-    public string[] ADiseases;
     [Space]
-    public string Diagnos;
+    public GameObject prefab;
+    [Space]
+    
+    public serviceText[] PasportData;
+    public serviceText[] PatientComplaints;
+    public serviceText[] Anamnez;
+    public serviceText[] ADiseases;
+    [Space]
+    public serviceText Diagnos;
 
     public Faucibus PacientJaw;
 
@@ -57,6 +63,9 @@ public class PacientStat : ScriptableObject
         q.TaskList[0].setState(QuestState.ACTIVE);
         return q.TaskList[0];
     }
-
+    private void Awake()
+    {
+        
+    }
 
 }

@@ -17,6 +17,8 @@ public class ChosePage : MonoBehaviour
         glgContent.padding = new RectOffset(20, 20, 20, 20);
         glgContent.spacing = new Vector2(20,20);
         GenerateChoises();
+        updatingSize();
+        UpgateLang();
     }
 
     private void GenerateChoises()
@@ -35,8 +37,6 @@ public class ChosePage : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
-        updatingSize();
-        UpgateLang();
     }
     private void UpgateLang()
     {
@@ -50,7 +50,7 @@ public class ChosePage : MonoBehaviour
     }
     private void updatingSize()
     {
-        var ss = CanvasMaster.Instance.getSize();
+        var ss = new Vector2(Screen.currentResolution.width, Screen.currentResolution.height); 
 
         scrolView.sizeDelta = ss*0.82f;
         //content.sizeDelta

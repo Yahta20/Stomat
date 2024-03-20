@@ -1,8 +1,10 @@
+
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.ResourceProviders;
 using UnityEngine.SceneManagement;
 
@@ -16,7 +18,7 @@ public enum GameState
 public class PlayControl : Singlton<PlayControl>, IPlayerStateSwitcher
 {
 
-    protected override void  Awake()
+    public override void  Awake()
     {
         base.Awake();
         _diapState = new List<BaseGameState>()
@@ -53,6 +55,19 @@ public class PlayControl : Singlton<PlayControl>, IPlayerStateSwitcher
 
     }
 
+    public void LoadScene(string scene)
+    {
+        Addressables.LoadSceneAsync(scene, LoadSceneMode.Single).Completed += (asyncHandle) =>
+        {
+            loadScene = asyncHandle.Result;
+        };
+    }
+    public void LoadScene(int scene)
+    {
+        
+        SceneManager.LoadScene(scene);
+    }
+
     private void sceneLoaded(Scene arg0, LoadSceneMode arg1)
     {
         if (arg0.name == "MainMenu")
@@ -87,6 +102,7 @@ public class PlayControl : Singlton<PlayControl>, IPlayerStateSwitcher
     }
 
 
+    
     void Update()
     {
         _curState.Update();

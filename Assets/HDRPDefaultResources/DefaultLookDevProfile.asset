@@ -35,7 +35,7 @@ MonoBehaviour:
     m_Value: 1
   rayTracing:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 1
   intensity:
     m_OverrideState: 1
     m_Value: 0.38
@@ -115,14 +115,14 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 25
   directionalTransmissionMultiplier:
-    m_OverrideState: 0
+    m_OverrideState: 1
     m_Value: 1
   cascadeShadowSplitCount:
     m_OverrideState: 1
     m_Value: 2
   cascadeShadowSplit0:
-    m_OverrideState: 0
-    m_Value: 0.05
+    m_OverrideState: 1
+    m_Value: 0.18493073
   cascadeShadowSplit1:
     m_OverrideState: 0
     m_Value: 0.15
@@ -130,8 +130,8 @@ MonoBehaviour:
     m_OverrideState: 0
     m_Value: 0.3
   cascadeShadowBorder0:
-    m_OverrideState: 0
-    m_Value: 0
+    m_OverrideState: 1
+    m_Value: 0.1728012
   cascadeShadowBorder1:
     m_OverrideState: 0
     m_Value: 0
@@ -156,25 +156,25 @@ MonoBehaviour:
   active: 1
   quality:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 2
   threshold:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 2.51
   intensity:
-    m_OverrideState: 1
-    m_Value: 0.1
+    m_OverrideState: 0
+    m_Value: 0.273
   scatter:
     m_OverrideState: 0
-    m_Value: 0.7
+    m_Value: 0.485
   tint:
     m_OverrideState: 0
     m_Value: {r: 1, g: 1, b: 1, a: 1}
   dirtTexture:
     m_OverrideState: 0
-    m_Value: {fileID: 0}
+    m_Value: {fileID: 2800000, guid: ccc2047bd2999cf4ea2a31f04461d718, type: 3}
   dirtIntensity:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 0.78
   anamorphic:
     m_OverrideState: 0
     m_Value: 1
@@ -183,7 +183,7 @@ MonoBehaviour:
     m_Value: 2
   m_HighQualityPrefiltering:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 1
   m_HighQualityFiltering:
     m_OverrideState: 1
     m_Value: 1
@@ -208,19 +208,19 @@ MonoBehaviour:
     m_Value: 0
   toeLength:
     m_OverrideState: 0
-    m_Value: 0.5
+    m_Value: 0.501
   shoulderStrength:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 0.194
   shoulderLength:
     m_OverrideState: 0
-    m_Value: 0.5
+    m_Value: 2.51
   shoulderAngle:
     m_OverrideState: 0
-    m_Value: 0
+    m_Value: 0.353
   gamma:
     m_OverrideState: 0
-    m_Value: 1
+    m_Value: 1.55
   lutTexture:
     m_OverrideState: 0
     m_Value: {fileID: 0}

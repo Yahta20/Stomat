@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 468a46d0ae32c3544b7d98094e6448a9, type: 3}
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
-  m_DefaultGroup: 518cb0857e398dc49908c48ee00c0dfe
+  m_DefaultGroup: 62a29ad69d2f4ee4cb9d56f8e1d02de8
   m_CachedHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
@@ -41,20 +41,7 @@ MonoBehaviour:
   m_BuildAddressablesWithPlayerBuild: 0
   m_overridePlayerVersion: 
   m_GroupAssets:
-  - {fileID: 11400000, guid: ed731b30f591fd34997d89faa01d2f5a, type: 2}
   - {fileID: 11400000, guid: a60feb93f8784ad4ca13ad4eb1ccee25, type: 2}
-  - {fileID: 11400000, guid: a34a3146457d225488872e87febc38dd, type: 2}
-  - {fileID: 11400000, guid: 160a821f54091714ebf855e924125673, type: 2}
-  - {fileID: 11400000, guid: 08dc8a4851d1075438966437da39be06, type: 2}
-  - {fileID: 11400000, guid: d166dd1a8dec12444ac6cfe5dd335a2a, type: 2}
-  - {fileID: 11400000, guid: a3a3da659e2600e49a5b61e1f8b8fd73, type: 2}
-  - {fileID: 11400000, guid: d598cf9981d27c444aee451cf783e04d, type: 2}
-  - {fileID: 11400000, guid: fca01592045453e4e90c3129937ba47d, type: 2}
-  - {fileID: 11400000, guid: b82be3996f83cb3478cf91ee0b69512a, type: 2}
-  - {fileID: 11400000, guid: 1feff6a3c22bfcf448c3e2a146dcbf1d, type: 2}
-  - {fileID: 11400000, guid: b26ccac614e4a8f4b839a4fe4f8b0cfa, type: 2}
-  - {fileID: 11400000, guid: c12faaaab801d4a4886abd41607fcb41, type: 2}
-  - {fileID: 11400000, guid: 0ec88008207f2b748b0dabb7d3c477cd, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
